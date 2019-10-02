@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".view.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:showIn="@layout/fragment_terceiro_bim">
+    <!---->
+
+    <TextView
+        android:id="@+id/txtvw_tituloTerceiroBimID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/tituloTerceiroBim"
+        android:textColor="@color/Texto"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/tituloTerceiroBim" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Materia:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_materiaTerceiroBimID"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nota Prova:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_materiaTerceiroBimID"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_provaTerceiroBimID" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="Nota Trab:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_trabalTerceiroBimID"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_trabalTerceiroBimID" />
+
+    <EditText
+        android:id="@+id/edtxt_materiaTerceiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/edtxt_provaTerceiroBimID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtxt_provaTerceiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/edtxt_trabalTerceiroBimID"
+        app:layout_constraintStart_toEndOf="@+id/edtxt_materiaTerceiroBimID"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/edtxt_trabalTerceiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toBottomOf="@+id/edtxt_provaTerceiroBimID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtxt_provaTerceiroBimID"
+        app:layout_constraintTop_toTopOf="@+id/edtxt_provaTerceiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_titulo_media_primeiroID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Media:"
+        android:textColor="@color/Texto"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtvw_mediaTerceiroFinalID"
+        app:layout_constraintStart_toEndOf="@+id/txtvw_mediaTerceiroFinalID"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_materiaTerceiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_titulo_resultadoFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="42dp"
+        android:text="Resultado Final"
+        android:textColor="@color/Texto"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_provaTerceiroBimID"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_trabalTerceiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_mediaTerceiroFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="21dp"
+        android:text="0,0"
+        android:textColor="@color/Texto"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_titulo_media_primeiroID" />
+
+    <TextView
+        android:id="@+id/txtvw_resultadoTerceiroFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:text="Indefinido"
+        android:textColor="@color/Texto"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtvw_titulo_resultadoFinalID"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_titulo_resultadoFinalID" />
+
+    <Button
+        android:id="@+id/btn_TerceiroBimCalcularID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_gravar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnCalcular"
+        android:textColor="@color/Texto"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_TerceiroBimSalvarID"
+        app:layout_constraintEnd_toStartOf="@+id/btn_TerceiroBimSalvarID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_TerceiroBimLimparID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_limpar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnLimpar"
+        android:textColor="@color/Texto"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_TerceiroBimSalvarID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_TerceiroBimSalvarID" />
+
+    <Button
+        android:id="@+id/btn_TerceiroBimSalvarID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:background="@drawable/btn_gravar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnSalvar"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/btn_TerceiroBimLimparID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_TerceiroBimCalcularID"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_resultadoTerceiroFinalID" />
+</android.support.constraint.ConstraintLayout>

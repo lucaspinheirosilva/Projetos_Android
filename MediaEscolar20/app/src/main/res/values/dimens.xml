@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="espacosEntreBotoes">7dp</dimen>
+    //activity bimestre
+    <dimen name="radiusBotoes">15dp</dimen>
+
+
+</resources>

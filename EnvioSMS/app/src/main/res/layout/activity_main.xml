@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtvw_TituloParaID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="@string/edt_destinatario" />
+
+    <EditText
+        android:id="@+id/edtxt_DestinatarioID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:hint="@string/hintDestinatario"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:padding="3dp"
+        android:textColorLink="@color/corLink" />
+
+    <TextView
+        android:id="@+id/txtvw_MensagemParaID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="Mensagem:" />
+
+    <EditText
+        android:id="@+id/edttxt_mensagemID"
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        android:layout_margin="5dp"
+        android:autofillHints="no"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/hintMensagem"
+        android:inputType="textMultiLine"
+        android:maxLength="140"
+        android:padding="3dp"
+        android:textColorLink="@color/corLink" />
+
+    <TextView
+        android:id="@+id/txtvw_ContadorCaracteresID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingLeft="10dp"
+        android:text="@string/contadorCaracteres" />
+
+    <Button
+        android:id="@+id/btn_LimparID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/botaoLimpar" />
+
+    <Button
+        android:id="@+id/btn_GravarID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/botaGravar" />
+</LinearLayout>

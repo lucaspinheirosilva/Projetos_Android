@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6D2162BE"
+    android:orientation="vertical"
+    android:padding="10sp"
+    tools:context=".MainActivity">
+
+    <!--DESTINATARIO-->
+    <TextView
+        android:id="@+id/txtvw_emailID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/textView_Size"
+        android:text="@string/txtvw_destinatario_email" />
+
+    <EditText
+        android:id="@+id/edttxt_EmaildestinatarioID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:hint="@string/hint_destinatario_email"
+        android:inputType="textEmailAddress"
+        android:padding="4dp"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/editText_Size" />
+
+    <!--ASSUNTO-->
+    <TextView
+        android:id="@+id/txtvw_assundoID"
+        android:layout_width="wrap_content"
+        android:textColor="@color/texto"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textView_Size"
+        android:text="@string/txtvw_assunto" />
+
+    <EditText
+        android:id="@+id/edttxt_assuntoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:hint="@string/hint_assunto"
+
+        android:inputType="textPersonName"
+        android:padding="4dp"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/editText_Size" />
+    <!--MENSAGEM-->
+    <TextView
+        android:id="@+id/txtvw_mensagemId"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txtvw_mensagen"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/textView_Size" />
+
+    <TextView
+        android:id="@+id/txtvw_contadorCaracteresID"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/txtvw_contadoCaracteres"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/textView_Size"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edttxt_mensagemId"
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        android:background="@drawable/border"
+        android:fadeScrollbars="true"
+        android:gravity="start"
+        android:hint="@string/hint_menssagem"
+        android:inputType="textMultiLine"
+        android:padding="4dp"
+        android:scrollbarSize="15dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/texto"
+
+        android:textSize="@dimen/editText_Size" />
+
+    <!--CONTADOR DE CARACTERES-->
+
+    <!--BOTAO LIMPAR-->
+    <Button
+        android:id="@+id/btn_limparID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texto"
+        android:textSize="@dimen/textView_Size"
+        android:text="@string/btn_limpar" />
+
+    <!--BOTAO GRAVAR-->
+    <Button
+        android:id="@+id/btn_EnviarID"
+        android:layout_width="match_parent"
+        android:textColor="@color/textoBotaoEnviar"
+        android:textSize="@dimen/textView_Size"
+        android:background="@color/fundoBotaoEnviar"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_enviar" />
+
+</LinearLayout>

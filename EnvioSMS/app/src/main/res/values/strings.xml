@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Envio SMS</string>
+    <string name="edt_destinatario">Destinatário:</string>
+    <string name="txtvw_mensagem">Mensagem:</string>
+    <string name="botaoLimpar">LIMPAR</string>
+    <string name="botaGravar">ENVIAR</string>
+    <string name="contadorCaracteres">0/140 Caracteres</string>
+
+    //HINT
+    <string name="hintDestinatario">Para:(DD)9xxxx-xxxx</string>
+    <string name="hintMensagem">Digite a Mensagem..</string>
+
+</resources>

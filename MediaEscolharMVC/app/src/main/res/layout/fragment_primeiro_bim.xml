@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".view.MainActivity"
+    tools:showIn="@layout/fragment_primeiro_bim">
+    <!-- -->
+
+    <TextView
+        android:id="@+id/txtvw_tituloPrimeiroBimID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/tituloPrimeiroBim"
+        android:textColor="@color/Texto"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/tituloPrimeiroBim" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Materia:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_materiaPrimeiroBimID"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nota Prova:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_materiaPrimeiroBimID"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_provaPrimeiroBimID" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="Nota Trab:"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_trabalPrimeiroBimID"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_trabalPrimeiroBimID" />
+
+    <EditText
+        android:id="@+id/edtxt_materiaPrimeiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/edtxt_provaPrimeiroBimID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtxt_provaPrimeiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/edtxt_trabalPrimeiroBimID"
+        app:layout_constraintStart_toEndOf="@+id/edtxt_materiaPrimeiroBimID"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/edtxt_trabalPrimeiroBimID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textColor="@color/Texto"
+        app:layout_constraintBottom_toBottomOf="@+id/edtxt_provaPrimeiroBimID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtxt_provaPrimeiroBimID"
+        app:layout_constraintTop_toTopOf="@+id/edtxt_provaPrimeiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_titulo_media_primeiroID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Media:"
+        android:textColor="@color/Texto"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtvw_mediaPrimeiroFinalID"
+        app:layout_constraintStart_toEndOf="@+id/txtvw_mediaPrimeiroFinalID"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_materiaPrimeiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_titulo_resultadoFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="45dp"
+        android:text="Resultado Final"
+        android:textColor="@color/Texto"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_provaPrimeiroBimID"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_trabalPrimeiroBimID" />
+
+    <TextView
+        android:id="@+id/txtvw_mediaPrimeiroFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:text="0,0"
+        android:textColor="@color/Texto"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_titulo_media_primeiroID" />
+
+    <TextView
+        android:id="@+id/txtvw_resultadoPrimeiroFinalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="Indefinido"
+        android:textColor="@color/Texto"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtvw_titulo_resultadoFinalID"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_titulo_resultadoFinalID" />
+
+    <Button
+        android:id="@+id/btn_PrimeiroBimCalcularID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_gravar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnCalcular"
+        android:textColor="@color/Texto"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_SalvarBimSalvarID"
+        app:layout_constraintEnd_toStartOf="@+id/btn_SalvarBimSalvarID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_PrimeiroBimLimparID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_limpar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnLimpar"
+        android:textColor="@color/Texto"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_SalvarBimSalvarID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_SalvarBimSalvarID" />
+
+    <Button
+        android:id="@+id/btn_SalvarBimSalvarID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/btn_gravar_bimestre_customizado"
+        android:enabled="true"
+        android:text="@string/btnSalvar"
+        android:textColor="@color/Texto"
+        app:layout_constraintEnd_toStartOf="@+id/btn_PrimeiroBimLimparID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_PrimeiroBimCalcularID"
+        app:layout_constraintTop_toBottomOf="@+id/txtvw_resultadoPrimeiroFinalID" />
+</android.support.constraint.ConstraintLayout>

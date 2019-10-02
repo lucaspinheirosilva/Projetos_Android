@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">Enviar Email</string>
+
+    <!--Nomes campos e componentes-->
+    <string name="txtvw_destinatario_email">Destinatario:</string>
+    <string name="txtvw_assunto">Assunto:</string>
+    <string name="txtvw_mensagen">Mensagem:</string>
+    <string name="txtvw_contadoCaracteres">0 caracteres Digitados</string>
+    <string name="btn_enviar">enviar e-mail</string>
+    <string name="btn_limpar">Limpar todos os campos</string>
+
+    <!--texto dos campos HINT-->
+    <string name="hint_destinatario_email">email@email.com</string>
+    <string name="hint_assunto">Assundo do Email</string>
+    <string name="hint_menssagem">Menssagem ao Destinatario..</string>
+</resources>

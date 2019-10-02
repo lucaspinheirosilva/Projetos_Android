@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="40dp"
+            android:paddingBottom="20sp"
+            android:text="@string/tituloApp"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <!--IMG ESCOLHA APP-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgvw_escolhaApp"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/descriptionEscolhaApp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/app_idle_arrumado" />
+
+    </LinearLayout>
+
+    <!--TXTVW RESULTADO FINAL-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtvw_informacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="20sp"
+            android:text="@string/txtInfoUsuario"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <!--IMG ESCOLHA USUARIO-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgvw_pedra"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/contentDescriptionPedra"
+            android:onClick="selecinarPedra"
+            app:srcCompat="@drawable/pedra_arrumado" />
+
+        <ImageView
+            android:id="@+id/imgvw_papel"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/contentDescriptionPapel"
+            android:onClick="selecinarPapel"
+            app:srcCompat="@drawable/papel_arrumado" />
+
+        <ImageView
+            android:id="@+id/imgvw_tesoura"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/contentDescriptionTesoura"
+            android:onClick="selecinarTesoura"
+            app:srcCompat="@drawable/tesoura_arrumado" />
+    </LinearLayout>
+    <!--TXTVW RESULTADO FINAL-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtvw_resultadoFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="10sp"
+            android:text="@string/resultadoFinal"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgvw_resultado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/contentDescriptionTesoura"
+            android:padding="20dp"
+            app:srcCompat="@drawable/fundo_transparente" />
+    </LinearLayout>
+
+</LinearLayout>
