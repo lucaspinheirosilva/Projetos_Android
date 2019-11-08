@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="642751241418858">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="875491015848574" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="685657881915352" type="Particles" />
+            </actions>
+        </event-block>
+        <event-block sid="416511050339540">
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" sid="550750070162842" type="peca_origem" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="784931987073414">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="211576048522967" type="peca_origem">
+                            <param id="0" name="Object">peca_destino</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="457615003342025" type="peca_origem">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">peca_destino.AnimationFrame</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="304668543636091" type="Audio">
+                            <param id="0" name="Audio file">plim</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="826203213236369" type="peca_destino">
+                            <param id="0" name="Object">Particles</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="335222188087851" type="peca_destino">
+                            <param id="0" name="Animation">&quot;acerto&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="538132340640814" type="peca_destino">
+                            <param id="0" name="Frame number">peca_origem.AnimationFrame</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="176809355972256" type="peca_origem" />
+                        <action id="-9" name="Destroy" sid="630916685989900" type="peca_destino" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

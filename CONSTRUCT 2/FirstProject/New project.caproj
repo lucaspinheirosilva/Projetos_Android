@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>36smoyngubgpt</unique-id>
+    <saved-with-version>27400</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="peca_destino" sid="633565471166025">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="5" loop="0" name="destino" pingpong="0" repeatcount="1" repeatto="0" sid="270905874775524" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501706" original-source="C:\Users\lucas\Desktop\assets\hippo2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\monkey2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\pand2.png" />
+                </animation>
+                <animation framecount="5" loop="0" name="acerto" pingpong="0" repeatcount="1" repeatto="0" sid="678623636097273" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501706" original-source="C:\Users\lucas\Desktop\assets\hippo2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\monkey2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\pand2.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="peca_origem" sid="311652814347020">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="905882780432563">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="origem" pingpong="0" repeatcount="1" repeatto="0" sid="165436646979245" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\hippo.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501945" original-source="C:\Users\lucas\Desktop\assets\monkey.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501945" original-source="C:\Users\lucas\Desktop\assets\panda.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="218934537309917">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Particles" sid="514054709585039">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Audio" sid="306147516193678">
+            <plugin id="Audio" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>cena_1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="10">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Audio" uid="12">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <file name="plim.m4a" />
+        <file name="plim.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
