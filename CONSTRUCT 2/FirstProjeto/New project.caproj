@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>27s85rid4oeqw</unique-id>
+    <saved-with-version>26500</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_FirebaseAPIV3" version="1">Firebase API v3</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemTable" version="0.100000001">Item table</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Percentage text</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="origem" sid="673104080774990">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="663629152260145">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="DragDrop" sid="529307510358257">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="normal" pingpong="0" repeatcount="1" repeatto="0" sid="719096292140085" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\hippo.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501945" original-source="C:\Users\lucas\Desktop\assets\monkey.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501945" original-source="C:\Users\lucas\Desktop\assets\panda.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="background" sid="504862032849552">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="634454556125763" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500921" original-source="C:\Users\lucas\Desktop\background.png">
+                        <collision-poly>
+                            <point x="0.0010395" y="0.00184162" />
+                            <point x="0.99896" y="0.00184162" />
+                            <point x="0.99896" y="0.998158" />
+                            <point x="0.0010395" y="0.998158" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="destino" sid="408506739533332">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="5" loop="0" name="destino" pingpong="0" repeatcount="1" repeatto="0" sid="439074884125542" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant3.png">
+                        <image-point name="Imagepoint 1" x="-0.515873" y="0.679487" />
+                        <collision-poly>
+                            <point x="0.0608466" y="0.0512821" />
+                            <point x="0.925926" y="0.0673077" />
+                            <point x="0.949735" y="0.884615" />
+                            <point x="0.0740741" y="0.88141" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501706" original-source="C:\Users\lucas\Desktop\assets\hippo3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\monkey3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\pand3.png" />
+                </animation>
+                <animation framecount="5" loop="0" name="acerto" pingpong="0" repeatcount="1" repeatto="0" sid="786916538609505" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\elephant2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\lucas\Desktop\assets\giraffe2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501706" original-source="C:\Users\lucas\Desktop\assets\hippo2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\monkey2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501754" original-source="C:\Users\lucas\Desktop\assets\pand2.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Particles" sid="254091649987681">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Text" sid="217862057317903">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="pontos" sid="702706236611243">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="239156816727506">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="pares" sid="320585795330927">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Audio" sid="881255457265525">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="passouFase" sid="987480587825527">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="passouFase" pingpong="0" repeatcount="1" repeatto="0" sid="398973981917055" speed="5">
+                    <frame duration="1" hotspotX="0.502029" hotspotY="0.495589" original-source="C:\Users\lucas\Desktop\oie_transparent.png">
+                        <collision-poly>
+                            <point x="0.0294267" y="0.0842021" />
+                            <point x="0.502029" y="0.23737" />
+                            <point x="0.963724" y="0.118685" />
+                            <point x="0.968037" y="0.495589" />
+                            <point x="0.90208" y="0.677626" />
+                            <point x="0.502029" y="0.712109" />
+                            <point x="0.0900558" y="0.715317" />
+                            <point x="0.0208016" y="0.495589" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="btn_proximo" sid="281742165734608">
+            <plugin id="Button" />
+        </object-type>
+        <object-type global="1" name="DB_pontos" sid="627083735539133">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="AJAX" sid="613877660496718">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type global="1" name="ItemTable" sid="945848808806726">
+            <plugin id="Rex_Firebase_ItemTable" />
+        </object-type>
+        <object-type global="1" name="FirebaseAPIV3" sid="772906008839255">
+            <plugin id="Rex_FirebaseAPIV3" />
+        </object-type>
+        <object-type global="1" name="Firebase" sid="985937174970689">
+            <plugin id="Rex_Firebase" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Audio" uid="16">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="AJAX" uid="20" />
+    </global-instances>
+    <sounds-folder>
+        <file name="error.m4a" />
+        <file name="error.ogg" />
+        <file name="plim.m4a" />
+        <file name="plim.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
