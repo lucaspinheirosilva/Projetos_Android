@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Event sheet 1</name>
+    <name>Event fase 1</name>
     <events>
         <variable constant="0" name="var_pares" sid="500695751438111" static="0" type="number">0</variable>
         <variable constant="0" name="var_pontos" sid="318405399623178" static="0" type="number">0</variable>
@@ -14,6 +14,7 @@
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="290662564557374" type="Particles" />
+                <action id="62" name="Go online" sid="378418839615880" type="Firebase" />
             </actions>
         </event-block>
         <event-block sid="242175510079840">
@@ -137,21 +138,13 @@
                 <action id="2" name="Set visible" sid="979270757624637" type="btn_proximo">
                     <param id="0" name="Visibility">1</param>
                 </action>
-                <action id="2" name="Set at X" sid="884672436220739" type="DB_pontos">
-                    <param id="0" name="X">0</param>
-                    <param id="1" name="Value">var_pontos</param>
-                </action>
             </actions>
         </event-block>
         <event-block sid="750598950100723">
             <conditions>
                 <condition id="1" name="Is checked" sid="574823034137505" type="btn_proximo" />
             </conditions>
-            <actions>
-                <action id="12" name="Download" sid="496376931822065" type="DB_pontos">
-                    <param id="0" name="Filename">&quot;teste.json&quot;</param>
-                </action>
-            </actions>
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>
