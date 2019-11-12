@@ -3,11 +3,16 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event fase 1</name>
     <events>
+        <variable constant="0" name="data_e_Hora" sid="454266984984316" static="0" type="text"></variable>
+        <variable constant="0" name="erros" sid="350925396957626" static="0" type="number">0</variable>
+        <variable constant="0" name="numeroFase" sid="517886391295879" static="0" type="number">2201</variable>
+        <variable constant="0" name="horasJogada" sid="663686015860834" static="0" type="number">0</variable>
+        <variable constant="0" name="nomeJogador" sid="603536246752357" static="0" type="text">lucas</variable>
         <variable constant="0" name="var_pares" sid="500695751438111" static="0" type="number">0</variable>
         <variable constant="0" name="var_pontos" sid="318405399623178" static="0" type="number">0</variable>
-        <variable constant="0" name="old_y" sid="553858133495424" static="0" type="number">0</variable>
-        <variable constant="0" name="old_x" sid="129404351400494" static="0" type="number">0</variable>
-        <variable constant="0" name="opacidade" sid="123308461406869" static="0" type="number">0</variable>
+        <variable constant="0" name="old_posicao_y" sid="553858133495424" static="0" type="number">0</variable>
+        <variable constant="0" name="old_posicao_x" sid="129404351400494" static="0" type="number">0</variable>
+        <variable constant="0" name="opacidade_Acerto" sid="123308461406869" static="0" type="number">0</variable>
         <event-block sid="188383387545283">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="637461821505960" type="System" />
@@ -15,6 +20,10 @@
             <actions>
                 <action id="-9" name="Destroy" sid="290662564557374" type="Particles" />
                 <action id="62" name="Go online" sid="378418839615880" type="Firebase" />
+                <action id="-9" name="Set value" sid="645688220173886" type="System">
+                    <param id="0" name="Variable">numeroFase</param>
+                    <param id="1" name="Value">1</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="242175510079840">
@@ -51,7 +60,7 @@
                         </action>
                         <action id="-9" name="Destroy" sid="270979017896331" type="origem" />
                         <action id="-16" name="Set opacity" sid="242635729986350" type="destino">
-                            <param id="0" name="Opacity">opacidade</param>
+                            <param id="0" name="Opacity">opacidade_Acerto</param>
                         </action>
                         <action id="-10" name="Add to" sid="848651072764662" type="System">
                             <param id="0" name="Variable">var_pontos</param>
@@ -81,8 +90,8 @@
                             <param id="1" name="Tag (optional)">&quot;errou&quot;</param>
                         </action>
                         <action id="-3" name="Set position" sid="669898057007780" type="origem">
-                            <param id="0" name="X">old_x</param>
-                            <param id="1" name="Y">old_y</param>
+                            <param id="0" name="X">old_posicao_x</param>
+                            <param id="1" name="Y">old_posicao_y</param>
                         </action>
                         <action id="-11" name="Subtract from" sid="267211259867736" type="System">
                             <param id="0" name="Variable">var_pontos</param>
@@ -90,6 +99,10 @@
                         </action>
                         <action id="0" name="Set text" sid="581936342838172" type="pontos">
                             <param id="0" name="Text">var_pontos</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="641691831024509" type="System">
+                            <param id="0" name="Variable">erros</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -101,15 +114,15 @@
             </conditions>
             <actions>
                 <action id="-9" name="Set value" sid="358474451425660" type="System">
-                    <param id="0" name="Variable">old_x</param>
+                    <param id="0" name="Variable">old_posicao_x</param>
                     <param id="1" name="Value">origem.X</param>
                 </action>
                 <action id="-9" name="Set value" sid="413389681057253" type="System">
-                    <param id="0" name="Variable">old_y</param>
+                    <param id="0" name="Variable">old_posicao_y</param>
                     <param id="1" name="Value">origem.Y</param>
                 </action>
                 <action id="-9" name="Set value" sid="401770314775242" type="System">
-                    <param id="0" name="Variable">opacidade</param>
+                    <param id="0" name="Variable">opacidade_Acerto</param>
                     <param id="1" name="Value">100</param>
                 </action>
             </actions>
@@ -140,11 +153,62 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="664017966871816">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="344094813768942" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="549096748400506" type="System">
+                    <param id="0" name="Variable">data_e_Hora</param>
+                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
+                </action>
+                <action id="-10" name="Add to" sid="548674988804430" type="System">
+                    <param id="0" name="Variable">horasJogada</param>
+                    <param id="1" name="Value">0.1</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="750598950100723">
             <conditions>
-                <condition id="1" name="Is checked" sid="574823034137505" type="btn_proximo" />
+                <condition id="0" name="On clicked" sid="574823034137505" type="btn_proximo" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="1" name="Set value" sid="971742783593320" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_nome&quot;</param>
+                    <param id="1" name="Value">nomeJogador</param>
+                </action>
+                <action id="1" name="Set value" sid="429981359590105" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_paresMontados&quot;</param>
+                    <param id="1" name="Value">var_pares</param>
+                </action>
+                <action id="1" name="Set value" sid="447155442689310" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_totalPontos&quot;</param>
+                    <param id="1" name="Value">var_pontos</param>
+                </action>
+                <action id="1" name="Set value" sid="363776977835732" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_horasJogadas&quot;</param>
+                    <param id="1" name="Value">horasJogada</param>
+                </action>
+                <action id="1" name="Set value" sid="465578800621738" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_ultimaFase&quot;</param>
+                    <param id="1" name="Value">numeroFase</param>
+                </action>
+                <action id="1" name="Set value" sid="148139131463616" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_erros&quot;</param>
+                    <param id="1" name="Value">erros</param>
+                </action>
+                <action id="1" name="Set value" sid="362648122533501" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_data&quot;</param>
+                    <param id="1" name="Value">data_e_Hora</param>
+                </action>
+                <action id="4" name="Save" sid="945118156315817" type="ItemTable">
+                    <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>
+                    <param id="1" name="Set mode">0</param>
+                    <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

@@ -263,6 +263,33 @@
                         <hotspotY>0</hotspotY>
                     </world>
                 </instance>
+                <instance type="data_e_hora" uid="19">
+                    <properties>
+                        <text>Text</text>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>230</x>
+                        <y>-51</y>
+                        <z>0</z>
+                        <width>635</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -572,17 +599,10 @@
         </layer>
     </layers>
     <nonworld-instances>
-        <instance type="DB_pontos" uid="19">
-            <properties>
-                <width>100</width>
-                <height>1</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
         <instance type="ItemTable" uid="21">
             <properties>
                 <domain></domain>
-                <sub-domain>items</sub-domain>
+                <sub-domain>ATV_Arrasta_e_Soltas</sub-domain>
             </properties>
         </instance>
         <instance type="FirebaseAPIV3" uid="22">

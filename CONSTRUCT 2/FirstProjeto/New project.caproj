@@ -10,9 +10,8 @@
     <unique-id>27s85rid4oeqw</unique-id>
     <saved-with-version>26500</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
-        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
@@ -155,12 +154,6 @@
         <object-type name="btn_proximo" sid="281742165734608">
             <plugin id="Button" />
         </object-type>
-        <object-type global="1" name="DB_pontos" sid="627083735539133">
-            <plugin id="Arr" />
-        </object-type>
-        <object-type name="AJAX" sid="613877660496718">
-            <plugin id="AJAX" />
-        </object-type>
         <object-type global="1" name="ItemTable" sid="945848808806726">
             <plugin id="Rex_Firebase_ItemTable" />
         </object-type>
@@ -169,6 +162,12 @@
         </object-type>
         <object-type global="1" name="Firebase" sid="985937174970689">
             <plugin id="Rex_Firebase" />
+        </object-type>
+        <object-type name="data_e_hora" sid="916835782941962">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Browser" sid="168854763655852">
+            <plugin id="Browser" />
         </object-type>
     </object-folder>
     <families />
@@ -193,7 +192,7 @@
                 <roll-off-factor>1</roll-off-factor>
             </properties>
         </global-instance>
-        <global-instance type="AJAX" uid="20" />
+        <global-instance type="Browser" uid="20" />
     </global-instances>
     <sounds-folder>
         <file name="error.m4a" />
