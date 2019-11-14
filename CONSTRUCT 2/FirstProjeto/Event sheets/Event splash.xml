@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event splash</name>
+    <events>
+        <event-block sid="899655265614104">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="316913834827822" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="902508077003239" type="barraCarregando">
+                    <param id="0" name="Width">round(loadingprogress*546)</param>
+                </action>
+                <action id="0" name="Set text" sid="142452112676701" type="txt_carregando">
+                    <param id="0" name="Text">&quot;CARREGANDO &quot;&amp;round(loadingprogress*100)&amp;&quot; %&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="892042900082722">
+            <conditions>
+                <condition id="-25" name="On loader layout complete" sid="712192079342242" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="215201097241247" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="201202500806890" type="System">
+                    <param id="0" name="Layout">fase1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

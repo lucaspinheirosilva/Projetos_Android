@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event fase2</name>
+    <events>
+        <event-block sid="983868335794185">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="110952732038689" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="985862275870121" type="Particles" />
+                <action id="62" name="Go online" sid="868880351122632" type="Firebase" />
+                <action id="-9" name="Set value" sid="342800912142612" type="System">
+                    <param id="0" name="Variable">numeroFase</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="0" name="Set text" sid="570958840693265" type="pontos">
+                    <param id="0" name="Text">var_pontos</param>
+                </action>
+                <action id="0" name="Set text" sid="713965845552248" type="pares">
+                    <param id="0" name="Text">var_pares</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="434467914178976">
+            <conditions>
+                <condition behavior="DragDrop" id="2" name="On drop" sid="469394223637554" type="origem" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="483765178703935">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="227433582684780" type="origem">
+                            <param id="0" name="Object">destino</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="956243822267793" type="destino">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">origem.AnimationFrame</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="549338303570034" type="destino">
+                            <param id="0" name="Object">Particles</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="303753343905906" type="Audio">
+                            <param id="0" name="Audio file">plim</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;acertou&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="886971884372500" type="destino">
+                            <param id="0" name="Animation">&quot;normal_formas&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="462371162178799" type="origem" />
+                        <action id="-16" name="Set opacity" sid="322304369347200" type="destino">
+                            <param id="0" name="Opacity">opacidade_Acerto</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="372911489057322" type="System">
+                            <param id="0" name="Variable">var_pontos</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="387447877079776" type="System">
+                            <param id="0" name="Variable">var_pares</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="953717717940588" type="pontos">
+                            <param id="0" name="Text">var_pontos</param>
+                        </action>
+                        <action id="0" name="Set text" sid="823101241320939" type="pares">
+                            <param id="0" name="Text">var_pares</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="817116278220162">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="831173222971808" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="864165690395268" type="Audio">
+                            <param id="0" name="Audio file">error</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;errou&quot;</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="105077714621938" type="origem">
+                            <param id="0" name="X">old_posicao_x</param>
+                            <param id="1" name="Y">old_posicao_y</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="188959466399113" type="System">
+                            <param id="0" name="Variable">var_pontos</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="893290928330061" type="pontos">
+                            <param id="0" name="Text">var_pontos</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="998614562278427" type="System">
+                            <param id="0" name="Variable">erros</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="269486215940700">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="168559251268743" type="origem" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="816092273826200" type="System">
+                    <param id="0" name="Variable">old_posicao_x</param>
+                    <param id="1" name="Value">origem.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="658114254680141" type="System">
+                    <param id="0" name="Variable">old_posicao_y</param>
+                    <param id="1" name="Value">origem.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="106141472977214" type="System">
+                    <param id="0" name="Variable">opacidade_Acerto</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="823953925958500">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="457368888369045" type="System">
+                    <param id="0" name="First value">origem.Count</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="657964668848749" type="destino">
+                    <param id="0" name="Object">Particles</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="394401362403716" type="destino" />
+                <action id="-16" name="Wait" sid="303452802628600" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="639434862036114" type="passouFase">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="2" name="Set visible" sid="774290256558490" type="btn_proximo">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="650579786507046">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="895089213927568" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="580414913852934" type="System">
+                    <param id="0" name="Variable">data_e_Hora</param>
+                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
+                </action>
+                <action id="-10" name="Add to" sid="544300789812872" type="System">
+                    <param id="0" name="Variable">horasJogada</param>
+                    <param id="1" name="Value">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="906077251749183">
+            <conditions>
+                <condition id="0" name="On clicked" sid="294596271863763" type="btn_proximo" />
+            </conditions>
+            <actions>
+                <action id="1" name="Set value" sid="464014212777654" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_nome&quot;</param>
+                    <param id="1" name="Value">nomeJogador</param>
+                </action>
+                <action id="1" name="Set value" sid="676480796940035" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_paresMontados&quot;</param>
+                    <param id="1" name="Value">var_pares</param>
+                </action>
+                <action id="1" name="Set value" sid="882613558123989" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_totalPontos&quot;</param>
+                    <param id="1" name="Value">var_pontos</param>
+                </action>
+                <action id="1" name="Set value" sid="876316470740578" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_horasJogadas&quot;</param>
+                    <param id="1" name="Value">horasJogada</param>
+                </action>
+                <action id="1" name="Set value" sid="908835719418875" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_ultimaFase&quot;</param>
+                    <param id="1" name="Value">numeroFase</param>
+                </action>
+                <action id="1" name="Set value" sid="541101155676055" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_erros&quot;</param>
+                    <param id="1" name="Value">erros</param>
+                </action>
+                <action id="1" name="Set value" sid="242607987580500" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_data&quot;</param>
+                    <param id="1" name="Value">data_e_Hora</param>
+                </action>
+                <action id="4" name="Save" sid="927470419446792" type="ItemTable">
+                    <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>
+                    <param id="1" name="Set mode">0</param>
+                    <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="675056168484731" type="System">
+                    <param id="0" name="Layout">fase2</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
