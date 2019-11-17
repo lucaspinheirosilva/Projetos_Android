@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event fase 1</name>
+    <events>
+        <comment>Inicializa as variaveis</comment>
+        <event-block sid="735920423457200">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="184550110111566" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="380668274220580" type="System">
+                    <param id="0" name="Variable">gNumeroCartas</param>
+                    <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
+                </action>
+                <action id="-9" name="Set value" sid="363888010393067" type="System">
+                    <param id="0" name="Variable">gAlturaCarta</param>
+                    <param id="1" name="Value">int((WindowHeight-((gNumeroLinhas)*gEspacoEntreCartas))/gNumeroLinhas)&#x0D;&#x0A;</param>
+                </action>
+                <action id="-9" name="Set value" sid="360706101936383" type="System">
+                    <param id="0" name="Variable">gComprimentoCarta</param>
+                    <param id="1" name="Value">int(gAlturaCarta * (Card.Width/Card.Height))</param>
+                </action>
+                <action id="-9" name="Set value" sid="640597941113784" type="System">
+                    <param id="0" name="Variable">gMargenEsquerda</param>
+                    <param id="1" name="Value">int((WindowWidth - (gComprimentoCarta + gEspacoEntreCartas) * gNumeroColunas) / 2)&#x0D;&#x0A;</param>
+                </action>
+                <action id="-9" name="Set value" sid="560514089582929" type="System">
+                    <param id="0" name="Variable">gMargenTopo</param>
+                    <param id="1" name="Value">int((WindowHeight-(gAlturaCarta + gEspacoEntreCartas)*gNumeroLinhas)/2)</param>
+                </action>
+                <action id="-9" name="Set value" sid="630449296274744" type="System">
+                    <param id="0" name="Variable">gCardsCountPicked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="1" name="Set size" sid="490795757592482" type="Deck">
+                    <param id="0" name="Width">gNumeroCartas</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="998809773846490" type="System">
+                    <param id="0" name="Variable">gScore</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="885912666539710" type="System">
+                    <param id="0" name="Variable">gPares</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="642044202463405" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="751111628386092">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="935691718578298" type="Touch">
+                    <param id="0" name="Object">Card</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="133833793217680" type="Card">
+                    <param id="0" name="Animation">&quot;cartas&quot;</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="942293645598696" type="Card">
+                    <param id="0" name="Frame number">Card.CardFaceFrame</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Cria o layout</comment>
+        <variable constant="0" name="CurrentTableauCard" sid="418711613363026" static="0" type="number">-1</variable>
+        <variable constant="0" name="CurrentColumn" sid="423532455429400" static="0" type="number">-1</variable>
+        <variable constant="0" name="CurrentRow" sid="412773497766895" static="0" type="number">-1</variable>
+        <event-block sid="196578835127039">
+            <conditions>
+                <condition id="-12" name="Repeat" sid="373630947348328" type="System">
+                    <param id="0" name="Count">gNumeroCartas</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="479772244662329" type="System">
+                    <param id="0" name="Variable">CurrentTableauCard</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="875274889075948" type="System">
+                    <param id="0" name="Variable">CurrentColumn</param>
+                    <param id="1" name="Value">CurrentTableauCard%gNumeroColunas</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="559338190997974">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="967350054800689" type="System">
+                            <param id="0" name="Count">gNumeroCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="434432730024169" type="System">
+                            <param id="0" name="Variable">CurrentTableauCard</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="318612265728338" type="System">
+                            <param id="0" name="Variable">CurrentColumn</param>
+                            <param id="1" name="Value">CurrentTableauCard%gNumeroColunas</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="474571628492043">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="493008386426443" type="System">
+                                    <param id="0" name="First value">CurrentColumn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="405763221050467" type="System">
+                                    <param id="0" name="Variable">CurrentRow</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="387972737757345">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="304542711024032" type="System">
+                                    <param id="0" name="Object to create">Card</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">gMargenEsquerda + (CurrentColumn*(gComprimentoCarta + gEspacoEntreCartas))&#x0D;&#x0A;</param>
+                                    <param id="3" name="Y">gMargenTopo + (CurrentRow*(gAlturaCarta + gEspacoEntreCartas))</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="228530184551454" type="Card">
+                                    <param id="0" name="Width">gComprimentoCarta</param>
+                                    <param id="1" name="Height">gAlturaCarta</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="162741872196352" type="Card">
+                                    <param id="0" name="Instance variable">CardFaceFrame</param>
+                                    <param id="1" name="Value">Deck.At(CurrentTableauCard)</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="325625547475767" type="Card">
+                                    <param id="0" name="Instance variable">FaceUp</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="896263104982578" type="comprimento">
+                                    <param id="0" name="Text">&quot;COMPRIMENTO X ALTURA: &quot;&amp;gComprimentoCarta&amp;&quot; X &quot;&amp;gAlturaCarta&amp;&quot; MARGEM TOPO &quot;&amp;gMargenTopo &amp;&quot; MARGEM ESQUERDA &quot;&amp; gMargenEsquerda&amp;&quot; NUMERO DE CARTAS &quot;&amp; gNumeroCartas &amp;&quot; NUMERO COLUNAS &quot;&amp; gNumeroColunas &amp;&quot; NUMERO LINHAS &quot;&amp; gNumeroLinhas&amp;&quot;CURRENTTRABLE &quot;&amp; CurrentTableauCard&amp;&quot; CURRENT COLLUM &quot;&amp; CurrentColumn&amp;&quot; CURRENT ROW &quot;&amp; CurrentRow</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="817456535138868">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="985298454279398" type="System">
+                            <param id="0" name="First value">CurrentColumn</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="437696533067542" type="System">
+                            <param id="0" name="Variable">CurrentRow</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="814822138885917">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Create object" sid="686036277126407" type="System">
+                            <param id="0" name="Object to create">Card</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">gMargenEsquerda + (CurrentColumn*(gComprimentoCarta + gEspacoEntreCartas))&#x0D;&#x0A;</param>
+                            <param id="3" name="Y">gMargenTopo + (CurrentRow*(gAlturaCarta + gEspacoEntreCartas))</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="937085032773236" type="Card">
+                            <param id="0" name="Width">gComprimentoCarta</param>
+                            <param id="1" name="Height">gAlturaCarta</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="329573383001096" type="Card">
+                            <param id="0" name="Instance variable">CardFaceFrame</param>
+                            <param id="1" name="Value">Deck.At(CurrentTableauCard)</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="283555583531293" type="Card">
+                            <param id="0" name="Instance variable">FaceUp</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
