@@ -271,7 +271,7 @@
         <object-type name="Text4" sid="436685583453884">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Text5" sid="203039600546255">
+        <object-type name="pontosFase" sid="203039600546255">
             <plugin id="Text" />
         </object-type>
     </object-folder>

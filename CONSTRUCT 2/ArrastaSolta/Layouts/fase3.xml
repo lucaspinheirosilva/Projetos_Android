@@ -610,7 +610,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text5" uid="100">
+                <instance type="pontosFase" uid="100">
                     <properties>
                         <text>0</text>
                         <initial-visibility>Visible</initial-visibility>

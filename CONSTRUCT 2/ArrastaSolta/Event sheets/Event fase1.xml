@@ -14,14 +14,29 @@
                     <param id="0" name="Variable">numeroFase</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="-9" name="Set value" sid="916834054917256" type="System">
+                    <param id="0" name="Variable">pontosFase</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="417160661790293" type="System">
+                    <param id="0" name="Variable">var_pares</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="446798301528001" type="System">
+                    <param id="0" name="Variable">tempoJogado</param>
+                    <param id="1" name="Value">0</param>
+                </action>
                 <action id="0" name="Set text" sid="570958840693265" type="pontos">
-                    <param id="0" name="Text">var_pontos</param>
+                    <param id="0" name="Text">var_TotalPontos</param>
                 </action>
                 <action id="0" name="Set text" sid="713965845552248" type="pares">
                     <param id="0" name="Text">var_pares</param>
                 </action>
                 <action id="0" name="Set text" sid="771749238183695" type="fase">
                     <param id="0" name="Text">numeroFase</param>
+                </action>
+                <action id="0" name="Set text" sid="833613627283930" type="pontosFase">
+                    <param id="0" name="Text">pontosFase</param>
                 </action>
             </actions>
         </event-block>
@@ -62,7 +77,11 @@
                             <param id="0" name="Opacity">opacidade_Acerto</param>
                         </action>
                         <action id="-10" name="Add to" sid="372911489057322" type="System">
-                            <param id="0" name="Variable">var_pontos</param>
+                            <param id="0" name="Variable">var_TotalPontos</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="429105323780581" type="System">
+                            <param id="0" name="Variable">pontosFase</param>
                             <param id="1" name="Value">2</param>
                         </action>
                         <action id="-10" name="Add to" sid="387447877079776" type="System">
@@ -70,10 +89,13 @@
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="0" name="Set text" sid="953717717940588" type="pontos">
-                            <param id="0" name="Text">var_pontos</param>
+                            <param id="0" name="Text">var_TotalPontos</param>
                         </action>
                         <action id="0" name="Set text" sid="823101241320939" type="pares">
                             <param id="0" name="Text">var_pares</param>
+                        </action>
+                        <action id="0" name="Set text" sid="165340357018860" type="pontosFase">
+                            <param id="0" name="Text">var_TotalPontos</param>
                         </action>
                     </actions>
                 </event-block>
@@ -93,15 +115,22 @@
                             <param id="1" name="Y">old_posicao_y</param>
                         </action>
                         <action id="-11" name="Subtract from" sid="188959466399113" type="System">
-                            <param id="0" name="Variable">var_pontos</param>
+                            <param id="0" name="Variable">var_TotalPontos</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="0" name="Set text" sid="893290928330061" type="pontos">
-                            <param id="0" name="Text">var_pontos</param>
+                        <action id="-11" name="Subtract from" sid="889815013023884" type="System">
+                            <param id="0" name="Variable">pontosFase</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                         <action id="-10" name="Add to" sid="998614562278427" type="System">
                             <param id="0" name="Variable">erros</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="893290928330061" type="pontos">
+                            <param id="0" name="Text">var_TotalPontos</param>
+                        </action>
+                        <action id="0" name="Set text" sid="753433631191007" type="pontosFase">
+                            <param id="0" name="Text">pontosFase</param>
                         </action>
                     </actions>
                 </event-block>
@@ -150,6 +179,44 @@
                 <action id="2" name="Set visible" sid="774290256558490" type="btn_proximo">
                     <param id="0" name="Visibility">1</param>
                 </action>
+                <action id="1" name="Set value" sid="464014212777654" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_nome&quot;</param>
+                    <param id="1" name="Value">nomeJogador</param>
+                </action>
+                <action id="1" name="Set value" sid="676480796940035" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_paresMontados&quot;</param>
+                    <param id="1" name="Value">var_pares</param>
+                </action>
+                <action id="1" name="Set value" sid="882613558123989" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_totalPontos&quot;</param>
+                    <param id="1" name="Value">var_TotalPontos</param>
+                </action>
+                <action id="1" name="Set value" sid="849643140269825" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_pontosFase&quot;</param>
+                    <param id="1" name="Value">pontosFase</param>
+                </action>
+                <action id="1" name="Set value" sid="876316470740578" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
+                    <param id="1" name="Value">tempoJogado&amp;&quot; Sec&quot;</param>
+                </action>
+                <action id="1" name="Set value" sid="908835719418875" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_ultimaFase&quot;</param>
+                    <param id="1" name="Value">numeroFase</param>
+                </action>
+                <action id="1" name="Set value" sid="541101155676055" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_erros&quot;</param>
+                    <param id="1" name="Value">erros</param>
+                </action>
+                <action id="1" name="Set value" sid="242607987580500" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_data&quot;</param>
+                    <param id="1" name="Value">data_e_Hora</param>
+                </action>
+                <action id="4" name="Save" sid="927470419446792" type="ItemTable">
+                    <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>
+                    <param id="1" name="Set mode">0</param>
+                    <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+                <action id="61" name="Go offline" sid="502817983895410" type="Firebase" />
             </actions>
         </event-block>
         <event-block sid="650579786507046">
@@ -174,39 +241,6 @@
                 <condition id="0" name="On clicked" sid="294596271863763" type="btn_proximo" />
             </conditions>
             <actions>
-                <action id="1" name="Set value" sid="464014212777654" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_nome&quot;</param>
-                    <param id="1" name="Value">nomeJogador</param>
-                </action>
-                <action id="1" name="Set value" sid="676480796940035" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_paresMontados&quot;</param>
-                    <param id="1" name="Value">var_pares</param>
-                </action>
-                <action id="1" name="Set value" sid="882613558123989" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_totalPontos&quot;</param>
-                    <param id="1" name="Value">var_pontos</param>
-                </action>
-                <action id="1" name="Set value" sid="876316470740578" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
-                    <param id="1" name="Value">tempoJogado&amp;&quot; Sec&quot;</param>
-                </action>
-                <action id="1" name="Set value" sid="908835719418875" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_ultimaFase&quot;</param>
-                    <param id="1" name="Value">numeroFase</param>
-                </action>
-                <action id="1" name="Set value" sid="541101155676055" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_erros&quot;</param>
-                    <param id="1" name="Value">erros</param>
-                </action>
-                <action id="1" name="Set value" sid="242607987580500" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_data&quot;</param>
-                    <param id="1" name="Value">data_e_Hora</param>
-                </action>
-                <action id="4" name="Save" sid="927470419446792" type="ItemTable">
-                    <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>
-                    <param id="1" name="Set mode">0</param>
-                    <param id="2" name="Tag">&quot;save&quot;</param>
-                </action>
                 <action id="-2" name="Go to layout" sid="675056168484731" type="System">
                     <param id="0" name="Layout">fase2</param>
                 </action>
