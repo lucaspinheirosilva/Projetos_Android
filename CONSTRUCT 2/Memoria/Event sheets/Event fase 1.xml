@@ -33,11 +33,6 @@
                     <param id="0" name="Variable">gCardsCountPicked</param>
                     <param id="1" name="Value">0</param>
                 </action>
-                <action id="1" name="Set size" sid="490795757592482" type="Deck">
-                    <param id="0" name="Width">gNumeroCartas</param>
-                    <param id="1" name="Height">1</param>
-                    <param id="2" name="Depth">1</param>
-                </action>
                 <action id="-9" name="Set value" sid="998809773846490" type="System">
                     <param id="0" name="Variable">gScore</param>
                     <param id="1" name="Value">0</param>
@@ -50,23 +45,71 @@
                     <param id="0" name="Variable">gTempo</param>
                     <param id="1" name="Value">0</param>
                 </action>
-            </actions>
-        </event-block>
-        <event-block sid="751111628386092">
-            <conditions>
-                <condition id="4" name="Is touching object" sid="935691718578298" type="Touch">
-                    <param id="0" name="Object">Card</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="133833793217680" type="Card">
-                    <param id="0" name="Animation">&quot;cartas&quot;</param>
-                    <param id="1" name="From">0</param>
-                </action>
-                <action id="5" name="Set frame" sid="942293645598696" type="Card">
-                    <param id="0" name="Frame number">Card.CardFaceFrame</param>
+                <action id="1" name="Set size" sid="490795757592482" type="Deck">
+                    <param id="0" name="Width">gNumeroCartas</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
                 </action>
             </actions>
+            <sub-events>
+                <comment>Insere valor vetor -cartas</comment>
+                <variable constant="0" name="currentCard" sid="987220153751824" static="0" type="number">-1</variable>
+                <event-block sid="688180815073166">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="385562858347461" type="System">
+                            <param id="0" name="Count">gNumeroCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="150266809044539" type="System">
+                            <param id="0" name="Variable">currentCard</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="105280303086091" type="Deck">
+                            <param id="0" name="X">currentCard</param>
+                            <param id="1" name="Value">currentCard</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Embaralhar Cartas</comment>
+                <variable constant="0" name="posicaoCarta1" sid="698175078715120" static="0" type="number">0</variable>
+                <variable constant="0" name="posicaoCarta2" sid="363135543687828" static="0" type="number">0</variable>
+                <variable constant="0" name="valorCarta1" sid="927703317499862" static="0" type="number">0</variable>
+                <variable constant="0" name="valorCarta2" sid="763646873957409" static="0" type="number">0</variable>
+                <event-block sid="672038174824302">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="777047282201417" type="System">
+                            <param id="0" name="Count">gRepetirCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="777423336918369" type="System">
+                            <param id="0" name="Variable">posicaoCarta1</param>
+                            <param id="1" name="Value">random(0,gNumeroCartas)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="732013652818041" type="System">
+                            <param id="0" name="Variable">posicaoCarta2</param>
+                            <param id="1" name="Value">random(0,gNumeroCartas)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="677738543894079" type="System">
+                            <param id="0" name="Variable">valorCarta1</param>
+                            <param id="1" name="Value">Deck.At(posicaoCarta1)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="259810735522807" type="System">
+                            <param id="0" name="Variable">valorCarta2</param>
+                            <param id="1" name="Value">Deck.At(posicaoCarta2)</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="324236757514588" type="Deck">
+                            <param id="0" name="X">posicaoCarta1</param>
+                            <param id="1" name="Value">valorCarta2</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="579855171396323" type="Deck">
+                            <param id="0" name="X">posicaoCarta2</param>
+                            <param id="1" name="Value">valorCarta1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <comment>Cria o layout</comment>
         <variable constant="0" name="CurrentTableauCard" sid="418711613363026" static="0" type="number">-1</variable>
@@ -184,6 +227,22 @@
                         <action id="-13" name="Set boolean" sid="283555583531293" type="Card">
                             <param id="0" name="Instance variable">FaceUp</param>
                             <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="751111628386092">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="935691718578298" type="Touch">
+                            <param id="0" name="Object">Card</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="133833793217680" type="Card">
+                            <param id="0" name="Animation">&quot;cartas&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="942293645598696" type="Card">
+                            <param id="0" name="Frame number">Card.CardFaceFrame</param>
                         </action>
                     </actions>
                 </event-block>
