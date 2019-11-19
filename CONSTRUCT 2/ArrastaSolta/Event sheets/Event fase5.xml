@@ -83,7 +83,7 @@
                             <param id="1" name="Value">2</param>
                         </action>
                         <action id="0" name="Set text" sid="676172519784819" type="pontosFase">
-                            <param id="0" name="Text">var_TotalPontos</param>
+                            <param id="0" name="Text">pontosFase</param>
                         </action>
                         <action id="0" name="Set text" sid="222172535530923" type="pontos">
                             <param id="0" name="Text">var_TotalPontos</param>
@@ -149,6 +149,23 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="664017966871816">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="344094813768942" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="549096748400506" type="System">
+                    <param id="0" name="Variable">data_e_Hora</param>
+                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
+                </action>
+                <action id="-10" name="Add to" sid="548674988804430" type="System">
+                    <param id="0" name="Variable">tempoJogado</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="138801145505436">
             <conditions>
                 <condition id="-8" name="Compare two values" sid="986153481032062" type="System">
@@ -210,24 +227,6 @@
                     <param id="1" name="Set mode">0</param>
                     <param id="2" name="Tag">&quot;save&quot;</param>
                 </action>
-                <action id="61" name="Go offline" sid="851076894028323" type="Firebase" />
-            </actions>
-        </event-block>
-        <event-block sid="664017966871816">
-            <conditions>
-                <condition id="-6" name="Every X seconds" sid="344094813768942" type="System">
-                    <param id="0" name="Interval (seconds)">1.0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="549096748400506" type="System">
-                    <param id="0" name="Variable">data_e_Hora</param>
-                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
-                </action>
-                <action id="-10" name="Add to" sid="548674988804430" type="System">
-                    <param id="0" name="Variable">tempoJogado</param>
-                    <param id="1" name="Value">1</param>
-                </action>
             </actions>
         </event-block>
         <event-block sid="750598950100723">
@@ -238,6 +237,7 @@
                 <action id="-2" name="Go to layout" sid="375142951787586" type="System">
                     <param id="0" name="Layout">fase5</param>
                 </action>
+                <action id="61" name="Go offline" sid="851076894028323" type="Firebase" />
             </actions>
         </event-block>
     </events>

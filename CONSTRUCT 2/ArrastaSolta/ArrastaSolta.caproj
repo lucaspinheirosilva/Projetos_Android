@@ -30,8 +30,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>900</width>
-        <height>480</height>
+        <width>1000</width>
+        <height>600</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
     <preview-effects>1</preview-effects>
