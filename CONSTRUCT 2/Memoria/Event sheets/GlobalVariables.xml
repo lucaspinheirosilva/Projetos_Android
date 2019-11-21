@@ -11,14 +11,15 @@
         <variable constant="0" name="gCardsCountPicked" sid="528679726310129" static="0" type="number">0</variable>
         <variable constant="0" name="gFramePrimeiraCarta" sid="297914926115073" static="0" type="number">-1</variable>
         <variable constant="0" name="gFrameSegundaCarta" sid="875991698544775" static="0" type="number">-1</variable>
-        <variable constant="0" name="gRepetirCartas" sid="646147219437067" static="0" type="number">50</variable>
+        <variable constant="0" name="gRepetirCartas" sid="646147219437067" static="0" type="number">31</variable>
         <variable constant="0" name="gEspacoEntreCartas" sid="921985358062401" static="0" type="number">25</variable>
         <variable constant="0" name="gMargenTopo" sid="707565079373871" static="0" type="number">0</variable>
         <variable constant="0" name="gMargenEsquerda" sid="437792429307389" static="0" type="number">0</variable>
         <variable constant="0" name="gComprimentoCarta" sid="117300141267167" static="0" type="number">0</variable>
         <variable constant="0" name="gAlturaCarta" sid="621061729184784" static="0" type="number">0</variable>
-        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">4</variable>
-        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">4</variable>
+        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">0</variable>
+        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">0</variable>
         <variable constant="0" name="gNumeroCartas" sid="247005205694549" static="0" type="number">0</variable>
+        <variable constant="0" name="gParFinal" sid="273496521373393" static="0" type="number">0</variable>
     </events>
 </c2eventsheet>

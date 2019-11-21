@@ -4,12 +4,12 @@
     <sid>987092344802177</sid>
     <event-sheet>Event fase 2</event-sheet>
     <size>
-        <width>860</width>
+        <width>900</width>
         <height>485</height>
     </size>
     <margins>
-        <horizontal>10</horizontal>
-        <vertical>10</vertical>
+        <horizontal>50</horizontal>
+        <vertical>20</vertical>
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
@@ -39,14 +39,40 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>428</x>
-                        <y>244.465942383</y>
+                        <x>459</x>
+                        <y>246</y>
                         <z>0</z>
-                        <width>872</width>
-                        <height>506</height>
+                        <width>931</width>
+                        <height>510</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.500920832</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Card" uid="10">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>backcard</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <CardFaceFrame>1</CardFaceFrame>
+                        <FaceUp>false</FaceUp>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>970</x>
+                        <y>43</y>
+                        <z>0</z>
+                        <width>82.78855896</width>
+                        <height>101.110626221</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

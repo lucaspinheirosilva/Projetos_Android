@@ -142,7 +142,11 @@
                 <animation framecount="44" loop="0" name="cartas" pingpong="0" repeatcount="1" repeatto="0" sid="550092009175940" speed="0">
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\horse.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\parrot.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\bear.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\frog.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\buffalo.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -156,8 +160,6 @@
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\elephant.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\frog.png" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\giraffe.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\monkey.png" />
@@ -166,13 +168,11 @@
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\panda.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\parrot.png" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\penguin.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\pig.png" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\rabbit.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\pig.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\lucas\Desktop\kenney_animalpackredux\PNG\Round (outline)\rhino.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0" />

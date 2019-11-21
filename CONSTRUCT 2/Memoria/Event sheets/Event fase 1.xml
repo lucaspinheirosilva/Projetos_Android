@@ -9,13 +9,22 @@
                 <condition id="-2" name="On start of layout" sid="184550110111566" type="System" />
             </conditions>
             <actions>
+                <action id="-21" name="Reset global variables" sid="125440257908492" type="System" />
+                <action id="-9" name="Set value" sid="543595134975198" type="System">
+                    <param id="0" name="Variable">gNumeroColunas</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="959597912645975" type="System">
+                    <param id="0" name="Variable">gNumeroLinhas</param>
+                    <param id="1" name="Value">2</param>
+                </action>
                 <action id="-9" name="Set value" sid="380668274220580" type="System">
                     <param id="0" name="Variable">gNumeroCartas</param>
                     <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
                 </action>
                 <action id="-9" name="Set value" sid="363888010393067" type="System">
                     <param id="0" name="Variable">gAlturaCarta</param>
-                    <param id="1" name="Value">int((WindowHeight-((gNumeroLinhas+1)*gEspacoEntreCartas))/gNumeroLinhas)&#x0D;&#x0A;</param>
+                    <param id="1" name="Value">int((WindowHeight-((gNumeroLinhas+0.5)*gEspacoEntreCartas))/gNumeroLinhas)&#x0D;&#x0A;</param>
                 </action>
                 <action id="-9" name="Set value" sid="360706101936383" type="System">
                     <param id="0" name="Variable">gComprimentoCarta</param>
@@ -27,7 +36,7 @@
                 </action>
                 <action id="-9" name="Set value" sid="560514089582929" type="System">
                     <param id="0" name="Variable">gMargenTopo</param>
-                    <param id="1" name="Value">int((WindowHeight-(gAlturaCarta + gEspacoEntreCartas)*gNumeroLinhas)/2)</param>
+                    <param id="1" name="Value">int((WindowHeight-(gAlturaCarta + gEspacoEntreCartas)*gNumeroLinhas)/1)</param>
                 </action>
                 <action id="-9" name="Set value" sid="630449296274744" type="System">
                     <param id="0" name="Variable">gCardsCountPicked</param>
@@ -188,6 +197,9 @@
                                     <param id="1" name="Comparison">2</param>
                                     <param id="2" name="Value">2</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="237112977559002" type="Card">
+                                    <param id="0" name="Instance variable">FaceUp</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-10" name="Add to" sid="703312231397910" type="System">
@@ -245,7 +257,12 @@
                                                     <param id="2" name="Second value">gFrameSegundaCarta-(gFrameSegundaCarta%2)</param>
                                                 </condition>
                                             </conditions>
-                                            <actions />
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="604202646960094" type="System">
+                                                    <param id="0" name="Variable">gParFinal</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
                                             <sub-events>
                                                 <event-block sid="810925327377556">
                                                     <conditions>
@@ -262,6 +279,9 @@
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
+                                                                <action id="-16" name="Wait" sid="689763254753832" type="System">
+                                                                    <param id="0" name="Seconds">1</param>
+                                                                </action>
                                                                 <action id="-9" name="Destroy" sid="592063182911103" type="Card" />
                                                             </actions>
                                                         </event-block>
@@ -295,7 +315,7 @@
                                                             </conditions>
                                                             <actions>
                                                                 <action id="-16" name="Wait" sid="589041324862177" type="System">
-                                                                    <param id="0" name="Seconds">2</param>
+                                                                    <param id="0" name="Seconds">1</param>
                                                                 </action>
                                                                 <action id="4" name="Set animation" sid="360503052577859" type="Card">
                                                                     <param id="0" name="Animation">&quot;backCard&quot;</param>
@@ -314,6 +334,9 @@
                                         <event-block sid="619494993187425">
                                             <conditions />
                                             <actions>
+                                                <action id="-16" name="Wait" sid="268233985569005" type="System">
+                                                    <param id="0" name="Seconds">1</param>
+                                                </action>
                                                 <action id="-9" name="Set value" sid="587354901062383" type="System">
                                                     <param id="0" name="Variable">gCardsCountPicked</param>
                                                     <param id="1" name="Value">0</param>
@@ -335,6 +358,23 @@
                     </sub-events>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="338074104269049">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="137790973507436" type="System">
+                    <param id="0" name="Variable">gParFinal</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">gNumeroCartas/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="110522542178817" type="System">
+                    <param id="0" name="Seconds">4</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="304474279914804" type="System">
+                    <param id="0" name="Layout">fase 1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

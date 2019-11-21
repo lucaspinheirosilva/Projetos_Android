@@ -78,7 +78,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <CardFaceFrame>6</CardFaceFrame>
+                        <CardFaceFrame>1</CardFaceFrame>
                         <FaceUp>false</FaceUp>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
