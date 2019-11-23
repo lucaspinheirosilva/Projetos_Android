@@ -3,10 +3,12 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GlobalVariables</name>
     <events>
+        <variable constant="0" name="gVolume" sid="717470503813644" static="0" type="number">-50</variable>
+        <variable constant="0" name="gLabelVolume" sid="392181708703755" static="0" type="number">50</variable>
         <variable constant="0" name="gTempo" sid="104812425064059" static="0" type="number">0</variable>
         <variable constant="0" name="gPares" sid="893191299791710" static="0" type="number">0</variable>
         <variable constant="0" name="gScore" sid="258300022823071" static="0" type="number">0</variable>
-        <variable constant="0" name="gValuePoints" sid="136966314464286" static="0" type="number">10</variable>
+        <variable constant="0" name="gValorPontos" sid="136966314464286" static="0" type="number">10</variable>
         <variable constant="0" name="gEsperarSegundos" sid="341856901135647" static="0" type="number">1</variable>
         <variable constant="0" name="gCardsCountPicked" sid="528679726310129" static="0" type="number">0</variable>
         <variable constant="0" name="gFramePrimeiraCarta" sid="297914926115073" static="0" type="number">-1</variable>
@@ -17,9 +19,10 @@
         <variable constant="0" name="gMargenEsquerda" sid="437792429307389" static="0" type="number">0</variable>
         <variable constant="0" name="gComprimentoCarta" sid="117300141267167" static="0" type="number">0</variable>
         <variable constant="0" name="gAlturaCarta" sid="621061729184784" static="0" type="number">0</variable>
-        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">0</variable>
-        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">0</variable>
+        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">2</variable>
+        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">2</variable>
         <variable constant="0" name="gNumeroCartas" sid="247005205694549" static="0" type="number">0</variable>
         <variable constant="0" name="gParFinal" sid="273496521373393" static="0" type="number">0</variable>
+        <variable constant="0" name="gViradas" sid="692831104781984" static="0" type="number">0</variable>
     </events>
 </c2eventsheet>

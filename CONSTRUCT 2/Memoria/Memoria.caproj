@@ -11,6 +11,7 @@
     <saved-with-version>26500</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -196,6 +197,64 @@
         <object-type name="comprimento" sid="502384843282599">
             <plugin id="Text" />
         </object-type>
+        <object-type name="viradasCartas" sid="969631064262648">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text" sid="595675066255114">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="535830290982784">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="paresEncontrados" sid="826011707669884">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="parabens" sid="318557246280561">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Audio" sid="302489813670945">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="VolumeMais" sid="534447875360000">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="297173230759693" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Windows\Desktop\volume.png">
+                        <collision-poly>
+                            <point x="0.147975" y="0.147975" />
+                            <point x="0.5" y="0.00155763" />
+                            <point x="0.852025" y="0.147975" />
+                            <point x="0.998442" y="0.5" />
+                            <point x="0.852025" y="0.852025" />
+                            <point x="0.5" y="0.998442" />
+                            <point x="0.147975" y="0.852025" />
+                            <point x="0.00155763" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="volume" sid="933585417884214">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="VolumeMenos" sid="915044346485294">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="941176497704006" speed="5">
+                    <frame duration="1" hotspotX="0.501976" hotspotY="0.5" original-source="C:\Users\Windows\Desktop\volume-.png">
+                        <collision-poly>
+                            <point x="0.00790514" y="0.52381" />
+                            <point x="0.501976" y="0.00396825" />
+                            <point x="0.992095" y="0.527778" />
+                            <point x="0.996047" y="0.5" />
+                            <point x="0.992095" y="0.472222" />
+                            <point x="0.501976" y="0.996032" />
+                            <point x="0.00790514" y="0.47619" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -215,8 +274,25 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="Audio" uid="17">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="error.ogg" />
+        <file name="plim.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

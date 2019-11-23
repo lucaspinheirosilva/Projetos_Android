@@ -10,14 +10,6 @@
             </conditions>
             <actions>
                 <action id="-21" name="Reset global variables" sid="125440257908492" type="System" />
-                <action id="-9" name="Set value" sid="543595134975198" type="System">
-                    <param id="0" name="Variable">gNumeroColunas</param>
-                    <param id="1" name="Value">2</param>
-                </action>
-                <action id="-9" name="Set value" sid="959597912645975" type="System">
-                    <param id="0" name="Variable">gNumeroLinhas</param>
-                    <param id="1" name="Value">2</param>
-                </action>
                 <action id="-9" name="Set value" sid="380668274220580" type="System">
                     <param id="0" name="Variable">gNumeroCartas</param>
                     <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
@@ -59,6 +51,9 @@
                     <param id="1" name="Height">1</param>
                     <param id="2" name="Depth">1</param>
                 </action>
+                <action id="0" name="Set text" sid="163473388695451" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
             </actions>
             <sub-events>
                 <comment>Insere valor vetor -cartas</comment>
@@ -85,9 +80,9 @@
                 <variable constant="0" name="posicaoCarta2" sid="363135543687828" static="0" type="number">0</variable>
                 <variable constant="0" name="valorCarta1" sid="927703317499862" static="0" type="number">0</variable>
                 <variable constant="0" name="valorCarta2" sid="763646873957409" static="0" type="number">0</variable>
-                <event-block sid="672038174824302">
+                <event-block disabled="1" sid="672038174824302">
                     <conditions>
-                        <condition id="-12" name="Repeat" sid="777047282201417" type="System">
+                        <condition disabled="1" id="-12" name="Repeat" sid="777047282201417" type="System">
                             <param id="0" name="Count">gRepetirCartas</param>
                         </condition>
                     </conditions>
@@ -176,7 +171,7 @@
                                     <param id="1" name="Value">0</param>
                                 </action>
                                 <action id="0" name="Set text" sid="896263104982578" type="comprimento">
-                                    <param id="0" name="Text">&quot;COMPRIMENTO &quot;&amp;gComprimentoCarta&amp;&quot; ALTURA: &quot;&amp;gAlturaCarta&amp;&quot; MARGEM TOPO &quot;&amp;gMargenTopo &amp;&quot;  MARGEM ESQUERDA &quot;&amp; gMargenEsquerda&amp;&quot; NUMERO DE CARTAS &quot;&amp; gNumeroCartas &amp;&quot; NUMERO COLUNAS &quot;</param>
+                                    <param id="0" name="Text">&quot;COMPRIMENTO &quot;&amp;gComprimentoCarta&amp;&quot; ALTURA: &quot;&amp;gAlturaCarta&amp;&quot; MARGEM TOPO &quot;&amp;gMargenTopo &amp;&quot;  MARGEM ESQUERDA &quot;&amp; gMargenEsquerda&amp;&quot; NUMERO DE CARTAS &quot;&amp; gNumeroCartas &amp;&quot; NUMERO COLUNAS &quot;&amp;gNumeroColunas&amp;&quot; NUMERO LINHAS &quot;&amp;gNumeroLinhas</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -249,6 +244,13 @@
                                     <param id="0" name="Variable">gFrameSegundaCarta</param>
                                     <param id="1" name="Value">Card.CardFaceFrame</param>
                                 </action>
+                                <action id="-10" name="Add to" sid="349412980493977" type="System">
+                                    <param id="0" name="Variable">gViradas</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="786030127127467" type="viradasCartas">
+                                    <param id="0" name="Text">gViradas</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="792507987714800">
@@ -263,6 +265,13 @@
                                         <action id="-10" name="Add to" sid="604202646960094" type="System">
                                             <param id="0" name="Variable">gParFinal</param>
                                             <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="251771716593958" type="System">
+                                            <param id="0" name="Variable">gPares</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="411528062383936" type="paresEncontrados">
+                                            <param id="0" name="Text">gPares</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -283,6 +292,12 @@
                                                     <actions>
                                                         <action id="-16" name="Wait" sid="689763254753832" type="System">
                                                             <param id="0" name="Seconds">1</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="976537529112956" type="Audio">
+                                                            <param id="0" name="Audio file">plim</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">gVolume</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                                         </action>
                                                         <action id="-9" name="Destroy" sid="592063182911103" type="Card" />
                                                     </actions>
@@ -316,6 +331,12 @@
                                                         </condition>
                                                     </conditions>
                                                     <actions>
+                                                        <action id="0" name="Play" sid="849812412652245" type="Audio">
+                                                            <param id="0" name="Audio file">error</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">gVolume</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
                                                         <action id="-16" name="Wait" sid="589041324862177" type="System">
                                                             <param id="0" name="Seconds">1</param>
                                                         </action>
@@ -368,11 +389,74 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-16" name="Wait" sid="807429784930986" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-15" name="Set visible" sid="809669248903311" type="parabens">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="746426169073918" type="parabens">
+                    <param id="0" name="Text">&quot;PARABENS!! sua pontuação foi&quot;&amp;&quot; PARES &quot;&amp;gPares</param>
+                </action>
                 <action id="-16" name="Wait" sid="110522542178817" type="System">
                     <param id="0" name="Seconds">4</param>
                 </action>
                 <action id="-2" name="Go to layout" sid="304474279914804" type="System">
                     <param id="0" name="Layout">fase 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="188667482192302">
+            <conditions />
+            <actions />
+        </event-block>
+        <event-block sid="424998986649474">
+            <conditions>
+                <condition id="3" name="On touched object" sid="316172727248916" type="Touch">
+                    <param id="0" name="Object">VolumeMais</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="203904452589831" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">-1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="112747634712567" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-10" name="Add to" sid="815000952247792" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="394666774901300" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="548949258277155">
+            <conditions>
+                <condition id="3" name="On touched object" sid="469531183387353" type="Touch">
+                    <param id="0" name="Object">VolumeMenos</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="744999102545715" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">-90</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="530314133906745" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="562322008990794" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="423451580613949" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
                 </action>
             </actions>
         </event-block>
