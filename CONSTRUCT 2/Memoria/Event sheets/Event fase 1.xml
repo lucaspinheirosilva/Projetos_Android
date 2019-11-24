@@ -253,6 +253,7 @@
                                 </action>
                             </actions>
                             <sub-events>
+                                <comment>ACERTOU</comment>
                                 <event-block sid="792507987714800">
                                     <conditions>
                                         <condition id="-8" name="Compare two values" sid="924735141148723" type="System">
@@ -262,9 +263,13 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Add to" sid="604202646960094" type="System">
+                                        <action id="-10" name="Add to" sid="647440001225051" type="System">
                                             <param id="0" name="Variable">gParFinal</param>
                                             <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="604202646960094" type="System">
+                                            <param id="0" name="Variable">gScore</param>
+                                            <param id="1" name="Value">10</param>
                                         </action>
                                         <action id="-10" name="Add to" sid="251771716593958" type="System">
                                             <param id="0" name="Variable">gPares</param>
@@ -272,6 +277,9 @@
                                         </action>
                                         <action id="0" name="Set text" sid="411528062383936" type="paresEncontrados">
                                             <param id="0" name="Text">gPares</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="723067031240186" type="score">
+                                            <param id="0" name="Text">gScore</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -306,6 +314,7 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
+                                <comment>ERROU</comment>
                                 <event-block sid="902825345043501">
                                     <conditions>
                                         <condition id="-8" inverted="1" name="Compare two values" sid="383434754600634" type="System">
@@ -337,6 +346,10 @@
                                                             <param id="3" name="Volume">gVolume</param>
                                                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                                         </action>
+                                                        <action id="-11" name="Subtract from" sid="310104109568163" type="System">
+                                                            <param id="0" name="Variable">gScore</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
                                                         <action id="-16" name="Wait" sid="589041324862177" type="System">
                                                             <param id="0" name="Seconds">1</param>
                                                         </action>
@@ -347,6 +360,9 @@
                                                         <action id="-13" name="Set boolean" sid="264956423978799" type="Card">
                                                             <param id="0" name="Instance variable">FaceUp</param>
                                                             <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="0" name="Set text" sid="173568260262893" type="score">
+                                                            <param id="0" name="Text">gScore</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>

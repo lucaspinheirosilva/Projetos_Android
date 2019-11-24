@@ -255,6 +255,12 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Text3" sid="662798580030221">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="score" sid="572451796291614">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
