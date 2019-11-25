@@ -10,6 +10,7 @@
             </conditions>
             <actions>
                 <action id="-21" name="Reset global variables" sid="125440257908492" type="System" />
+                <action id="62" name="Go online" sid="490573165973570" type="Firebase" />
                 <action id="-9" name="Set value" sid="380668274220580" type="System">
                     <param id="0" name="Variable">gNumeroCartas</param>
                     <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
@@ -80,9 +81,9 @@
                 <variable constant="0" name="posicaoCarta2" sid="363135543687828" static="0" type="number">0</variable>
                 <variable constant="0" name="valorCarta1" sid="927703317499862" static="0" type="number">0</variable>
                 <variable constant="0" name="valorCarta2" sid="763646873957409" static="0" type="number">0</variable>
-                <event-block disabled="1" sid="672038174824302">
+                <event-block sid="672038174824302">
                     <conditions>
-                        <condition disabled="1" id="-12" name="Repeat" sid="777047282201417" type="System">
+                        <condition id="-12" name="Repeat" sid="777047282201417" type="System">
                             <param id="0" name="Count">gRepetirCartas</param>
                         </condition>
                     </conditions>
@@ -364,6 +365,10 @@
                                                         <action id="0" name="Set text" sid="173568260262893" type="score">
                                                             <param id="0" name="Text">gScore</param>
                                                         </action>
+                                                        <action id="-10" name="Add to" sid="565946023887840" type="System">
+                                                            <param id="0" name="Variable">gErros</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                             </sub-events>
@@ -396,6 +401,7 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>SALVA OS DADOS NO FIREBASE</comment>
         <event-block sid="338074104269049">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="137790973507436" type="System">
@@ -406,26 +412,90 @@
             </conditions>
             <actions>
                 <action id="-16" name="Wait" sid="807429784930986" type="System">
-                    <param id="0" name="Seconds">2</param>
+                    <param id="0" name="Seconds">1.5</param>
                 </action>
                 <action id="-15" name="Set visible" sid="809669248903311" type="parabens">
                     <param id="0" name="Visibility">1</param>
                 </action>
+                <action id="-15" name="Set visible" sid="929667571786212" type="btnProximo">
+                    <param id="0" name="Visibility">1</param>
+                </action>
                 <action id="0" name="Set text" sid="746426169073918" type="parabens">
-                    <param id="0" name="Text">&quot;PARABENS!! sua pontuação foi&quot;&amp;&quot; PARES &quot;&amp;gPares</param>
+                    <param id="0" name="Text">&quot;PARABENS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
                 </action>
-                <action id="-16" name="Wait" sid="110522542178817" type="System">
-                    <param id="0" name="Seconds">4</param>
+                <action id="1" name="Set value" sid="691368055370317" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_nome&quot;</param>
+                    <param id="1" name="Value">gNomeJogador</param>
                 </action>
-                <action id="-2" name="Go to layout" sid="304474279914804" type="System">
-                    <param id="0" name="Layout">fase 1</param>
+                <action id="1" name="Set value" sid="419870116901975" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_erros&quot;</param>
+                    <param id="1" name="Value">gErros</param>
                 </action>
+                <action id="1" name="Set value" sid="653313278618308" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_fase&quot;</param>
+                    <param id="1" name="Value">gFase</param>
+                </action>
+                <action id="1" name="Set value" sid="640651211398714" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_data&quot;</param>
+                    <param id="1" name="Value">gData</param>
+                </action>
+                <action id="1" name="Set value" sid="981973300716338" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
+                </action>
+                <action id="1" name="Set value" sid="228071316755547" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_tempoJogado&quot;</param>
+                    <param id="1" name="Value">gTempo&amp;&quot; Seg&quot;</param>
+                </action>
+                <action id="1" name="Set value" sid="800880814189828" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_pares_mont&quot;</param>
+                    <param id="1" name="Value">gPares</param>
+                </action>
+                <action id="1" name="Set value" sid="822557778760019" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_pontos&quot;</param>
+                    <param id="1" name="Value">gScore</param>
+                </action>
+                <action id="1" name="Set value" sid="718399354804640" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_cartas_viradas&quot;</param>
+                    <param id="1" name="Value">gViradas</param>
+                </action>
+                <action id="1" name="Set value" sid="748461705475272" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_mesa&quot;</param>
+                    <param id="1" name="Value">gNumeroColunas&amp;&quot; Col X &quot;&amp;gNumeroLinhas&amp;&quot; Lin = &quot;&amp;gNumeroCartas&amp;&quot; Cartas&quot; </param>
+                </action>
+                <action id="4" name="Save" sid="998962803402362" type="ItemTable">
+                    <param id="0" name="ID">gNomeJogador&amp;&quot; fase &quot;&amp;gFase</param>
+                    <param id="1" name="Set mode">0</param>
+                    <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+                <action id="61" name="Go offline" sid="936651087857797" type="Firebase" />
             </actions>
         </event-block>
+        <comment>VAI PARA PROXIMA FASE</comment>
         <event-block sid="188667482192302">
-            <conditions />
+            <conditions>
+                <condition id="4" name="Is touching object" sid="849540228218967" type="Touch">
+                    <param id="0" name="Object">btnProximo</param>
+                </condition>
+            </conditions>
             <actions />
+            <sub-events>
+                <event-block sid="261510993137489">
+                    <conditions>
+                        <condition id="-9" name="Is visible" sid="991568814847441" type="btnProximo" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="134583557197746" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="304474279914804" type="System">
+                            <param id="0" name="Layout">fase 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
+        <comment>SETA VOLUME PARA MAIS</comment>
         <event-block sid="424998986649474">
             <conditions>
                 <condition id="3" name="On touched object" sid="316172727248916" type="Touch">
@@ -451,6 +521,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>SETA VOLUME PARA MENOS</comment>
         <event-block sid="548949258277155">
             <conditions>
                 <condition id="3" name="On touched object" sid="469531183387353" type="Touch">
@@ -473,6 +544,23 @@
                 </action>
                 <action id="0" name="Set text" sid="423451580613949" type="volume">
                     <param id="0" name="Text">gLabelVolume</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="206055058194150">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="783198181864243" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="872019503510257" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="159807076606496" type="System">
+                    <param id="0" name="Variable">gData</param>
+                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
                 </action>
             </actions>
         </event-block>

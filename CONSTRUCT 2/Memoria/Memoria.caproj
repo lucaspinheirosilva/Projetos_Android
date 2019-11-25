@@ -12,6 +12,10 @@
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_FirebaseAPIV3" version="1">Firebase API v3</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemTable" version="0.100000001">Item table</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -261,6 +265,40 @@
         <object-type name="score" sid="572451796291614">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Browser" sid="695636501257574">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type global="1" name="Firebase" sid="923197095582715">
+            <plugin id="Rex_Firebase" />
+        </object-type>
+        <object-type global="1" name="ItemTable" sid="205938785611418">
+            <plugin id="Rex_Firebase_ItemTable" />
+        </object-type>
+        <object-type global="1" name="FirebaseAPIV3" sid="476975827340277">
+            <plugin id="Rex_FirebaseAPIV3" />
+        </object-type>
+        <object-type name="btnProximo" sid="871960274745802">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="15" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="304386487092842" speed="20">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -294,6 +332,7 @@
                 <roll-off-factor>1</roll-off-factor>
             </properties>
         </global-instance>
+        <global-instance type="Browser" uid="23" />
     </global-instances>
     <sounds-folder>
         <file name="error.ogg" />

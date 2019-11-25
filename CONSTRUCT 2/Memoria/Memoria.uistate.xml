@@ -39,5 +39,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Card/" />
         <folder expanded="1" path="animation-folder/VolumeMais/" />
         <folder expanded="1" path="animation-folder/VolumeMenos/" />
+        <folder expanded="1" path="animation-folder/btnProximo/" />
     </folders-expanded>
 </c2uistate>

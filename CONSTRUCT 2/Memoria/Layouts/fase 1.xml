@@ -89,7 +89,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>840</x>
-                        <y>64</y>
+                        <y>60</y>
                         <z>0</z>
                         <width>53</width>
                         <height>30</height>
@@ -118,60 +118,6 @@
                         <depth>0</depth>
                         <hotspotX>0.501976311</hotspotX>
                         <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Text3" uid="21">
-                    <properties>
-                        <text>PONTOS</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial Black,-21,900,0</font>
-                        <color>0,0,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>7</x>
-                        <y>8</y>
-                        <z>0</z>
-                        <width>113</width>
-                        <height>30</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="score" uid="22">
-                    <properties>
-                        <text>0</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial Black,-24,900,0</font>
-                        <color>255,0,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>21</x>
-                        <y>30</y>
-                        <z>0</z>
-                        <width>106</width>
-                        <height>42</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -375,6 +321,79 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="Text3" uid="21">
+                    <properties>
+                        <text>PONTOS</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial Black,-21,900,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>6</x>
+                        <y>20</y>
+                        <z>0</z>
+                        <width>113</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="score" uid="22">
+                    <properties>
+                        <text>0</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial Black,-24,900,0</font>
+                        <color>255,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>20</x>
+                        <y>42</y>
+                        <z>0</z>
+                        <width>106</width>
+                        <height>42</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="vitoria" sid="788715433346273">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
                 <instance type="parabens" uid="16">
                     <properties>
                         <text>PARABENS</text>
@@ -390,11 +409,33 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>458</x>
-                        <y>299</y>
+                        <x>451</x>
+                        <y>276</y>
                         <z>0</z>
                         <width>681</width>
                         <height>160</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="btnProximo" uid="27">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>436.743103027</x>
+                        <y>372.270812988</y>
+                        <z>0</z>
+                        <width>130.899246216</width>
+                        <height>79.412216187</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -412,6 +453,28 @@
                 <width>10</width>
                 <height>1</height>
                 <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="Firebase" uid="24">
+            <properties>
+                <domain></domain>
+                <connection-detection>Yes</connection-detection>
+                <server-time-offset-detection>Yes</server-time-offset-detection>
+            </properties>
+        </instance>
+        <instance type="ItemTable" uid="25">
+            <properties>
+                <domain></domain>
+                <sub-domain>ATV_Memoria</sub-domain>
+            </properties>
+        </instance>
+        <instance type="FirebaseAPIV3" uid="26">
+            <properties>
+                <api-key>AIzaSyCpkOdWbic423nqO0sZYmIWUfdefie0lJQ</api-key>
+                <auth-domain>amigo-azul.firebaseapp.com</auth-domain>
+                <database-url>https://amigo-azul.firebaseio.com</database-url>
+                <storage-bucket>amigo-azul.appspot.com</storage-bucket>
+                <log>No</log>
             </properties>
         </instance>
     </nonworld-instances>

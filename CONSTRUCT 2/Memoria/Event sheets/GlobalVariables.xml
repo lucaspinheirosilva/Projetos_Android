@@ -3,6 +3,10 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GlobalVariables</name>
     <events>
+        <variable constant="0" name="gErros" sid="660523605748737" static="0" type="number">0</variable>
+        <variable constant="0" name="gFase" sid="616031369738967" static="0" type="number">1</variable>
+        <variable constant="0" name="gNomeJogador" sid="336964187226124" static="0" type="text">lucas</variable>
+        <variable constant="0" name="gData" sid="359078974899126" static="0" type="text"></variable>
         <variable constant="0" name="gVolume" sid="717470503813644" static="0" type="number">-50</variable>
         <variable constant="0" name="gLabelVolume" sid="392181708703755" static="0" type="number">50</variable>
         <variable constant="0" name="gTempo" sid="104812425064059" static="0" type="number">0</variable>
