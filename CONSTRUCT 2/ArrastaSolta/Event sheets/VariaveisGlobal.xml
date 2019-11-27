@@ -14,5 +14,7 @@
         <variable constant="0" name="old_posicao_y" sid="534193958549341" static="0" type="number">0</variable>
         <variable constant="0" name="old_posicao_x" sid="592995389050220" static="0" type="number">0</variable>
         <variable constant="0" name="opacidade_Acerto" sid="669499984542519" static="0" type="number">0</variable>
+        <variable constant="0" name="gVolume" sid="101187931441635" static="0" type="number">-50</variable>
+        <variable constant="0" name="gLabelVolume" sid="194230812999510" static="0" type="number">50</variable>
     </events>
 </c2eventsheet>

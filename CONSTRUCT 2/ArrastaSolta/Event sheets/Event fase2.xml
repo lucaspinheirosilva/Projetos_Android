@@ -61,7 +61,7 @@
                         <action id="0" name="Play" sid="119409993403791" type="Audio">
                             <param id="0" name="Audio file">plim</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
+                            <param id="3" name="Volume">gVolume</param>
                             <param id="1" name="Tag (optional)">&quot;acertou&quot;</param>
                         </action>
                         <action id="4" name="Set animation" sid="620121633686692" type="destino">
@@ -103,7 +103,7 @@
                         <action id="0" name="Play" sid="729724443626851" type="Audio">
                             <param id="0" name="Audio file">error</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
+                            <param id="3" name="Volume">gVolume</param>
                             <param id="1" name="Tag (optional)">&quot;errou&quot;</param>
                         </action>
                         <action id="-3" name="Set position" sid="529782317410205" type="origem">
@@ -228,6 +228,58 @@
                     <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>
                     <param id="1" name="Set mode">0</param>
                     <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>SETA VOLUME PARA MAIS</comment>
+        <event-block sid="905028086006597">
+            <conditions>
+                <condition id="3" name="On touched object" sid="906466904345082" type="Touch">
+                    <param id="0" name="Object">VolumeMais</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="965591811059712" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">-1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="500769156374965" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-10" name="Add to" sid="507867995550687" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="571505527245630" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>SETA VOLUME PARA MENOS</comment>
+        <event-block sid="818459026083637">
+            <conditions>
+                <condition id="3" name="On touched object" sid="142006654756348" type="Touch">
+                    <param id="0" name="Object">VolumeMenos</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="413063597328360" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">-90</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="879152820941129" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="612464599111340" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="176089421436521" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
                 </action>
             </actions>
         </event-block>
