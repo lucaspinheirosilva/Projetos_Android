@@ -9,27 +9,78 @@
                 <condition id="-2" name="On start of layout" sid="184550110111566" type="System" />
             </conditions>
             <actions>
-                <action id="-21" name="Reset global variables" sid="125440257908492" type="System" />
                 <action id="62" name="Go online" sid="490573165973570" type="Firebase" />
+                <action id="-9" name="Set value" sid="273210298870954" type="System">
+                    <param id="0" name="Variable">gFase</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="168472960568375" type="System">
+                    <param id="0" name="Variable">gNumeroColunas</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="158684859250906" type="System">
+                    <param id="0" name="Variable">gNumeroLinhas</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="820463803006405" type="System">
+                    <param id="0" name="Variable">gErros</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="620253175616963" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="607765531987410" type="System">
+                    <param id="0" name="Variable">gPares</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="711768862764090" type="System">
+                    <param id="0" name="Variable">gScore</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="170025566255988" type="System">
+                    <param id="0" name="Variable">gViradas</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="533071230670081" type="System">
+                    <param id="0" name="Variable">gParFinal</param>
+                    <param id="1" name="Value">0</param>
+                </action>
                 <action id="-9" name="Set value" sid="380668274220580" type="System">
                     <param id="0" name="Variable">gNumeroCartas</param>
                     <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
                 </action>
-                <action id="-9" name="Set value" sid="363888010393067" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="363888010393067" type="System">
                     <param id="0" name="Variable">gAlturaCarta</param>
                     <param id="1" name="Value">int((WindowHeight-((gNumeroLinhas+0.5)*gEspacoEntreCartas))/gNumeroLinhas)&#x0D;&#x0A;</param>
                 </action>
+                <action id="-9" name="Set value" sid="901732877061499" type="System">
+                    <param id="0" name="Variable">gAlturaCarta</param>
+                    <param id="1" name="Value">170</param>
+                </action>
                 <action id="-9" name="Set value" sid="360706101936383" type="System">
+                    <param id="0" name="Variable">gComprimentoCarta</param>
+                    <param id="1" name="Value">140</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="900225413375937" type="System">
                     <param id="0" name="Variable">gComprimentoCarta</param>
                     <param id="1" name="Value">int(gAlturaCarta * (Card.Width/Card.Height))</param>
                 </action>
                 <action id="-9" name="Set value" sid="640597941113784" type="System">
                     <param id="0" name="Variable">gMargenEsquerda</param>
+                    <param id="1" name="Value">330</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="944332467102363" type="System">
+                    <param id="0" name="Variable">gMargenEsquerda</param>
                     <param id="1" name="Value">int((WindowWidth - (gComprimentoCarta + gEspacoEntreCartas) * gNumeroColunas) / 2)&#x0D;&#x0A;</param>
                 </action>
-                <action id="-9" name="Set value" sid="560514089582929" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="560514089582929" type="System">
                     <param id="0" name="Variable">gMargenTopo</param>
                     <param id="1" name="Value">int((WindowHeight-(gAlturaCarta + gEspacoEntreCartas)*gNumeroLinhas)/1)</param>
+                </action>
+                <action id="-9" name="Set value" sid="975559603211840" type="System">
+                    <param id="0" name="Variable">gMargenTopo</param>
+                    <param id="1" name="Value">40</param>
                 </action>
                 <action id="-9" name="Set value" sid="630449296274744" type="System">
                     <param id="0" name="Variable">gCardsCountPicked</param>
@@ -54,6 +105,9 @@
                 </action>
                 <action id="0" name="Set text" sid="163473388695451" type="volume">
                     <param id="0" name="Text">gLabelVolume</param>
+                </action>
+                <action id="-15" name="Set visible" sid="990601761146862" type="comprimento">
+                    <param id="0" name="Visibility">0</param>
                 </action>
             </actions>
             <sub-events>
@@ -272,6 +326,10 @@
                                             <param id="0" name="Variable">gScore</param>
                                             <param id="1" name="Value">10</param>
                                         </action>
+                                        <action id="-10" name="Add to" sid="656825523249052" type="System">
+                                            <param id="0" name="Variable">gScoreTotal</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
                                         <action id="-10" name="Add to" sid="251771716593958" type="System">
                                             <param id="0" name="Variable">gPares</param>
                                             <param id="1" name="Value">1</param>
@@ -349,6 +407,10 @@
                                                         </action>
                                                         <action id="-11" name="Subtract from" sid="310104109568163" type="System">
                                                             <param id="0" name="Variable">gScore</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                        <action id="-11" name="Subtract from" sid="764123948170017" type="System">
+                                                            <param id="0" name="Variable">gScoreTotal</param>
                                                             <param id="1" name="Value">5</param>
                                                         </action>
                                                         <action id="-16" name="Wait" sid="589041324862177" type="System">
@@ -444,7 +506,7 @@
                     <param id="1" name="Value">gLabelVolume</param>
                 </action>
                 <action id="1" name="Set value" sid="228071316755547" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_tempoJogado&quot;</param>
+                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
                     <param id="1" name="Value">gTempo&amp;&quot; Seg&quot;</param>
                 </action>
                 <action id="1" name="Set value" sid="800880814189828" type="ItemTable">
@@ -458,6 +520,10 @@
                 <action id="1" name="Set value" sid="718399354804640" type="ItemTable">
                     <param id="0" name="Key">&quot;user_cartas_viradas&quot;</param>
                     <param id="1" name="Value">gViradas</param>
+                </action>
+                <action id="1" name="Set value" sid="842398889016823" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_scoreTotal&quot;</param>
+                    <param id="1" name="Value">gScoreTotal</param>
                 </action>
                 <action id="1" name="Set value" sid="748461705475272" type="ItemTable">
                     <param id="0" name="Key">&quot;user_mesa&quot;</param>
@@ -489,7 +555,7 @@
                             <param id="0" name="Seconds">0.2</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="304474279914804" type="System">
-                            <param id="0" name="Layout">fase 1</param>
+                            <param id="0" name="Layout">fase 2</param>
                         </action>
                     </actions>
                 </event-block>

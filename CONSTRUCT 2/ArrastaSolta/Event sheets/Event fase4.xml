@@ -198,7 +198,7 @@
                     <param id="1" name="Value">var_TotalPontos</param>
                 </action>
                 <action id="1" name="Set value" sid="423846722490020" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_tempoJogado&quot;</param>
+                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
                     <param id="1" name="Value">tempoJogado&amp;&quot; Sec&quot;</param>
                 </action>
                 <action id="1" name="Set value" sid="775418215236856" type="ItemTable">
@@ -212,6 +212,10 @@
                 <action id="1" name="Set value" sid="995165753835796" type="ItemTable">
                     <param id="0" name="Key">&quot;user_erros&quot;</param>
                     <param id="1" name="Value">erros</param>
+                </action>
+                <action id="1" name="Set value" sid="690403356535954" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
                 </action>
                 <action id="1" name="Set value" sid="663549551225851" type="ItemTable">
                     <param id="0" name="Key">&quot;user_data&quot;</param>

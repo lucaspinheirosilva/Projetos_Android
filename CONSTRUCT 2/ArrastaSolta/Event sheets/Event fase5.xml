@@ -203,7 +203,7 @@
                     <param id="1" name="Value">var_TotalPontos</param>
                 </action>
                 <action id="1" name="Set value" sid="363776977835732" type="ItemTable">
-                    <param id="0" name="Key">&quot;user_tempoJogado&quot;</param>
+                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
                     <param id="1" name="Value">tempoJogado&amp;&quot; Sec&quot;</param>
                 </action>
                 <action id="1" name="Set value" sid="952003313000251" type="ItemTable">
@@ -221,6 +221,10 @@
                 <action id="1" name="Set value" sid="362648122533501" type="ItemTable">
                     <param id="0" name="Key">&quot;user_data&quot;</param>
                     <param id="1" name="Value">data_e_Hora</param>
+                </action>
+                <action id="1" name="Set value" sid="348412413672587" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
                 </action>
                 <action id="4" name="Save" sid="945118156315817" type="ItemTable">
                     <param id="0" name="ID">nomeJogador &amp;&quot; fase &quot;&amp;numeroFase</param>

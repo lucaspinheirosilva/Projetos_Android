@@ -3,8 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GlobalVariables</name>
     <events>
+        <variable constant="0" name="gScoreTotal" sid="510608860905721" static="0" type="number">0</variable>
         <variable constant="0" name="gErros" sid="660523605748737" static="0" type="number">0</variable>
-        <variable constant="0" name="gFase" sid="616031369738967" static="0" type="number">1</variable>
+        <variable constant="0" name="gFase" sid="616031369738967" static="0" type="number">0</variable>
         <variable constant="0" name="gNomeJogador" sid="336964187226124" static="0" type="text">lucas</variable>
         <variable constant="0" name="gData" sid="359078974899126" static="0" type="text"></variable>
         <variable constant="0" name="gVolume" sid="717470503813644" static="0" type="number">-50</variable>
@@ -23,8 +24,8 @@
         <variable constant="0" name="gMargenEsquerda" sid="437792429307389" static="0" type="number">0</variable>
         <variable constant="0" name="gComprimentoCarta" sid="117300141267167" static="0" type="number">0</variable>
         <variable constant="0" name="gAlturaCarta" sid="621061729184784" static="0" type="number">0</variable>
-        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">2</variable>
-        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">2</variable>
+        <variable constant="0" name="gNumeroColunas" sid="880911900239608" static="0" type="number">0</variable>
+        <variable constant="0" name="gNumeroLinhas" sid="521079057105010" static="0" type="number">0</variable>
         <variable constant="0" name="gNumeroCartas" sid="247005205694549" static="0" type="number">0</variable>
         <variable constant="0" name="gParFinal" sid="273496521373393" static="0" type="number">0</variable>
         <variable constant="0" name="gViradas" sid="692831104781984" static="0" type="number">0</variable>

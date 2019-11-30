@@ -219,6 +219,10 @@
                     <param id="0" name="Key">&quot;user_erros&quot;</param>
                     <param id="1" name="Value">erros</param>
                 </action>
+                <action id="1" name="Set value" sid="873304897938869" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
+                </action>
                 <action id="1" name="Set value" sid="242607987580500" type="ItemTable">
                     <param id="0" name="Key">&quot;user_data&quot;</param>
                     <param id="1" name="Value">data_e_Hora</param>

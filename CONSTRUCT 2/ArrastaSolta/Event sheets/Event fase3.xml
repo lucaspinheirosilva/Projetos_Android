@@ -215,6 +215,10 @@
                     <param id="0" name="Key">&quot;user_ultimaFase&quot;</param>
                     <param id="1" name="Value">numeroFase</param>
                 </action>
+                <action id="1" name="Set value" sid="941685718088415" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
+                </action>
                 <action id="1" name="Set value" sid="855020660730079" type="ItemTable">
                     <param id="0" name="Key">&quot;user_erros&quot;</param>
                     <param id="1" name="Value">erros</param>

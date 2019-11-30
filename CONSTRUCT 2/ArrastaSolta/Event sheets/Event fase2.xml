@@ -220,6 +220,10 @@
                     <param id="0" name="Key">&quot;user_pontosFase&quot;</param>
                     <param id="1" name="Value">pontosFase</param>
                 </action>
+                <action id="1" name="Set value" sid="328655240137184" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
+                </action>
                 <action id="1" name="Set value" sid="651463403131206" type="ItemTable">
                     <param id="0" name="Key">&quot;user_data&quot;</param>
                     <param id="1" name="Value">data_e_Hora</param>
