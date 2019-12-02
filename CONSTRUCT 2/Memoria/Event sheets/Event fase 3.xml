@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event fase 3</name>
+    <events>
+        <comment>Inicializa as variaveis</comment>
+        <event-block sid="526202646080379">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="938859687569967" type="System" />
+            </conditions>
+            <actions>
+                <action id="62" name="Go online" sid="670210343432506" type="Firebase" />
+                <action id="-9" name="Set value" sid="260373179341045" type="System">
+                    <param id="0" name="Variable">gFase</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-9" name="Set value" sid="439203174883736" type="System">
+                    <param id="0" name="Variable">gNumeroColunas</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action id="-9" name="Set value" sid="682729706816855" type="System">
+                    <param id="0" name="Variable">gNumeroLinhas</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="872599482087935" type="System">
+                    <param id="0" name="Variable">gErros</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="159219430198882" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="106708470521621" type="System">
+                    <param id="0" name="Variable">gPares</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="529877052902657" type="System">
+                    <param id="0" name="Variable">gScore</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="419537107932675" type="System">
+                    <param id="0" name="Variable">gViradas</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="510359542837470" type="System">
+                    <param id="0" name="Variable">gParFinal</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="417420597614930" type="System">
+                    <param id="0" name="Variable">gNumeroCartas</param>
+                    <param id="1" name="Value">gNumeroColunas*gNumeroLinhas</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="809334652231449" type="System">
+                    <param id="0" name="Variable">gAlturaCarta</param>
+                    <param id="1" name="Value">int((WindowHeight-((gNumeroLinhas+0.5)*gEspacoEntreCartas))/gNumeroLinhas)&#x0D;&#x0A;</param>
+                </action>
+                <action id="-9" name="Set value" sid="444039305638005" type="System">
+                    <param id="0" name="Variable">gAlturaCarta</param>
+                    <param id="1" name="Value">150</param>
+                </action>
+                <action id="-9" name="Set value" sid="813901353289546" type="System">
+                    <param id="0" name="Variable">gComprimentoCarta</param>
+                    <param id="1" name="Value">120</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="195170697932114" type="System">
+                    <param id="0" name="Variable">gComprimentoCarta</param>
+                    <param id="1" name="Value">int(gAlturaCarta * (Card.Width/Card.Height))</param>
+                </action>
+                <action id="-9" name="Set value" sid="410049839949378" type="System">
+                    <param id="0" name="Variable">gMargenEsquerda</param>
+                    <param id="1" name="Value">220</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="890171818841951" type="System">
+                    <param id="0" name="Variable">gMargenEsquerda</param>
+                    <param id="1" name="Value">int((WindowWidth - (gComprimentoCarta + gEspacoEntreCartas) * gNumeroColunas) / 2)&#x0D;&#x0A;</param>
+                </action>
+                <action disabled="1" id="-9" name="Set value" sid="749018699382200" type="System">
+                    <param id="0" name="Variable">gMargenTopo</param>
+                    <param id="1" name="Value">int((WindowHeight-(gAlturaCarta + gEspacoEntreCartas)*gNumeroLinhas)/1)</param>
+                </action>
+                <action id="-9" name="Set value" sid="931237598086418" type="System">
+                    <param id="0" name="Variable">gMargenTopo</param>
+                    <param id="1" name="Value">60</param>
+                </action>
+                <action id="-9" name="Set value" sid="585005255162840" type="System">
+                    <param id="0" name="Variable">gCardsCountPicked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="877086845305713" type="System">
+                    <param id="0" name="Variable">gScore</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="700034189222620" type="System">
+                    <param id="0" name="Variable">gPares</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="187517488271540" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="1" name="Set size" sid="222061606180109" type="Deck">
+                    <param id="0" name="Width">gNumeroCartas</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="0" name="Set text" sid="570562073659649" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
+                <action id="-15" name="Set visible" sid="183122777595986" type="comprimento">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Insere valor vetor -cartas</comment>
+                <variable constant="0" name="currentCard" sid="578349084733191" static="0" type="number">-1</variable>
+                <event-block sid="883917525352844">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="747190076220732" type="System">
+                            <param id="0" name="Count">gNumeroCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="964238935919211" type="System">
+                            <param id="0" name="Variable">currentCard</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="441665051598611" type="Deck">
+                            <param id="0" name="X">currentCard</param>
+                            <param id="1" name="Value">currentCard</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Embaralhar Cartas</comment>
+                <variable constant="0" name="posicaoCarta1" sid="964103234602264" static="0" type="number">0</variable>
+                <variable constant="0" name="posicaoCarta2" sid="234314969549932" static="0" type="number">0</variable>
+                <variable constant="0" name="valorCarta1" sid="404142128035897" static="0" type="number">0</variable>
+                <variable constant="0" name="valorCarta2" sid="537436395857403" static="0" type="number">0</variable>
+                <event-block sid="893730292735222">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="769961185907217" type="System">
+                            <param id="0" name="Count">gRepetirCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="374114426273465" type="System">
+                            <param id="0" name="Variable">posicaoCarta1</param>
+                            <param id="1" name="Value">int(random(0,gNumeroCartas))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="876874934568929" type="System">
+                            <param id="0" name="Variable">posicaoCarta2</param>
+                            <param id="1" name="Value">int(random(0,gNumeroCartas))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="138626049516280" type="System">
+                            <param id="0" name="Variable">valorCarta1</param>
+                            <param id="1" name="Value">Deck.At(posicaoCarta1)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="335997263299535" type="System">
+                            <param id="0" name="Variable">valorCarta2</param>
+                            <param id="1" name="Value">Deck.At(posicaoCarta2)</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="164958408849592" type="Deck">
+                            <param id="0" name="X">posicaoCarta1</param>
+                            <param id="1" name="Value">valorCarta2</param>
+                        </action>
+                        <action id="2" name="Set at X" sid="448177767111050" type="Deck">
+                            <param id="0" name="X">posicaoCarta2</param>
+                            <param id="1" name="Value">valorCarta1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Cria o layout</comment>
+                <variable constant="0" name="CurrentTableauCard" sid="802687297707764" static="0" type="number">-1</variable>
+                <variable constant="0" name="CurrentColumn" sid="744012070401206" static="0" type="number">-1</variable>
+                <variable constant="0" name="CurrentRow" sid="177108785813802" static="0" type="number">-1</variable>
+                <event-block sid="963336343419142">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="162995605339275" type="System">
+                            <param id="0" name="Count">gNumeroCartas</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="998917438035967" type="System">
+                            <param id="0" name="Variable">CurrentTableauCard</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="919975714153426" type="System">
+                            <param id="0" name="Variable">CurrentColumn</param>
+                            <param id="1" name="Value">CurrentTableauCard%gNumeroColunas</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="533697054492464">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="853382038535103" type="System">
+                                    <param id="0" name="First value">CurrentColumn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="802541310787751" type="System">
+                                    <param id="0" name="Variable">CurrentRow</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="856913205240300">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="730942854627035" type="System">
+                                    <param id="0" name="Object to create">Card</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">gMargenEsquerda + (CurrentColumn*(gComprimentoCarta + gEspacoEntreCartas))&#x0D;&#x0A;</param>
+                                    <param id="3" name="Y">gMargenTopo + (CurrentRow*(gAlturaCarta + gEspacoEntreCartas))</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="388817493234700" type="Card">
+                                    <param id="0" name="Width">gComprimentoCarta</param>
+                                    <param id="1" name="Height">gAlturaCarta</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="398171993808948" type="Card">
+                                    <param id="0" name="Instance variable">CardFaceFrame</param>
+                                    <param id="1" name="Value">Deck.At(CurrentTableauCard)</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="574661094153233" type="Card">
+                                    <param id="0" name="Instance variable">FaceUp</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="448622098682380" type="comprimento">
+                                    <param id="0" name="Text">&quot;COMPRIMENTO &quot;&amp;gComprimentoCarta&amp;&quot; ALTURA: &quot;&amp;gAlturaCarta&amp;&quot; MARGEM TOPO &quot;&amp;gMargenTopo &amp;&quot;  MARGEM ESQUERDA &quot;&amp; gMargenEsquerda&amp;&quot; NUMERO DE CARTAS &quot;&amp; gNumeroCartas &amp;&quot; NUMERO COLUNAS &quot;&amp;gNumeroColunas&amp;&quot; NUMERO LINHAS &quot;&amp;gNumeroLinhas</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="592790239401308">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="536461567180732" type="Touch">
+                    <param id="0" name="Object">Card</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="899195242218109">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="549532456981980" type="System">
+                            <param id="0" name="Variable">gCardsCountPicked</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="794467376823619" type="Card">
+                            <param id="0" name="Instance variable">FaceUp</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="468771442827086" type="System">
+                            <param id="0" name="Variable">gCardsCountPicked</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="614253355562388" type="Card">
+                            <param id="0" name="Instance variable">FaceUp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="528655214492180" type="Card">
+                            <param id="0" name="Animation">&quot;cartas&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="815686439531624" type="Card">
+                            <param id="0" name="Frame number">Card.CardFaceFrame</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="677909366070299">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="195076728448038" type="System">
+                                    <param id="0" name="Variable">gCardsCountPicked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="290360106715114" type="System">
+                                    <param id="0" name="Variable">gFramePrimeiraCarta</param>
+                                    <param id="1" name="Value">Card.CardFaceFrame</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="693009220342669">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="917695809551453" type="System">
+                                    <param id="0" name="Variable">gCardsCountPicked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="470964376935332" type="System">
+                                    <param id="0" name="Variable">gFrameSegundaCarta</param>
+                                    <param id="1" name="Value">Card.CardFaceFrame</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="276869259424425" type="System">
+                                    <param id="0" name="Variable">gViradas</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="755816182120529" type="viradasCartas">
+                                    <param id="0" name="Text">gViradas</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>ACERTOU</comment>
+                                <event-block sid="685758263738764">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="515452413191041" type="System">
+                                            <param id="0" name="First value">gFramePrimeiraCarta-(gFramePrimeiraCarta%2)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">gFrameSegundaCarta-(gFrameSegundaCarta%2)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="855324056812047" type="System">
+                                            <param id="0" name="Variable">gParFinal</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="214788772649945" type="System">
+                                            <param id="0" name="Variable">gScore</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="223128441474779" type="System">
+                                            <param id="0" name="Variable">gScoreTotal</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="707534828409930" type="System">
+                                            <param id="0" name="Variable">gPares</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="517685715310009" type="paresEncontrados">
+                                            <param id="0" name="Text">gPares</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="381237239936072" type="score">
+                                            <param id="0" name="Text">gScore</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="278030756274407">
+                                            <conditions>
+                                                <condition id="-19" name="Pick all" sid="434820375996742" type="System">
+                                                    <param id="0" name="Object">Card</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="267127685675834">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="219434021838966" type="Card">
+                                                            <param id="0" name="Instance variable">FaceUp</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-16" name="Wait" sid="333558909272929" type="System">
+                                                            <param id="0" name="Seconds">1</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="564294715623772" type="Audio">
+                                                            <param id="0" name="Audio file">plim</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">gVolume</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                        <action id="-9" name="Destroy" sid="919292646320070" type="Card" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <comment>ERROU</comment>
+                                <event-block sid="210339510769820">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Compare two values" sid="961392743006425" type="System">
+                                            <param id="0" name="First value">gFramePrimeiraCarta-(gFramePrimeiraCarta%2)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">gFrameSegundaCarta-(gFrameSegundaCarta%2)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="164495331776532">
+                                            <conditions>
+                                                <condition id="-19" name="Pick all" sid="225748761749077" type="System">
+                                                    <param id="0" name="Object">Card</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="249207608733625">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="100995345049085" type="Card">
+                                                            <param id="0" name="Instance variable">FaceUp</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="384082434585441" type="Audio">
+                                                            <param id="0" name="Audio file">error</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">gVolume</param>
+                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                        <action id="-11" name="Subtract from" sid="660436149417696" type="System">
+                                                            <param id="0" name="Variable">gScore</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                        <action id="-11" name="Subtract from" sid="589672079886455" type="System">
+                                                            <param id="0" name="Variable">gScoreTotal</param>
+                                                            <param id="1" name="Value">5</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="633332655068910" type="System">
+                                                            <param id="0" name="Seconds">1</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="796572505287058" type="Card">
+                                                            <param id="0" name="Animation">&quot;backCard&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="253618221482419" type="Card">
+                                                            <param id="0" name="Instance variable">FaceUp</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="0" name="Set text" sid="148435631538383" type="score">
+                                                            <param id="0" name="Text">gScore</param>
+                                                        </action>
+                                                        <action id="-10" name="Add to" sid="257203010130038" type="System">
+                                                            <param id="0" name="Variable">gErros</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="480582589933245">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="464533630466728" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="448015940952530" type="System">
+                                            <param id="0" name="Variable">gCardsCountPicked</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="879905937688596" type="System">
+                                            <param id="0" name="Variable">gFramePrimeiraCarta</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="136768669960888" type="System">
+                                            <param id="0" name="Variable">gFrameSegundaCarta</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>SALVA OS DADOS NO FIREBASE</comment>
+        <event-block sid="843030863377034">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="659849900598439" type="System">
+                    <param id="0" name="Variable">gParFinal</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">gNumeroCartas/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="918759206217789" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="-15" name="Set visible" sid="134708428521186" type="parabens">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="635471375926780" type="btnProximo">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="993817826265040" type="parabens">
+                    <param id="0" name="Text">&quot;PARABÉNS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
+                </action>
+                <action id="1" name="Set value" sid="914650132646939" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_nome&quot;</param>
+                    <param id="1" name="Value">gNomeJogador</param>
+                </action>
+                <action id="1" name="Set value" sid="739016495844453" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_erros&quot;</param>
+                    <param id="1" name="Value">gErros</param>
+                </action>
+                <action id="1" name="Set value" sid="645626599223189" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_fase&quot;</param>
+                    <param id="1" name="Value">gFase</param>
+                </action>
+                <action id="1" name="Set value" sid="229939767821029" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_data&quot;</param>
+                    <param id="1" name="Value">gData</param>
+                </action>
+                <action id="1" name="Set value" sid="500447443907754" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_volume&quot;</param>
+                    <param id="1" name="Value">gLabelVolume</param>
+                </action>
+                <action id="1" name="Set value" sid="231035643294948" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_TempoJogado&quot;</param>
+                    <param id="1" name="Value">gTempo&amp;&quot; Seg&quot;</param>
+                </action>
+                <action id="1" name="Set value" sid="199052057291043" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_pares_mont&quot;</param>
+                    <param id="1" name="Value">gPares</param>
+                </action>
+                <action id="1" name="Set value" sid="863800949360616" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_pontos&quot;</param>
+                    <param id="1" name="Value">gScore</param>
+                </action>
+                <action id="1" name="Set value" sid="946320936673837" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_cartas_viradas&quot;</param>
+                    <param id="1" name="Value">gViradas</param>
+                </action>
+                <action id="1" name="Set value" sid="165657701992707" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_scoreTotal&quot;</param>
+                    <param id="1" name="Value">gScoreTotal</param>
+                </action>
+                <action id="1" name="Set value" sid="319853671394964" type="ItemTable">
+                    <param id="0" name="Key">&quot;user_mesa&quot;</param>
+                    <param id="1" name="Value">gNumeroColunas&amp;&quot; Col X &quot;&amp;gNumeroLinhas&amp;&quot; Lin = &quot;&amp;gNumeroCartas&amp;&quot; Cartas&quot; </param>
+                </action>
+                <action id="4" name="Save" sid="750001917205652" type="ItemTable">
+                    <param id="0" name="ID">gNomeJogador&amp;&quot; fase &quot;&amp;gFase</param>
+                    <param id="1" name="Set mode">0</param>
+                    <param id="2" name="Tag">&quot;save&quot;</param>
+                </action>
+                <action id="61" name="Go offline" sid="217247361463303" type="Firebase" />
+            </actions>
+        </event-block>
+        <comment>VAI PARA PROXIMA FASE</comment>
+        <event-block sid="429935116110279">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="287953987215396" type="Touch">
+                    <param id="0" name="Object">btnProximo</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="604582894117557">
+                    <conditions>
+                        <condition id="-9" name="Is visible" sid="151534369778085" type="btnProximo" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="174161089216277" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="457560119945249" type="System">
+                            <param id="0" name="Layout">fase 4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>SETA VOLUME PARA MAIS</comment>
+        <event-block sid="410727768413757">
+            <conditions>
+                <condition id="3" name="On touched object" sid="277777088054382" type="Touch">
+                    <param id="0" name="Object">VolumeMais</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="280400750126708" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">-1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="859347232715326" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-10" name="Add to" sid="172225443399942" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="368252700235636" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>SETA VOLUME PARA MENOS</comment>
+        <event-block sid="749158596132290">
+            <conditions>
+                <condition id="3" name="On touched object" sid="208684978430602" type="Touch">
+                    <param id="0" name="Object">VolumeMenos</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="480657482544012" type="System">
+                    <param id="0" name="First value">gVolume</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">-90</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="448497885032153" type="System">
+                    <param id="0" name="Variable">gVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="654573505543794" type="System">
+                    <param id="0" name="Variable">gLabelVolume</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="183061779360489" type="volume">
+                    <param id="0" name="Text">gLabelVolume</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="678147589995722">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="697239922484275" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="526577856416997" type="System">
+                    <param id="0" name="Variable">gTempo</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="537556258459748" type="System">
+                    <param id="0" name="Variable">gData</param>
+                    <param id="1" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

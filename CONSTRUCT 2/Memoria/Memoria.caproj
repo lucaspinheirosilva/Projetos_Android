@@ -305,12 +305,16 @@
         <layout>Splash.xml</layout>
         <layout>fase 1.xml</layout>
         <layout>fase 2.xml</layout>
+        <layout>fase 3.xml</layout>
+        <layout>fase 4.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event splash.xml</event-sheet>
         <event-sheet>Event fase 1.xml</event-sheet>
         <event-sheet>Event fase 2.xml</event-sheet>
         <event-sheet>GlobalVariables.xml</event-sheet>
+        <event-sheet>Event fase 3.xml</event-sheet>
+        <event-sheet>Event fase 4.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="8">

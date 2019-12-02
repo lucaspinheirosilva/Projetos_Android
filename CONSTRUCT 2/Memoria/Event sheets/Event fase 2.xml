@@ -483,7 +483,7 @@
                     <param id="0" name="Visibility">1</param>
                 </action>
                 <action id="0" name="Set text" sid="524954898761910" type="parabens">
-                    <param id="0" name="Text">&quot;PARABENS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
+                    <param id="0" name="Text">&quot;PARABÉNS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
                 </action>
                 <action id="1" name="Set value" sid="743977876644343" type="ItemTable">
                     <param id="0" name="Key">&quot;user_nome&quot;</param>
@@ -555,7 +555,7 @@
                             <param id="0" name="Seconds">0.2</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="155531283094610" type="System">
-                            <param id="0" name="Layout">fase 2</param>
+                            <param id="0" name="Layout">fase 3</param>
                         </action>
                     </actions>
                 </event-block>

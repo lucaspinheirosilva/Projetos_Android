@@ -483,7 +483,7 @@
                     <param id="0" name="Visibility">1</param>
                 </action>
                 <action id="0" name="Set text" sid="746426169073918" type="parabens">
-                    <param id="0" name="Text">&quot;PARABENS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
+                    <param id="0" name="Text">&quot;PARABÉNS!! sua pontuação foi de &quot;&amp;gScore&amp;&quot; Pontos&quot;</param>
                 </action>
                 <action id="1" name="Set value" sid="691368055370317" type="ItemTable">
                     <param id="0" name="Key">&quot;user_nome&quot;</param>
