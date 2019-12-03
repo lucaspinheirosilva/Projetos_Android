@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Amigo Azul</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        th#thimgHeader{
+            border-bottom: 1px solid #0000;
+            padding: 0px 18px;
+            text-align: center;
+        }
+        th#thimgHeader img{
+            width: 95%;
+            padding: 5px;
+        }
+        th#thtituloHeader{
+            padding: 0px 0px;
+        }
+        th#thtituloHeader h4{
+            font-weight: bold;
+            padding: 0px 0px 5px 0px;
+            letter-spacing: 1px;
+        }
+        body{
+            background: rgba(13, 168, 255, 0);
+        }
+
+
+        @media print {
+            body,
+            .content,
+            .page-header-fixed {
+                padding: 0 !important;
+                margin: 8px 5px 8px 5px !important;
+            }
+            .sidebar,
+            .header,
+            .panel-heading,
+            .theme-panel {
+                display: none !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <table id="ATV_Arrasta_e_Soltas" class="table table-condensed row-border hover" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th id="thtituloHeader" colspan="10">
+                <h4 class="text-center">Relatório Jogo Arasta e Solta</h4>
+            </th>
+        </tr>
+        <tr>
+            <th align="center">Fase</th>
+            <th align="center">Player</th>
+            <th align="center">Data</th>
+            <th align="center">Tempo</th>
+            <th align="center">Erros</th>
+            <th align="center">Pr. Montados</th>
+            <th align="center">Pontos</th>
+            <th align="center">Acumulados</th>
+            <th align="center">Volume</th>
+        </tr>
+        </thead>
+        <tbody id="arrastaSoltaGames">
+
+        </tbody>
+        <tfoot id="footer">
+        <tr>
+            <th colspan="5">
+                <h3 id="markPage"></h3>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+
+    <table id="ATV_Memoria" class="table table-condensed row-border hover" cellspacing="0" width="98%">
+        <thead>
+        <tr>
+            <th id="thtituloHeader" colspan="10">
+                <h4 class="text-center">Relatório Jogo da Memória</h4>
+            </th>
+        </tr>
+        <tr>
+            <th align="center">Fase</th>
+            <th align="center">Player</th>
+            <th align="center">Data</th>
+            <th align="center">Tempo</th>
+            <th align="center">Cartas Viradas</th>
+			<th align="center">Erros</th>
+            <th align="center">Pr. Montados</th>
+            <th align="center">Pontos</th>
+            <th align="center">Acumulados</th>
+            <th align="center">Volume</th>
+        </tr>
+        </thead>
+        <tbody id="memoriaGames">
+
+        </tbody>
+        <tfoot id="footer">
+        <tr>
+            <th colspan="5">
+                <h3 id="markPage"></h3>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- firebase JS -->
+<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+<script>
+    function convertUTCDateToLocalDate(date) {
+        var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+
+        var offset = date.getTimezoneOffset() / 60;
+        var hours = date.getHours();
+
+        newDate.setHours(hours - offset);
+
+        return newDate;
+    }
+    // Configuração de acesso ao projeto firebase
+    var config = {
+        apiKey: "AIzaSyCpkOdWbic423nqO0sZYmIWUfdefie0lJQ",
+        authDomain: "amigo-azul.firebaseapp.com",
+        databaseURL: "https://amigo-azul.firebaseio.com",
+        projectId: "amigo-azul",
+        storageBucket: "amigo-azul.appspot.com",
+        messagingSenderId: "105023191778",
+        appId: "1:105023191778:web:891b58d6ac83c400c27cbb",
+        measurementId: "G-N8PHK77F45"
+    };
+
+    //initialize your firebase
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var firebaseArrastaCollection = database.ref().child('ATV_Arrasta_e_Soltas');
+    var firebaseMemoriaCollection = database.ref().child('ATV_Memoria');
+
+    firebaseArrastaCollection.on('value',function(fases){
+
+        var allGamesHtml = "";
+        var date;
+
+        fases.forEach(function(firebaseGameReference){
+
+            var game = firebaseGameReference.val();
+            date = convertUTCDateToLocalDate(new Date(game.user_data));
+            var resultadoGamesHtml =	`<tr>
+                                            <td align="center">`+game.user_ultimaFase+`</td>
+                                            <td align="left">`+game.user_nome+`</td>
+                                            <td align="left">`+date.toLocaleString()+`</td>
+                                            <td align="left">`+game.user_TempoJogado+`</td>
+                                            <td align="center">`+game.user_erros+`</td>
+                                            <td align="center">`+game.user_paresMontados+`</td>
+                                            <td align="center">`+game.user_pontosFase+`</td>
+                                            <td align="center">`+game.user_totalPontos+`</td>
+											<td align="center">`+game.user_volume+`</td>
+                                        </tr>`;
+            allGamesHtml = allGamesHtml + resultadoGamesHtml;
+        });
+        $('#arrastaSoltaGames').html(allGamesHtml);
+    });
+
+    firebaseMemoriaCollection.on('value',function(fases){
+console.log(fases);
+        var allGamesHtml = "";
+        var date;
+
+        fases.forEach(function(firebaseGameReference){
+            var game = firebaseGameReference.val();
+            date = convertUTCDateToLocalDate(new Date(game.user_data));
+            var resultadoGamesHtml =	`<tr>
+                                            <td align="center">`+game.user_fase+`</td>
+                                            <td align="left">`+game.user_nome+`</td>
+                                            <td align="left">`+date.toLocaleString()+`</td>
+                                            <td align="left">`+game.user_TempoJogado+`</td>
+                                            <td align="center">`+game.user_cartas_viradas+`</td>
+                                            <td align="center">`+game.user_erros+`</td>
+                                            <td align="center">`+game.user_pares_mont+`</td>
+                                            <td align="center">`+game.user_pontos+`</td>
+                                            <td align="center">`+game.user_scoreTotal+`</td>
+                                            <td align="center">`+game.user_volume+`</td>
+                                        </tr>`;
+            allGamesHtml = allGamesHtml + resultadoGamesHtml;
+        });
+        $('#memoriaGames').html(allGamesHtml);
+    });
+</script>
+</body>
+</html>
