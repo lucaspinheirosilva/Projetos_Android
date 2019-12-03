@@ -34,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.png');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">			
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" >
 					<span class="login100-form-title p-b-49">
 						Amigo Azul
 					</span>
@@ -60,7 +60,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" onclick="verificarUsuario">
+							<button type="button" class="login100-form-btn" onclick="verificarUsuario()">
 								Login
 							</button>
 						</div>
@@ -72,19 +72,7 @@
 		</div>
 	</div>
 
-	<script>
-		function verificarUsuario() {
-			// document.getElementById("demo").innerHTML = "Hello World";
-			var emailUser = document.getElementById('username').value
-			var passUser = document.getElementById('pass').value
-
-			if (emailUser == "lucas@unicesumar.com" && passUser == "123456") {
-				window.location.replace("home.html");
-			} else {				
-				alert("ERRO NO USUARIO OU SENHA!");
-			}
-		}
-	</script>
+	
 	<div id="dropDownSelect1"></div>
 
 	<!--===============================================================================================-->
@@ -103,6 +91,28 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	
+	<script>
+		function verificarUsuario() {
+			// document.getElementById("demo").innerHTML = "Hello World";
+			var emailUser = document.getElementById('username').value
+			var passUser = document.getElementById('pass').value
+
+			console.log(emailUser);
+			console.log(passUser);
+
+			if (emailUser == "lucas@unicesumar.com" && passUser == "123456") {
+				window.location.href = "home.html";
+			} 
+			else if (emailUser == "thaise@gmail.com" && passUser == "123456") {
+				window.location.href = "home_thaise.html";
+			} 
+			else {				
+				alert("ERRO NO USUARIO OU SENHA!");
+				window.location.href = "index.html";
+			}
+		}
+	</script>
 
 </body>
 
