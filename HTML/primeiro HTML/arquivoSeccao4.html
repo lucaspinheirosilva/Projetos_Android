@@ -31,7 +31,9 @@
 
         //JAVA SCRIPT PARA MUDAR NOME
         function sorteioNumero(){
-        resultado.innerHTML = Math.random()*50;            
+        resultado.innerHTML = Math.random()*50;  
+
+ 
         }
         window.onload = sorteioNumero;
 
@@ -40,32 +42,89 @@
     </head>
     
     <body>
-        <p id="nome">Hello Wordo</p>
-        <p id="resultado">15,99</p>
-        <p>15,99 &real;</p>
+        
+        <section>
+            <a href="#primeiros_passos" >primeiros passos</a> |
+            <a href="#listas_desordenadas" > Lista Desordenadas</a> |
+            <a href="#listas_ordenadas" > Lista Desordenadas</a> |
+            <a href="#texto_titulo" > Texto com Título</a> |
+            <a href="#imagen" > Imagens</a>| 
+            <a href="#links" > Links</a>
+        </section>
+          
+          
+        <h1 id="primeiros_passos">Primeiros Passos</h1>
+            <p id="nome">Hello World</p>
+            <p id="resultado">15,99</p>
+            <p>15,99 &real;</p>
 
-        <ul>
-        <li>Brasil</li>
-        <li>Argentina</li>
-        <li>Chile</li>
-        <li>Paraguay</li>
+        <h1 id="listas_desordenadas">Listas Desordenadas</h1>
+        <ul type="disk">
+            <li>Brasil</li>
+            <li>Argentina</li>
+            <li>Chile</li>
+            <li>Paraguay</li>
+        </ul>
+        
+        <ul type="circle">
+            <li>Brasil</li>
+            <li>Argentina</li>
+            <li>Chile</li>
+            <li>Paraguay</li>
 
         </ul>
+        <ul type="square">
+            <li>Brasil</li>
+            <li>Argentina</li>
+            <li>Chile</li>
+            <li>Paraguay</li>
+
+        </ul>
+         <h1 id="listas_ordenadas">Listas Ordenadas</h1>
         <ol>
-        <li>Marcos</li> 
-        <li>Maria</li>
-        <li>João</li>
-        <li>Lucas</li>
-
+            <li>Marcos</li> 
+            <li>Maria</li>
+            <li>João</li>
+            <li>Lucas</li>
         </ol>
+        <ol type="A">
+            <li>Marcos</li> 
+            <li>Maria</li>
+            <li>João</li>
+            <li>Lucas</li>
+        </ol>
+        
+        <ol type="I">
+            <li>Marcos</li> 
+            <li>Maria</li>
+            <li>João</li>
+            <li>Lucas</li>
+        </ol>
+        <ol type="a">
+            <li>Marcos</li> 
+            <li>Maria</li>
+            <li>João</li>
+            <li>Lucas</li>
+        </ol>
+        
 
-        <dl>
-        <dt>Unidade 1</dt>
-        <dd>Apresentação do Curso Melhores softwareas para usar neste cuso</dd>
+        <h1 id="texto_titulo">Texto com Título</h1>
+            <dl>
+                <dt>Unidade 1</dt>
+                <dd>Apresentação do Curso Melhores <em>softwares</em> para usar neste cuso</dd>
 
-        <dt>Unidade 2</dt>
-        <dd>Uma breve história do HTML 5</dd>
-        </dl>
+                <dt>Unidade 2</dt>
+                <dd>Uma breve história do HTML 5</dd>
+            </dl>
+         
+        <h1 id="imagen">Imagens</h1>
+        <img src="images/mini_yoda.jpg"
+             width="400px"
+             title="MINI YODA"
+             alt="MINI YODA" >
 
+        <h1 id="links">Links</h1>
+        <a href="http://www.google.com.br"  target="_blank">GOOGLE</a>
+        <br><a href="http://www.facebook.com.br"target="_blank">FACEBOOK</a>
     </body>
 </html>
