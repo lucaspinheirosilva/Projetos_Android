@@ -1,4 +1,4 @@
-package br.com.organizze.activity;
+package br.com.organizze.activity.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
