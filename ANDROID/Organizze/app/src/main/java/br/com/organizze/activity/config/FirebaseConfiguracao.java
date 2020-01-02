@@ -8,8 +8,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class FirebaseConfiguracao {
 
     private static FirebaseAuth autenticacao;
-    //RETORNA A INSTANCIA DO FIREBASE
 
+    //RETORNA A INSTANCIA DO FIREBASE
     public static FirebaseAuth getFirebaseAutenticacao() {
         if (autenticacao == null) {
             autenticacao = FirebaseAuth.getInstance();

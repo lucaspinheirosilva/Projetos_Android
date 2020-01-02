@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.organizze">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light">
-        <activity android:name=".activity.activity.cadastro"></activity>
-        <activity android:name=".activity.activity.LoginActivity"></activity>
+        <activity
+            android:name=".activity.activity.PrincialActivity"
+            android:label="@string/title_activity_princial"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".activity.activity.cadastro" />
+        <activity android:name=".activity.activity.LoginActivity" />
         <activity
             android:name=".activity.activity.MainActivity"
             android:theme="@style/Theme.Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

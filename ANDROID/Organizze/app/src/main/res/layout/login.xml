@@ -28,24 +28,25 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="25dp"
         android:gravity="center"
-        android:text="Crie Sua Conta GRATIS"
+        android:text="Acesse sua conta"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="26sp" />
 
     <EditText
-        android:id="@+id/edttxt_login_Nome"
+        android:id="@+id/edttxt_login_Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="32dp"
         android:layout_marginRight="25dp"
-        android:drawableLeft="@drawable/ic_nome_cinza_24dp"
+        android:drawableLeft="@drawable/ic_email_cinza_24dp"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="E-mail"
         android:inputType="textPersonName"
         android:textColor="#FDFCFCFC"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/edttxt_login_Senha"
@@ -60,16 +61,18 @@
         android:hint="Senha"
         android:inputType="textPersonName"
         android:textColor="#FDFCFCFC"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
 
     <Button
-        android:id="@+id/btn_login_Gravar"
+        android:id="@+id/btn_login_Acessar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="25sp"
-        android:text="Acessar" />
+        android:text="Acessar"
+        android:textSize="20sp" />
 
 
     <!--***NOME PRODUTO***-->

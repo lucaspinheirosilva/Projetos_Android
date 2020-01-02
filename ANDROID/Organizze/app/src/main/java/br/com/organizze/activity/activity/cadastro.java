@@ -10,9 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 import br.com.organizze.R;
 import br.com.organizze.activity.config.FirebaseConfiguracao;
@@ -23,7 +27,8 @@ public class cadastro extends AppCompatActivity {
     EditText nome, email, senha;
     Button gravarCadastro;
     FirebaseAuth autenticacao;
-    Usuario usuario = new Usuario();
+    // INSTANCIAR OUTRAS CLASSES
+    Usuario usuario;
 
 
     @Override
@@ -45,10 +50,11 @@ public class cadastro extends AppCompatActivity {
                 String emailDigitado = email.getText().toString();
                 String senhaDigitado = senha.getText().toString();
 
+                //validar se os campos foram preenchidos
                 if (!nomeDigitado.isEmpty()) {
                     if (!emailDigitado.isEmpty()) {
                         if (!senhaDigitado.isEmpty()) {
-
+                            usuario = new Usuario();
                             usuario.setEmail(emailDigitado);
                             usuario.setSenha(senhaDigitado);
                             usuario.setNome(nomeDigitado);
@@ -80,24 +86,41 @@ public class cadastro extends AppCompatActivity {
         });
 
     }
-    public void CadastrarUsuario(){
+
+    public void CadastrarUsuario() {
         autenticacao = FirebaseConfiguracao.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(),usuario.getSenha()).
-                addOnCompleteListener(this, new OnCompleteListener <AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task <AuthResult> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),
-                            "Cadastro realizado com sucesso",
-                            Toast.LENGTH_SHORT).show();
+                usuario.getEmail(),
+                usuario.getSenha()).
+                addOnCompleteListener(new OnCompleteListener <AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task <AuthResult> task) {
+                        if (task.isSuccessful()) {
+                           finish();
 
-                }else {
-                    Toast.makeText(getApplicationContext(),
-                            "Erro ao Gravar cadastro",
-                            Toast.LENGTH_SHORT).show();
-                };
-            }
-        });
+                        } else {
+
+                            //validação das excessoes do Firebase
+                            String excessao = "";
+                            try {
+                                throw task.getException();
+
+                            } catch (FirebaseAuthWeakPasswordException e) {
+                                excessao = "Digite uma SENHA mais forte!";
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                excessao = "Por favor, digite um E-MAIL valido";
+                            } catch (FirebaseAuthUserCollisionException e) {
+                                excessao = "Esta E-MAIL ja foi cadastrado, use outro por favor";
+                            } catch (Exception e) {
+                                excessao = "ERRO AO CADASTRAR, ERRO GENERICO" + e.getMessage().toUpperCase();
+                                e.printStackTrace();
+                            }
+
+                            Toast.makeText(getApplicationContext(),
+                                    excessao,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

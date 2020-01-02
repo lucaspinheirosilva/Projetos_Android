@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
 import br.com.organizze.R;
+import br.com.organizze.activity.config.FirebaseConfiguracao;
 
 public class MainActivity extends IntroActivity {
+
+    FirebaseAuth autenticacao;
 
     /**
      * https://github.com/heinrichreimer/material-intro
@@ -52,12 +56,33 @@ public class MainActivity extends IntroActivity {
                 .build());
 
     }
-    public  void btnCadastrar(View view){
-        startActivity(new Intent(this,cadastro.class));
+
+    public void onStart() {
+        super.onStart();
+        verificarUsuarioLogado();
+    }
+
+    public void btnCadastrar(View view) {
+        startActivity(new Intent(this, cadastro.class));
 
     }
-    public  void txtvwJaTenhoConta(View view){
+
+    public void txtvwJaTenhoConta(View view) {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
+
+    public void verificarUsuarioLogado() {
+        autenticacao = FirebaseConfiguracao.getFirebaseAutenticacao();
+
+        if (autenticacao.getCurrentUser() != null) {
+            abrirTelaPrincipal();
+        }
+    }
+
+    public void abrirTelaPrincipal() {
+        Intent intent = new Intent(this, PrincialActivity.class);
+        startActivity(intent);
+    }
+
 
 }
