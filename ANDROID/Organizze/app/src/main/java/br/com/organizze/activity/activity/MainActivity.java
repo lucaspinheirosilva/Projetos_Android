@@ -63,7 +63,7 @@ public class MainActivity extends IntroActivity {
     }
 
     public void btnCadastrar(View view) {
-        startActivity(new Intent(this, cadastro.class));
+        startActivity(new Intent(this, CadastroActivity.class));
 
     }
 

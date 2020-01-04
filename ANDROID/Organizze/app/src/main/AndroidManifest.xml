@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light">
+        <activity android:name=".activity.activity.ReceitasActivity" android:theme="@style/receitaTheme"/>
+        <activity android:name=".activity.activity.DespesasActivity" android:theme="@style/despesaTheme"/>
         <activity
             android:name=".activity.activity.PrincialActivity"
             android:label="@string/title_activity_princial"
-            android:theme="@style/NoActionBar"></activity>
-        <activity android:name=".activity.activity.cadastro" />
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".activity.activity.CadastroActivity" />
         <activity android:name=".activity.activity.LoginActivity" />
         <activity
             android:name=".activity.activity.MainActivity"

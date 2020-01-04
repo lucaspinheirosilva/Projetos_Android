@@ -22,7 +22,7 @@ import br.com.organizze.R;
 import br.com.organizze.activity.config.FirebaseConfiguracao;
 import br.com.organizze.activity.model.Usuario;
 
-public class cadastro extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
 
     EditText nome, email, senha;
     Button gravarCadastro;
