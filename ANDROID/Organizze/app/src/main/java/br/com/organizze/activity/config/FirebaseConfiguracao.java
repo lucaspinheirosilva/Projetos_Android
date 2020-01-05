@@ -1,6 +1,8 @@
 package br.com.organizze.activity.config;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Criado por Lucas Pinheiro on 01/01/2020.
@@ -8,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class FirebaseConfiguracao {
 
     private static FirebaseAuth autenticacao;
+    private static DatabaseReference firebase;
 
     //RETORNA A INSTANCIA DO FIREBASE
     public static FirebaseAuth getFirebaseAutenticacao() {
@@ -15,6 +18,12 @@ public class FirebaseConfiguracao {
             autenticacao = FirebaseAuth.getInstance();
         }
         return autenticacao;
+    }
 
+    public static DatabaseReference getFirebaseDatabase() {
+        if (firebase == null) {
+            firebase = FirebaseDatabase.getInstance().getReference();
+        }
+        return firebase;
     }
 }
