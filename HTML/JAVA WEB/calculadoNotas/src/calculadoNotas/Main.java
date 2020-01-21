@@ -14,7 +14,7 @@ public class Main {
 		aluno1.setNomeMae("Marinilde Pinheiro");
 		aluno1.setSerieMatriculada("5 serie");
 		aluno1.setNota1(80.5);
-		aluno1.setNota2(48.0);
+		  aluno1.setNota2(48.0);
 		aluno1.setNota3(70.5);
 		aluno1.setNota4(40.9);
 		
