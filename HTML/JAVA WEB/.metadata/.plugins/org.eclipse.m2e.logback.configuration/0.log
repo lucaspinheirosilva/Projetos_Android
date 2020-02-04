@@ -618,3 +618,8 @@
 2020-02-04 18:21:23,796 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-02-04 18:21:23,796 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Windows\Desktop\Projetos_Android\HTML\JAVA WEB\pos-java-jdbc\src\main\resources
 2020-02-04 18:21:23,799 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-02-04 18:21:23,800 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Windows\Desktop\Projetos_Android\HTML\JAVA WEB\pos-java-jdbc\src\test\resources
+2020-02-04 18:22:17,007 [Worker-91: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-02-04 18:22:17,007 [Worker-91: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Windows\Desktop\Projetos_Android\HTML\JAVA WEB\pos-java-jdbc\src\main\resources
+2020-02-04 18:22:17,010 [Worker-91: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-02-04 18:22:17,010 [Worker-91: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Windows\Desktop\Projetos_Android\HTML\JAVA WEB\pos-java-jdbc\src\test\resources
