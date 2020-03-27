@@ -18,21 +18,24 @@ class _HomeState extends State<Home> {
   TextEditingController alturaController = TextEditingController();
   String informacao = "Informe os seus Dados!!";
 
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   void resetarCampos() {
     pesoController.text = "";
     alturaController.text = "";
     setState(() {
       informacao = "Informe os seus Dados!!";
+      _formKey = GlobalKey<FormState>();
     });
-
   }
 
   void Calcular() {
     setState(() {
       double d_peso = double.parse(pesoController.text);
       double d_altura = double.parse(alturaController.text) / 100;
-
       double imc = d_peso / pow(d_altura, 2);
+
+      GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
       if (imc < 10) {
         informacao = "Desnutrição Grau V";
@@ -74,55 +77,72 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          child: Column(
-            //ALINHA TUDO QUE ESTA NA COLUNA
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              //ICONE
-              Icon(Icons.person_outline, size: 120, color: Colors.green),
+            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                //ALINHA TUDO QUE ESTA NA COLUNA
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  //ICONE
+                  Icon(Icons.person_outline, size: 120, color: Colors.green),
 
-              //PESO
-              TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    labelText: "Peso (Kg)",
-                    labelStyle: TextStyle(color: Colors.green)),
-                style: TextStyle(color: Colors.green, fontSize: 25),
-                controller: pesoController,
-              ),
+                  //PESO
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: "Peso (Kg)",
+                        labelStyle: TextStyle(color: Colors.green)),
+                    style: TextStyle(color: Colors.green, fontSize: 25),
+                    controller: pesoController,
+                    validator: (valor){
+                      if (valor.isEmpty){
+                        return"Informe seu Peso";
+                      }
+                    }
 
-              //ALTURA
-              TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    labelText: "Altura (Cm)",
-                    labelStyle: TextStyle(color: Colors.green)),
-                style: TextStyle(color: Colors.green, fontSize: 25),
-                controller: alturaController,
-              ),
+                  ),
 
-              //BOTÃO
-              Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: Container(
-                    height: 50,
-                    child: RaisedButton(
-                      onPressed: Calcular,
-                      child: Text(
-                        "Calcular",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                      color: Colors.green,
-                    )),
+                  //ALTURA
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: "Altura (Cm)",
+                        labelStyle: TextStyle(color: Colors.green)),
+                    style: TextStyle(color: Colors.green, fontSize: 25),
+                    controller: alturaController,
+                      validator: (valor){
+                        if (valor.isEmpty){
+                          return"Informe seu Altura";
+                        }
+                      }
+                  ),
+
+                  //BOTÃO
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, bottom: 10),
+                    child: Container(
+                        height: 50,
+                        child: RaisedButton(
+                          onPressed: (){
+                            if (_formKey.currentState.validate()){
+                              Calcular();
+                            }
+                          },
+                          child: Text(
+                            "Calcular",
+                            style: TextStyle(color: Colors.white, fontSize: 25),
+                          ),
+                          color: Colors.green,
+                        )),
+                  ),
+                  Text(
+                    informacao,
+                    style: TextStyle(color: Colors.green, fontSize: 25),
+                    textAlign: TextAlign.center,
+                  )
+                ],
               ),
-              Text(
-                informacao,
-                style: TextStyle(color: Colors.green, fontSize: 25),
-                textAlign: TextAlign.center,
-              )
-            ],
-          ),
-        ));
+            )));
   }
 }
