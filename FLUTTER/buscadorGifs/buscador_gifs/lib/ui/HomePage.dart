@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:buscadorgifs/ui/gif_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -32,7 +33,9 @@ class _HomePageState extends State<HomePage> {
             "https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif"),
         centerTitle: true,
       ),
+
       backgroundColor: Colors.black87,
+
       body: Column(
         children: <Widget>[
           Padding(
@@ -43,20 +46,26 @@ class _HomePageState extends State<HomePage> {
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
-                  border: OutlineInputBorder(
+
+                  /**border: OutlineInputBorder(
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(25),
-                          bottomRight: Radius.circular(25)))),
+                          bottomRight: Radius.circular(25)
+                      )
+                  )**/
+              ),
+
               style: TextStyle(color: Colors.white, fontSize: 18),
               textAlign: TextAlign.center,
               onSubmitted: (texto) {
                 setState(() {
                   _pesquisa = texto;
-                  _offSet=0;
+                  _offSet = 0;
                 });
               },
             ),
           ),
+
           Expanded(
               child: FutureBuilder(
                   future: _pegarGifs(),
@@ -117,6 +126,10 @@ class _HomePageState extends State<HomePage> {
                   snapshot.data["data"][index]["images"]["fixed_height"]["url"],
                   height: 300,
                   fit: BoxFit.fill),
+              onTap: (){
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context)=>GifPage(snapshot.data["data"][index])));
+              },
             );
           } else {
             return Container(
@@ -135,10 +148,9 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                onTap: (){
+                onTap: () {
                   setState(() {
-                    _offSet=_offSet+19;
-
+                    _offSet = _offSet + 19;
                   });
                 },
               ),
