@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:buscadorgifs/ui/gif_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:share/share.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<Map> _pegarGifs() async {
     http.Response response;
-    if (_pesquisa == null) {
+    if (_pesquisa == null||_pesquisa.isEmpty) {
       response = await http.get(
           "https://api.giphy.com/v1/gifs/trending?api_key=pu3hKksCJDGBuvS84f9JY2CrAHvRef0c&limit=30&rating=G");
     } else {
@@ -33,28 +34,25 @@ class _HomePageState extends State<HomePage> {
             "https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif"),
         centerTitle: true,
       ),
-
       backgroundColor: Colors.black87,
-
       body: Column(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(10.00),
             child: TextField(
               decoration: InputDecoration(
-                  labelText: " Pesquise Aqui ",
-                  labelStyle: TextStyle(
-                    color: Colors.white,
-                  ),
+                labelText: " Pesquise Aqui ",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
 
-                  /**border: OutlineInputBorder(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(25),
-                          bottomRight: Radius.circular(25)
-                      )
-                  )**/
+                /**border: OutlineInputBorder(
+                    borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25)
+                    )
+                    )**/
               ),
-
               style: TextStyle(color: Colors.white, fontSize: 18),
               textAlign: TextAlign.center,
               onSubmitted: (texto) {
@@ -65,7 +63,6 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-
           Expanded(
               child: FutureBuilder(
                   future: _pegarGifs(),
@@ -103,7 +100,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   int _pegarContador(List dados) {
-    if (_pesquisa == null) {
+    if (_pesquisa == null ) {
       return dados.length;
     } else {
       return dados.length + 1;
@@ -122,13 +119,24 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           if (_pesquisa == null || index < snapshot.data["data"].length) {
             return GestureDetector(
-              child: Image.network(
-                  snapshot.data["data"][index]["images"]["fixed_height"]["url"],
-                  height: 300,
-                  fit: BoxFit.fill),
-              onTap: (){
-                Navigator.push(context, 
-                MaterialPageRoute(builder: (context)=>GifPage(snapshot.data["data"][index])));
+              child: FadeInImage.assetNetwork(
+                image: snapshot.data["data"][index]["images"]["fixed_height"]
+                    ["url"],
+                placeholder:'images/carregando2.gif',
+                width: 300,
+                height: 300,
+                fit: BoxFit.cover,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            GifPage(snapshot.data["data"][index])));
+              },
+              onLongPress: () {
+                Share.share(snapshot.data["data"][index]["images"]
+                    ["fixed_height"]["url"]);
               },
             );
           } else {

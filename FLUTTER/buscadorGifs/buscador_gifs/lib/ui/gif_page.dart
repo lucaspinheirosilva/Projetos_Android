@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class GifPage extends StatelessWidget {
   Map _gifData;
@@ -18,9 +19,11 @@ class GifPage extends StatelessWidget {
         ),
         backgroundColor: Colors.black,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.share), onPressed: () {
-
-          })
+          IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {
+                Share.share(_gifData["data"]["fixed_height"]["url"]);
+              })
         ],
       ),
       backgroundColor: Colors.black87,
