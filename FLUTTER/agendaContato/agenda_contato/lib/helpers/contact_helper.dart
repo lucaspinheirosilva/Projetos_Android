@@ -95,6 +95,8 @@ class Contact {
   String fone;
   String img;
 
+  Contact();
+
   Contact.fromMap(Map map) {
     id = map[idColuna];
     nome = map[nomeColuna];
