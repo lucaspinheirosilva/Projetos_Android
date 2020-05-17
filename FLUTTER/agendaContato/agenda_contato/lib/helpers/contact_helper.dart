@@ -74,6 +74,7 @@ class ContactHelper {
     for (Map m in listMap) {
       listContact.add(Contact.fromMap(m));
     }
+    return listContact;
   }
 
   Future<int> getNumber() async {
