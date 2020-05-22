@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class ChatMessageListItem extends StatelessWidget {
   final ChatMessage chatMessage;
+  BuildContext context;
 
   ChatMessageListItem({this.chatMessage});
 
@@ -17,8 +18,13 @@ class ChatMessageListItem extends StatelessWidget {
         : _showReceivedMessage();
   }
 
+  //AVATAR do Tecnico
   Widget _showSentMessage({EdgeInsets padding, TextAlign textAlign}) {
-    return ListTile(
+    return Container(
+        decoration: new BoxDecoration(
+            borderRadius: BorderRadius.all(new Radius.circular(20.0)),
+            color: Colors.green[200]),
+        child:ListTile(
       contentPadding: EdgeInsets.fromLTRB(64.0, 0.0, 8.0, 0.0),
       trailing: CircleAvatar(
         child: Text(chatMessage.name.toUpperCase()[0],
@@ -31,19 +37,27 @@ class ChatMessageListItem extends StatelessWidget {
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       subtitle: Text(chatMessage.text, textAlign: TextAlign.right),
+    )
     );
   }
 
+  //AVATAR da VE.I.A
   Widget _showReceivedMessage() {
-    return ListTile(
-      contentPadding: EdgeInsets.fromLTRB(8.0, 0.0, 64.0, 0.0),
-      leading: CircleAvatar(child: Text(chatMessage.name.toUpperCase()[0])),
-      title: Text(
-        chatMessage.name,
-        textAlign: TextAlign.left,
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      subtitle: Text(chatMessage.text, textAlign: TextAlign.left),
-    );
+    return Container(
+        decoration: new BoxDecoration(
+            borderRadius: BorderRadius.all(new Radius.circular(20.0)),
+            color: Colors.lightBlueAccent[100]),
+        child: ListTile(
+          contentPadding: EdgeInsets.fromLTRB(8.0, 0.0, 64.0, 0.0),
+          leading: CircleAvatar(
+            backgroundImage: AssetImage('/logoVetor.png'),
+          ),
+          title: Text(
+            chatMessage.name,
+            textAlign: TextAlign.left,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text(chatMessage.text, textAlign: TextAlign.left),
+        ));
   }
 }

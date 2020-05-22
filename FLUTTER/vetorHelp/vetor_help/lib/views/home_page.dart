@@ -22,17 +22,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: Text('VE.I.A Vetor Intelligence Artificial'),
-      ),
-      body: Column(
-        children: <Widget>[
-          _buildList(),
-          Divider(height: 1.0),
-          _buildUserInput(),
-        ],
-      ),
-    );
+        appBar: new AppBar(
+          title: Text('VE.I.A ===> Vetor Inteligência Artificial'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: <Widget>[
+              _buildList(),
+              Divider(height: 1.0),
+              _buildUserInput(),
+            ],
+          ),
+        ));
   }
 
   // Cria a lista de mensagens (de baixo para cima)
@@ -41,7 +43,8 @@ class _HomePageState extends State<HomePage> {
       child: ListView.builder(
         padding: EdgeInsets.all(8.0),
         reverse: true,
-        itemBuilder: (_, int index) => ChatMessageListItem(chatMessage: _messageList[index]),
+        itemBuilder: (_, int index) =>
+            ChatMessageListItem(chatMessage: _messageList[index]),
         itemCount: _messageList.length,
       ),
     );
@@ -55,8 +58,7 @@ class _HomePageState extends State<HomePage> {
 
   // Adiciona uma mensagem na lista de mensagens
   void _addMessage({String name, String text, ChatMessageType type}) {
-    var message = ChatMessage(
-        text: text, name: name, type: type);
+    var message = ChatMessage(text: text, name: name, type: type);
     setState(() {
       _messageList.insert(0, message);
     });
@@ -71,13 +73,13 @@ class _HomePageState extends State<HomePage> {
   Future _dialogFlowRequest({String query}) async {
     // Adiciona uma mensagem temporária na lista
     _addMessage(
-        name: 'VE.I.A',
-        text: 'Escrevendo...',
-        type: ChatMessageType.received);
+        name: 'VE.I.A', text: 'Escrevendo...', type: ChatMessageType.received);
 
     // Faz a autenticação com o serviço, envia a mensagem e recebe uma resposta da Intent
-    AuthGoogle authGoogle = await AuthGoogle(fileJson: "assets/credentials.json").build();
-    Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle, language: "pt-BR");
+    AuthGoogle authGoogle =
+        await AuthGoogle(fileJson: "assets/credentials.json").build();
+    Dialogflow dialogflow =
+        Dialogflow(authGoogle: authGoogle, language: "pt-BR");
     AIResponse response = await dialogflow.detectIntent(query);
 
     // remove a mensagem temporária
@@ -96,6 +98,11 @@ class _HomePageState extends State<HomePage> {
   Widget _buildTextField() {
     return new Flexible(
       child: new TextField(
+        onSubmitted: (value){
+          if (_controllerText.text.isNotEmpty) {
+            _sendMessage(text: _controllerText.text);
+          }
+        },
         controller: _controllerText,
         decoration: new InputDecoration.collapsed(
           hintText: "Enviar mensagem",
