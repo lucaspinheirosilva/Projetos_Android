@@ -7,50 +7,58 @@ import 'package:flutter/material.dart';
 
 class ChatMessageListItem extends StatelessWidget {
   final ChatMessage chatMessage;
-  BuildContext context;
+
 
   ChatMessageListItem({this.chatMessage});
 
   @override
   Widget build(BuildContext context) {
+    final tamanho = MediaQuery.of(context);
     return chatMessage.type == ChatMessageType.sent
         ? _showSentMessage()
-        : _showReceivedMessage();
+        : _showReceivedMessage(context);
   }
 
   //AVATAR do Tecnico
   Widget _showSentMessage({EdgeInsets padding, TextAlign textAlign}) {
-    return Container(
-        decoration: new BoxDecoration(
-            borderRadius: BorderRadius.all(new Radius.circular(20.0)),
-            color: Colors.green[200]),
-        child:ListTile(
-      contentPadding: EdgeInsets.fromLTRB(64.0, 0.0, 8.0, 0.0),
-      trailing: CircleAvatar(
-        child: Text(chatMessage.name.toUpperCase()[0],
-            style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blueAccent,
-      ),
-      title: Text(
-        chatMessage.name,
-        textAlign: TextAlign.right,
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      subtitle: Text(chatMessage.text, textAlign: TextAlign.right),
-    )
-    );
+    return Padding(
+      padding: EdgeInsets.only(top: 10,bottom: 10),
+        child: Container(
+            decoration: new BoxDecoration(
+                borderRadius: BorderRadius.all(new Radius.circular(20.0)),
+                color: Colors.green[200]),
+            child: ListTile(
+              contentPadding: EdgeInsets.fromLTRB(64.0, 0.0, 8.0, 0.0),
+              trailing: CircleAvatar(
+                child: Text(chatMessage.name.toUpperCase()[0],
+                    style: TextStyle(color: Colors.white)),
+                backgroundColor: Colors.blueAccent,
+              ),
+              title: Text(
+                chatMessage.name,
+                textAlign: TextAlign.right,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(chatMessage.text, textAlign: TextAlign.right),
+            )));
   }
 
   //AVATAR da VE.I.A
-  Widget _showReceivedMessage() {
+  Widget _showReceivedMessage(BuildContext context) {
+    MediaQueryData tamanhoComprimento;
+    tamanhoComprimento = MediaQuery.of(context);
     return Container(
+
+      width: tamanhoComprimento.size.width / 2,
+
+
         decoration: new BoxDecoration(
             borderRadius: BorderRadius.all(new Radius.circular(20.0)),
             color: Colors.lightBlueAccent[100]),
         child: ListTile(
           contentPadding: EdgeInsets.fromLTRB(8.0, 0.0, 64.0, 0.0),
           leading: CircleAvatar(
-            backgroundImage: AssetImage('/logoVetor.png'),
+            backgroundImage: AssetImage('logoVetor.png'),
           ),
           title: Text(
             chatMessage.name,
@@ -59,5 +67,5 @@ class ChatMessageListItem extends StatelessWidget {
           ),
           subtitle: Text(chatMessage.text, textAlign: TextAlign.left),
         ));
-  }
+  }  
 }
