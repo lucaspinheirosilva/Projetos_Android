@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:chat_firebase/ChatMessage.dart';
 import 'package:chat_firebase/text_composer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,12 +17,15 @@ class _ChatScreenState extends State<ChatScreen> {
   GoogleSignIn googleSingnIn = GoogleSignIn();
   FirebaseUser _usuarioAtual;
   GlobalKey<ScaffoldState> scaffoldKEY = GlobalKey<ScaffoldState>();
+  bool estaCarregando = false;
 
   @override
   void initState() {
     super.initState();
     FirebaseAuth.instance.onAuthStateChanged.listen((user) {
-      _usuarioAtual = user;
+      setState(() {
+        _usuarioAtual = user;
+      });
     });
   }
 
@@ -44,6 +48,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
       return user;
     } catch (error) {
+      print (error);
       return null;
     }
   }
@@ -58,20 +63,29 @@ class _ChatScreenState extends State<ChatScreen> {
     }
 
     Map<String, dynamic> data = {
-      "usuarioID":user.uid,
-      "usuarioNome":user.displayName,
-      "usuarioFotoUrl":user.photoUrl,
+      "usuarioID": user.uid,
+      "usuarioNome": user.displayName,
+      "usuarioFotoUrl": user.photoUrl,
+      "diaMesAno": Timestamp.now(),
     };
 
+    /*UPLOAD IMAGEM NO FIRESTORE*/
     if (imgFile != null) {
       StorageUploadTask task = FirebaseStorage.instance
           .ref()
-          .child(DateTime.now().millisecondsSinceEpoch.toString())
+          .child(_usuarioAtual.uid +
+              DateTime.now().millisecondsSinceEpoch.toString())
           .putFile(imgFile);
-
+      setState(() {
+        estaCarregando = true;
+      });
       StorageTaskSnapshot taskSnapshot = await task.onComplete;
       String url = await taskSnapshot.ref.getDownloadURL();
       data['imgUrl'] = url;
+
+      setState(() {
+        estaCarregando = false;
+      });
     }
     if (texto != null) data['texto'] = texto;
     Firestore.instance.collection('MENSAGENS').add(data);
@@ -82,13 +96,32 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
         key: scaffoldKEY,
         appBar: AppBar(
-          title: Text("Titulo"),
-          elevation: 0,
+          title: Text(_usuarioAtual != null
+              ? 'Olá ${_usuarioAtual.displayName}'
+              : "Chat App(deslogado)"),
+          elevation: 4,
+          actions: <Widget>[
+            _usuarioAtual != null
+                ? IconButton(
+                    icon: Icon(Icons.exit_to_app),
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      googleSingnIn.signOut();
+                      scaffoldKEY.currentState.showSnackBar(SnackBar(
+                        content: Text('LOGOUT realizado com sucesso!!'),
+                        backgroundColor: Colors.orange,
+                      ));
+                    })
+                : Container()
+          ],
         ),
         body: Column(children: <Widget>[
           Expanded(
               child: StreamBuilder<QuerySnapshot>(
-            stream: Firestore.instance.collection('MENSAGENS').snapshots(),
+            stream: Firestore.instance
+                .collection('MENSAGENS')
+                .orderBy('diaMesAno')
+                .snapshots(),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -104,13 +137,15 @@ class _ChatScreenState extends State<ChatScreen> {
                       itemCount: documentos.length,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(documentos[index].data['texto']),
-                        );
+                        return ChatMessage(
+                            documentos[index].data,
+                            documentos[index].data['usuarioID'] ==
+                                _usuarioAtual?.uid);
                       });
               }
             },
           )),
+          estaCarregando == true ? LinearProgressIndicator() : Container(),
           TextComposer(_sendMenssagem)
         ]));
   }
