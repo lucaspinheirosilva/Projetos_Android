@@ -14,12 +14,12 @@ class _CalculosState extends State<Calculos> {
 
   Widget _mudarBody() {
     switch (_index) {
-      case 0:
-        return widgethelpVEIA();
       case 1:
-        return widgetCalcPorcentagem();
+        return helpVEIA();
       case 2:
-        return widgetleitorNfe();
+        return porcentagem() ;
+      case 3:
+        return leitorNFE();
     }
   }
 
@@ -45,7 +45,7 @@ class _CalculosState extends State<Calculos> {
                 title: Text("Helper V.E.I.A"),
                 onTap: () {
                   setState(() {
-                    _index = 0;
+                    _index = 1;
                   });
                   Navigator.pop(
                       context); //fecha o Drawer ao clicar em algum item
@@ -57,7 +57,7 @@ class _CalculosState extends State<Calculos> {
                   trailing: Icon(Icons.more_vert),
                   onTap: () {
                     setState(() {
-                      _index = 1;
+                      _index = 2;
                     });
                     Navigator.pop(
                         context); //fecha o Drawer ao clicar em algum item
@@ -68,7 +68,7 @@ class _CalculosState extends State<Calculos> {
                 trailing: Icon(Icons.more_vert),
                 onTap: () {
                   setState(() {
-                    _index = 2;
+                    _index = 3;
                   });
 
                   Navigator.pop(

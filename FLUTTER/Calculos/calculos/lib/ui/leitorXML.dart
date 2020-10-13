@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
-Widget widgetleitorNfe (){
-  Container(
-    child: Center(
-      child: Text("Leitor de XML"),
-    ),
-  );
+class leitorNFE extends StatefulWidget {
+  @override
+  _leitorNFEState createState() => _leitorNFEState();
 }
+
+class _leitorNFEState extends State<leitorNFE> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text("Leitor de XML"),
+      ),
+    );
+  }
+}
+
