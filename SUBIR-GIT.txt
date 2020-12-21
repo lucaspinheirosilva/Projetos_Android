@@ -16,4 +16,3 @@ COMANDO BAIXAR DO GIT(maquina nova)
 => git clone https://github.com/lucaspinheirosilva/AmigoAzul.git
 => git clone https://github.com/lucaspinheirosilva/Projetos_Android.git
 
-teste
