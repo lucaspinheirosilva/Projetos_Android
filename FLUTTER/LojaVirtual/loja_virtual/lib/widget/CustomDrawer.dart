@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/screen/login_screen.dart';
 import 'package:loja_virtual/tiles/DrawerTile.dart';
 
 class CustomDrawer extends StatelessWidget {
+  final PageController pageController;
 
-final PageController pageController;
+  CustomDrawer(this.pageController);
 
-
-CustomDrawer(this.pageController);
-
-
-  int i = 0;
   @override
   Widget build(BuildContext context) {
     Widget _bildDraweBach() {
@@ -64,10 +61,12 @@ CustomDrawer(this.pageController);
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
                             ),
-
                             onTap: () {
-                              i=i+1;
-                                print("CLICOU EM CADASTRE-SE $i vezes");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),
+                              );
                             },
                           ),
                         ],
@@ -77,10 +76,11 @@ CustomDrawer(this.pageController);
                 ),
               ),
               Divider(),
-              DrawerTiles(Icons.home,"Inicio",pageController,0),
-              DrawerTiles(Icons.list,"Produtos",pageController,1),
-              DrawerTiles(Icons.location_on,"Lojas",pageController,2),
-              DrawerTiles(Icons.playlist_add_check,"Meus Pedidos",pageController,3),
+              DrawerTiles(Icons.home, "Inicio", pageController, 0),
+              DrawerTiles(Icons.list, "Produtos", pageController, 1),
+              DrawerTiles(Icons.location_on, "Lojas", pageController, 2),
+              DrawerTiles(
+                  Icons.playlist_add_check, "Meus Pedidos", pageController, 3),
             ],
           )
         ],
