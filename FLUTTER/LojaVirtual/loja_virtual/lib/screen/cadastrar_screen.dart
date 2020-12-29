@@ -10,10 +10,10 @@ class CadastrarScreen extends StatefulWidget {
 class _CadastrarScreenState extends State<CadastrarScreen> {
   final _formkey = GlobalKey<FormState>();
 
-  final _nomeController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _senhaController = TextEditingController();
-  final _enderecoController = TextEditingController();
+  TextEditingController _nomeController = new TextEditingController();
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _senhaController = new TextEditingController();
+  TextEditingController _enderecoController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -103,9 +103,9 @@ class _CadastrarScreenState extends State<CadastrarScreen> {
                     onPressed: () {
                       if (_formkey.currentState.validate()) {
                         Map<String, dynamic> data = {
-                          "nome": _nomeController,
-                          "email": _emailController,
-                          "endereco": _enderecoController,
+                          "nome": _nomeController.text,
+                          "email": _emailController.text,
+                          "endereco": _enderecoController.text,
                         };
 
                         model.cadastrar(
@@ -130,7 +130,7 @@ class _CadastrarScreenState extends State<CadastrarScreen> {
   }
 
   void _onSuccess() {
-    return null;
+    return print("DEU CERTO");
   }
 
   void _onFail() {
