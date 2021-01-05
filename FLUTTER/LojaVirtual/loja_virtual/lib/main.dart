@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/model/user_model.dart';
+import 'package:loja_virtual/screen/home_screen.dart';
 import 'package:loja_virtual/screen/login_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
           debugShowCheckedModeBanner: false,
-          home: LoginScreen(),
+          home: HomeScreen(),
         ));
   }
 }

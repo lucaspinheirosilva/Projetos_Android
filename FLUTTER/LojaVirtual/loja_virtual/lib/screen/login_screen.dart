@@ -12,12 +12,17 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formkey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  TextEditingController _emailcontroler = TextEditingController();
+  TextEditingController _senhacontroler = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).primaryColor;
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("ENTRAR", style: TextStyle(fontSize: 24)),
         centerTitle: true,
@@ -42,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: EdgeInsets.all(16),
             children: <Widget>[
               TextFormField(
+                  controller: _emailcontroler,
                   decoration: InputDecoration(
                     labelText: "E-mail",
                     border: OutlineInputBorder(),
@@ -56,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10,
               ),
               TextFormField(
+                  controller: _senhacontroler,
                   decoration: InputDecoration(
                     labelText: "Senha",
                     border: OutlineInputBorder(),
@@ -79,7 +86,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: RaisedButton(
                   color: primaryColor,
                   onPressed: () {
-                    if (_formkey.currentState.validate()) {}
+                    if (_formkey.currentState.validate()) {
+                      model.login(
+                          email: _emailcontroler.text,
+                          pass: _senhacontroler.text,
+                          onSuccess: _onSuccess,
+                          onFail: _onFail);
+                    }
                   },
                   child: Text(
                     "Entrar",
@@ -91,6 +104,20 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         );
       }),
+    );
+  }
+
+  _onSuccess() {
+    Navigator.of(context).pop();
+  }
+
+  _onFail() {
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text("Falha ao Realizar Login"),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 4),
+      ),
     );
   }
 }

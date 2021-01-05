@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/model/user_model.dart';
 import 'package:loja_virtual/screen/login_screen.dart';
 import 'package:loja_virtual/tiles/DrawerTile.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class CustomDrawer extends StatelessWidget {
   final PageController pageController;
@@ -45,33 +47,41 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                       left: 0,
                       bottom: 0,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Olá,",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          GestureDetector(
-                            child: Text(
-                              "Entre ou Cadastre-se",
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
-                              );
-                            },
-                          ),
-                        ],
+                      child: ScopedModelDescendant<UserModel>(
+                        builder: (context, child, model) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Olá,${!model.estaLogado() ? "" : model.usuarioData['nome']}",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              GestureDetector(
+                                child: Text(
+                                  !model.estaLogado()?
+                                  "Entre ou Cadastre-se":"Sair",
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onTap: () {
+                                  if(!model.estaLogado())
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()),
+                                  );
+                                  else
+                                    model.deslogar();
+                                },
+                              ),
+                            ],
+                          );
+                        },
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

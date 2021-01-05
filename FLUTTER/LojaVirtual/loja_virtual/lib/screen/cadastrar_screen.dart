@@ -4,11 +4,17 @@ import 'package:scoped_model/scoped_model.dart';
 
 class CadastrarScreen extends StatefulWidget {
   @override
+
+
   _CadastrarScreenState createState() => _CadastrarScreenState();
 }
 
 class _CadastrarScreenState extends State<CadastrarScreen> {
   final _formkey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
+
 
   TextEditingController _nomeController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
@@ -19,7 +25,13 @@ class _CadastrarScreenState extends State<CadastrarScreen> {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).primaryColor;
 
+    _nomeController.text = 'Lucas';
+    _emailController.text = 'lucashapkidista@gmail.com';
+    _senhaController.text = '123456789';
+    _enderecoController.text = 'Av Brasil';
+
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(
           "CRIAR CONTA",
@@ -28,7 +40,7 @@ class _CadastrarScreenState extends State<CadastrarScreen> {
       ),
       body: ScopedModelDescendant<UserModel>(
         builder: (context, child, model) {
-          if (model.isLoading) {
+          if (model.estaCarregando) {
             return Center(child: CircularProgressIndicator());
           }
           return Form(
@@ -130,10 +142,27 @@ class _CadastrarScreenState extends State<CadastrarScreen> {
   }
 
   void _onSuccess() {
-    return print("DEU CERTO");
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text("Usuario criado com sucesso"),
+        backgroundColor: Theme.of(context).primaryColor,
+        duration: Duration(seconds: 2),
+      ),
+    );
+    Future.delayed(Duration(seconds: 2)).then((_) {
+      Navigator.of(context).pop();
+    });
   }
 
-  void _onFail() {
-    return print("ERRO");
+  _onFail() {
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+            "Erro ao criar usuario"),
+        backgroundColor: Colors.redAccent[100],
+        duration: Duration(seconds: 2),
+      ),
+    );
+
   }
 }
