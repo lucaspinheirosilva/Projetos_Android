@@ -52,27 +52,43 @@ class CustomDrawer extends StatelessWidget {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                "Olá,${!model.estaLogado() ? "" : model.usuarioData['nome']}",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              Row(
+                                children: <Widget>[
+                                  Text(
+                                    "Olá Sr(a),",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    " ${!model.estaLogado() ? "" : model.usuarioData['nome']}",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: model.estaLogado() == false
+                                            ? Colors.blue
+                                            : Colors.redAccent),
+                                  ),
+                                ],
                               ),
                               GestureDetector(
                                 child: Text(
-                                  !model.estaLogado()?
-                                  "Entre ou Cadastre-se":"Sair",
+                                  !model.estaLogado()
+                                      ? "Entre ou Cadastre-se"
+                                      : "Sair",
                                   style: TextStyle(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 onTap: () {
-                                  if(!model.estaLogado())
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginScreen()),
-                                  );
+                                  if (!model.estaLogado())
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginScreen()),
+                                    );
                                   else
                                     model.deslogar();
                                 },

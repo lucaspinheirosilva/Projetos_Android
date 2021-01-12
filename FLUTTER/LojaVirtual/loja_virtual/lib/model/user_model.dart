@@ -84,7 +84,8 @@ class UserModel extends Model {
   }
 
   void recuperarSenha(String email){
-    _auth.sendPasswordResetEmail(email: email);
+       _auth.sendPasswordResetEmail(email: email);
+
   }
 
   bool estaLogado(){
