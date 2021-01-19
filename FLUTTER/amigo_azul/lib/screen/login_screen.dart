@@ -9,7 +9,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: Column(
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width,
@@ -18,8 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black87,
-                  blurRadius: 30.0, // soften the shadow
-                  spreadRadius: 5.0, //extend the shadow
+                  blurRadius: 30.0,
+                  spreadRadius: 5.0,
                 )
               ],
               color: Colors.blueAccent,
@@ -32,8 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: 90,
-                  height: 90,
+                  width: 100,
+                  height: 100,
                   child: Image.asset("assets/img_logo.png"),
                 ),
                 Text(
@@ -48,17 +48,25 @@ class _LoginScreenState extends State<LoginScreen> {
             )),
           ),
           SizedBox(
-            height: 10,
+            height: 50,
           ),
           Container(
             child: Column(
               children: <Widget>[
-                TextFormField( ),
-
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: "NOME",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           )
-
         ],
       ),
     );
