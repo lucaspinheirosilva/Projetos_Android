@@ -15,8 +15,8 @@ class IntroScreen extends StatelessWidget {
         title: Text(
           'Aprender',
         ),
-        titleTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
-        bodyTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
+        titleTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
+        bodyTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
         mainImage: Image.asset(
           'assets/img_logo.png',
           height: 285.0,
@@ -36,8 +36,8 @@ class IntroScreen extends StatelessWidget {
         width: 285.0,
         alignment: Alignment.center,
       ),
-      titleTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
-      bodyTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
+      titleTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
+      bodyTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
     ),
     PageViewModel(
       pageColor: const Color(0xFF607D8B),
@@ -52,8 +52,8 @@ class IntroScreen extends StatelessWidget {
         width: 285.0,
         alignment: Alignment.center,
       ),
-      titleTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
-      bodyTextStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
+      titleTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
+      bodyTextStyle: TextStyle(fontFamily: 'Balsan', color: Colors.white),
     ),
   ];
 
