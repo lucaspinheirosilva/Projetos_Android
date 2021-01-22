@@ -1,5 +1,5 @@
 import 'package:amigo_azul/screen/intro_screen.dart';
-import 'package:amigo_azul/screen/login_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
