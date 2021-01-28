@@ -1,7 +1,7 @@
-import 'package:amigo_azul/screen/intro_screen.dart';
-import 'package:amigo_azul/screen/login_screen.dart';
 
+import 'package:amigo_azul/screen/cadastro_user_screen.dart';
 import 'package:flutter/material.dart';
+import 'screen/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreen(),
+      //home: CadastroUsuario(),
       //home: IntroScreen(),
+      home: LoginUsuario(),
 
     );
   }
