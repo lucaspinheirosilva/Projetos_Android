@@ -1,20 +1,22 @@
-/*https://www.youtube.com/watch?v=-FP3e1UvPfM&ab_channel=ShajedulIslamShawon*/
+
 <?php
 include_once('../conexao.php');
+
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$sql = "SELECT * FROM cad_usuario WHERE email = '".$email."' AND senha = '".$senha."'";
 
-$resultado = mysqli_query($sql);
-$count = mysqli_num_rows($resultado);
+$dados = array();
 
-if ($count ==1){
-    echo json_encode ("erro");
-} else{
-    echo json_encode ("sucesso");
+$query = $pdo->query("SELECT * FROM CAD_USUARIO WHERE email = '".$email."' AND senha = '".$senha."'");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+for ($i=0; $i < count($res); $i++) {
+    foreach ($res[$i] as $key => $value) {}
+    $dados = $res;
 }
 
+echo ($res)?json_encode(array("codigo"=>1,"resultado"=>$dados)):json_encode(array("codigo"=>0,"resultado"=>"USUARIO NAO ENCONTRADOS!"));
 
 ?>

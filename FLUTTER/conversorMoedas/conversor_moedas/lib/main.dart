@@ -1,10 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
-import 'dart:convert';
 
 const requisicao =
     "https://api.hgbrasil.com/finance?format=json-cors&key=c770a2f7";
@@ -43,20 +40,23 @@ class _HomeState extends State<Home> {
     dolarController.text = (real / dolar).toStringAsFixed(2);
     euroController.text = (real / euro).toStringAsFixed(2);
   }
+
   void _dolarMudanca(String texto) {
     double dolar = double.parse(texto);
     realController.text = (dolar * this.dolar).toStringAsFixed(2);
     euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
   }
+
   void _euroMudanca(String texto) {
     double euro = double.parse(texto);
-    realController.text=(euro * this.euro).toStringAsFixed(2);
-    dolarController.text=(euro * this.euro / dolar).toStringAsFixed(2);
+    realController.text = (euro * this.euro).toStringAsFixed(2);
+    dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   }
-  void ResetarCampos(){
-    realController.text="";
-    dolarController.text="";
-    euroController.text="";
+
+  void ResetarCampos() {
+    realController.text = "";
+    dolarController.text = "";
+    euroController.text = "";
   }
 
   @override
@@ -68,8 +68,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.amber,
         centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon( Icons.refresh),
-              onPressed: ResetarCampos)
+          IconButton(icon: Icon(Icons.refresh), onPressed: ResetarCampos)
         ],
       ),
       body: FutureBuilder<Map>(
@@ -107,7 +106,7 @@ class _HomeState extends State<Home> {
                           color: Colors.amber,
                         ),
                         criarTextField(
-                            "Real", "RS ", realController, _realMudanca),
+                            "Real", "R\$ ", realController, _realMudanca),
                         Divider(),
                         criarTextField(
                             "Dollar", "US\$ ", dolarController, _dolarMudanca),
