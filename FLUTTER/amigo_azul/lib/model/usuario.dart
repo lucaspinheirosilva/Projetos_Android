@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
 
  class Usuario {
 
-    final String email;
-    final String senha;
-    final String grauTea;
-    final String nome;
-    final String foto;
+  @required  final String email;
+  @required  final String senha;
+  @required final String grauTea;
+  @required  final String nome;
+  @required final String idade;
+  @required  final String foto;
 
 
 
-   Usuario(this.email,this.senha,this.nome,this.foto,this.grauTea,);
+   Usuario(this.email,this.senha,this.nome,this.foto,this.grauTea,this.idade);
 
 }

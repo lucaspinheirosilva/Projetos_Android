@@ -14,10 +14,10 @@ class _IntroScreenState extends State<IntroScreen> {
         print("hello");
       },
       done: Text(""),
-      showNextButton: true,
+      showNextButton: false,
       skip: Text("VOLTAR"),
       next: Text("PROX"),
-      showSkipButton: true,
+      showSkipButton: false,
       nextFlex: 0,
       skipFlex: 0,
       dotsDecorator: DotsDecorator(
@@ -30,6 +30,7 @@ class _IntroScreenState extends State<IntroScreen> {
               borderRadius: BorderRadius.circular(25.0))),
       pages: [
         PageViewModel(
+          //*********************APRENDER
           title: "APRENDER",
           decoration: decoracaoPagina(
               Color(
@@ -48,40 +49,55 @@ class _IntroScreenState extends State<IntroScreen> {
           ),
         ),
         PageViewModel(
+          //*********************FALAR
           decoration: decoracaoPagina(
-              Colors.green[100], Colors.black, Colors.black, 40, 25),
+              Color(
+                  int.parse("#70d9f7".substring(1, 7), radix: 16) + 0xFF000000),
+              Colors.white,
+              Colors.white,
+              40,
+              25),
           title: "FALAR",
           body:
               "Uma ferramenta de comunicação para o auxilio em todos os momentos do seu dia!",
           image: Center(
             child: Image.asset(
-              "assets/intro_falar.png",
-              width: MediaQuery.of(context).size.width - 40,
+              "assets/intro_falar.jpg",
+              width: MediaQuery.of(context).size.width - 10,
             ),
           ),
         ),
         PageViewModel(
+          //*********************JUNTE-SE A NÓS
           title: " JUNTE-SE A NÓS",
           body:
               "Vamos ser Amigos? \n É rápido e fácil começarmos essa amizade!",
-          image:  Center(child: Image.asset(
-            "assets/intro_junte_se_a_nos.jpg",
-            width: MediaQuery.of(context).size.width - 10,
-          ),),
-          decoration: decoracaoPagina(Color(
-              int.parse("#0d8ea3".substring(1, 7), radix: 16) + 0xFF000000), Colors.white, Colors.white, 40, 25),
+          image: Center(
+            child: Image.asset(
+              "assets/intro_junte_se_a_nos.jpg",
+              width: MediaQuery.of(context).size.width - 10,
+            ),
+          ),
+          decoration: decoracaoPagina(
+              Color(
+                  int.parse("#0d8ea3".substring(1, 7), radix: 16) + 0xFF000000),
+              Colors.white,
+              Colors.white,
+              40,
+              25),
           footer: Container(
-            //*******************************************botao entrar CELULAR
+            //**********botao entrar AMIGOS
             width: MediaQuery.of(context).size.width / 1.6,
             height: 50,
             child: TextButton(
               style: TextButton.styleFrom(
-                primary: Colors.red,
+                primary: Colors.black,
                 shape: RoundedRectangleBorder(
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(25))),
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
                 backgroundColor: Colors.blueAccent,
-                shadowColor: Colors.black,
+                shadowColor: Color(
+                    int.parse("#0a6474".substring(1, 7), radix: 16) +
+                        0xFF000000),
                 elevation: 5,
               ),
               onPressed: () {
@@ -92,7 +108,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Icon(
-                   Icons.accessibility_rounded,
+                    Icons.accessibility_rounded,
                     size: 36,
                     color: Colors.white,
                   ),

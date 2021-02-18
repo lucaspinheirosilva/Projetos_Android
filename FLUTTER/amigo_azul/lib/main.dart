@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             '/intro_screen': (BuildContext) => new IntroScreen(),
           },
           home: LoginUsuario(),
+         // home: CadastroUsuario(),
         ));
   }
 }
