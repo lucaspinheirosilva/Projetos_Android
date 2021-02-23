@@ -3,11 +3,14 @@ import 'package:amigo_azul/screen/cadastro_user_screen.dart';
 import 'package:amigo_azul/screen/home_screen.dart';
 import 'package:amigo_azul/screen/intro_screen.dart';
 import 'package:amigo_azul/screen/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'screen/login_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

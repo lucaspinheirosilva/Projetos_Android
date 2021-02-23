@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage ;
 import 'package:amigo_azul/model/usuario.dart';
 import 'package:amigo_azul/scoped_model/usuario_scoped_model.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,10 +36,15 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
 
   var usuarioAtual;
 
+  String linkUrl = "";
+
   TextEditingController nomeController = TextEditingController();
   TextEditingController idadeController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +52,10 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
       DeviceOrientation.portraitUp
     ]); //----->SETA PARA A TELA DO APP NA GIRAR
 
-    firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
-    firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance.ref();
+    /*nomeController.text = "lu";
+    idadeController.text = "22";
+    emailController.text = "lu@lu";
+    senhaController.text = "123";*/
 
     return ScopedModelDescendant<UsuarioModel>(
         builder: (BuildContext context, Widget child, UsuarioModel model) {
@@ -293,7 +300,9 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                           shadowColor: Colors.black,
                           elevation: 5,
                         ),
-                        onPressed: () {
+                        //TODO => Colocar uma CircularProgressIndicator para informar que esta carregando
+                        onPressed: () async {
+                          await downloadURL();
                           setState(() {
                             if (emailController.text.isEmpty) {
                               _validadorEmail = true;
@@ -328,15 +337,11 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                                 grauTea = "N/A";
                               }
                               //TODO=> tratar se o usuario tem acesso a internet no dispositivo
-                              //**********
-                              //TODO=> enviar a foto ao Storage antes e pegar o URL da image e mandar para o USUARIO
-                              ref.child('usuarioFotos').child(emailController.text).child(_selectedImage.path);
-                              //************
                               usuarioAtual = Usuario(
                                   emailController.text,
                                   senhaController.text,
                                   nomeController.text,
-                                  foto,
+                                  linkUrl,
                                   grauTea,
                                   idadeController.text);
 
@@ -377,6 +382,8 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
     });
   }
 
+
+
   void _escolhaRadioButton(int valor) {
     setState(() {
       _radioValue = valor;
@@ -396,6 +403,23 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
           break;
       }
     });
+  }
+
+  //envia a foto para o Firebase Storage  e recupera o Link de Download da imagem
+  Future<String> downloadURL() async {
+    StorageReference reference = FirebaseStorage.instance
+        .ref()
+        .child('usuariosFotos')
+        .child(emailController.text)
+        .child(nomeController.text);
+
+    var upload = reference.putFile(_selectedImage);
+    await upload.onComplete;
+
+    var url = await reference.getDownloadURL();
+    print(url.toString());
+    linkUrl = url.toString();
+    return linkUrl;
   }
 
   //criar dinamicamente um TextBox
@@ -570,7 +594,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
         _selectedImage = cropped;
       });
     } else {
-      print('No image selected.');
+      print('Sem imagem selecionada!.');
     }
   }
 }

@@ -23,22 +23,14 @@ class _LoginUsuarioState extends State<LoginUsuario> {
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    Firebase.initializeApp().whenComplete(() {
-      print("completed");
-      setState(() {});
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     //----->SETA PARA A TELA DO APP NA GIRAR
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-    emailController.text = "elaine@gmail.com";
-    senhaController.text = "123";
+   /* emailController.text = "elaine@gmail.com";
+    senhaController.text = "123";*/
 
     var largura = MediaQuery.of(context).size.width;
 

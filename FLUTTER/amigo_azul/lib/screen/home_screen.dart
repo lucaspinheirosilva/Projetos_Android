@@ -45,37 +45,40 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget ListaDrawer (){
-    return ListView(
-      children: <Widget>[
-        UserAccountsDrawerHeader(
-          accountName: Text("Lucas Pinheiro"),
-          accountEmail: Text("lucas@gmail.com"),
-          currentAccountPicture: CircleAvatar(
-            radius: 30.0,
-            backgroundImage:
-            NetworkImage(
-                'https://developers.google.com/search/images/google-search-central-logo.png?hl=pt-BR'),
-            backgroundColor: Colors.transparent,
+    return ScopedModelDescendant(builder: (BuildContext context, Widget child, UsuarioModel model){
+      return ListView(
+        children: <Widget>[
+          UserAccountsDrawerHeader(
+            accountName: Text(model.usuarioAtual.nome),
+            accountEmail: Text(model.usuarioAtual.email),
+            currentAccountPicture: CircleAvatar(
+              radius: 30.0,
+              backgroundImage:
+              NetworkImage(
+                  model.usuarioAtual.foto),
+              backgroundColor: Colors.transparent,
+            ),
           ),
-        ),
-        ListTile(
-            leading: Icon(Icons.star),
-            title: Text("Favoritos"),
-            subtitle: Text("meus favoritos..."),
-            trailing: Icon(Icons.arrow_forward),
-            onTap: () {
-              debugPrint('toquei no drawer');
-            }),
-        ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text("Perfil"),
-            subtitle: Text("Perfil do usuário..."),
-            trailing: Icon(Icons.arrow_forward),
-            onTap: () {
-              Navigator.pop(context);
-            })
-      ],
-    );
+          ListTile(
+              leading: Icon(Icons.star),
+              title: Text("Favoritos"),
+              subtitle: Text("meus favoritos..."),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                debugPrint('toquei no drawer');
+              }),
+          ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Perfil"),
+              subtitle: Text("Perfil do usuário..."),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.pop(context);
+              })
+        ],
+      );
+    });
+    }
 
   }
-}
+
