@@ -5,6 +5,7 @@ import 'package:amigo_azul/scoped_model/usuario_scoped_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lottie/lottie.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -23,30 +24,18 @@ class _LoginUsuarioState extends State<LoginUsuario> {
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     //----->SETA PARA A TELA DO APP NA GIRAR
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-   /* emailController.text = "elaine@gmail.com";
+    emailController.text = "elaine@gmail";
+    senhaController.text = "123";
+    /*emailController.text = "lucas@gmail";
     senhaController.text = "123";*/
 
-    var largura = MediaQuery.of(context).size.width;
-
-    if (largura < 400) {
-      return CELULAR(context);
-    } else
-      return null;
-  }
-
-  //===========================================================================================================>VERSAO CELULAR
-  Widget CELULAR(BuildContext context) {
     return ScopedModelDescendant<UsuarioModel>(
         builder: (context, Widget child, UsuarioModel model) {
-      if (model.estaCarregando) {
-        return Center(child: CircularProgressIndicator());
-      }
       return Scaffold(
         backgroundColor: Colors.blue[100],
         body: SingleChildScrollView(
@@ -214,10 +203,15 @@ class _LoginUsuarioState extends State<LoginUsuario> {
                               }
                               if (emailController.text.isNotEmpty &&
                                   senhaController.text.isNotEmpty) {
-
-                                loginBD(model);
-
-
+                                FutureBuilder(
+                                    future: loginBD(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        return CarregandoOK(snapshot, model);
+                                      } else {
+                                        return CarregandoERRO();
+                                      }
+                                    });
                               }
                             });
                           },
@@ -301,7 +295,7 @@ class _LoginUsuarioState extends State<LoginUsuario> {
   }
 
   Widget criarTextField(
-      //*************************************************************criar dinamicamente um TextBox
+      //*************************************************************CRIAR DINAMICAMENTE O TEXTFIELD
       @required String hintTexto,
       @required TextInputType tipoTeclado,
       @required IconData icone,
@@ -335,46 +329,44 @@ class _LoginUsuarioState extends State<LoginUsuario> {
   }
 
 //TODO==>Futuramente implementar um forma para ficar dinamico esse login
-  Future loginBD(UsuarioModel model) async {
+//TODO==>Implementar para ver quando nao tiver internet ou nao conseguir conexão
+//TODO==>Colocar um CircularProgressIndicator para mostrar que esta aguardando
+
+  Future<Map> loginBD() async {
     var url = "https://amigoazul.000webhostapp.com/usuarios/login_usuario.php";
     var resposta = await http.post(url, body: {
       "email": emailController.text,
       "senha": senhaController.text,
     });
     var dados = json.decode(resposta.body);
-
     if (dados["resultado"] == "USUARIO NAO ENCONTRADO!") {
-      Fluttertoast.showToast(
-          msg: "Dados não localizados",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 2,
-          backgroundColor: Colors.red,
-          textColor: Colors.white);
+      return null;
     } else {
-      Fluttertoast.showToast(
-          msg: "Login com Sucesso",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 2,
-          backgroundColor: Colors.green,
-          textColor: Colors.black);
-
-      var email = dados["resultado"][0]["email"];
-      var nome = dados["resultado"][0]["nome"];
-      var idade = dados["resultado"][0]["idade"];
-      var senha = dados["resultado"][0]["senha"];
-      var foto = dados["resultado"][0]["foto"];
-      var grauTea = dados["resultado"][0]["nivel_tea"];
-
-      usuarioAtual = Usuario(email, senha, nome, foto,idade, grauTea);
-      model.login(usuarioAtual);
-
-      Future.delayed(Duration(seconds: 2),
-              () => Navigator.pushNamed(context, '/splash_screen'));
-
+      return dados;
     }
-
   }
 
+  CarregandoOK(AsyncSnapshot dados, UsuarioModel model) {
+    var email = dados.data["resultado"][0]["email"];
+    var nome = dados.data["resultado"][0]["nome"];
+    var idade = dados.data["resultado"][0]["idade"];
+    var senha = dados.data["resultado"][0]["senha"];
+    var foto = dados.data["resultado"][0]["foto"];
+    var grauTea = dados.data["resultado"][0]["nivel_tea"];
+
+    usuarioAtual =  Usuario(email, senha, nome, foto, idade, grauTea);
+    model.login(usuarioAtual);
+
+    Navigator.pushNamed(context, '/splash_screen');
+  }
+
+  CarregandoERRO() {
+    Fluttertoast.showToast(
+        msg: "Dados não localizados",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Colors.red,
+        textColor: Colors.white);
+  }
 }

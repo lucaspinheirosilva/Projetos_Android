@@ -1,0 +1,72 @@
+import 'dart:math';
+
+import 'package:quiz_vetor/models/question.dart';
+import 'package:quiz_vetor/services/quiz_api.dart';
+
+
+
+class QuizController {
+  List<Question> _questionBank;
+
+  Random _random = new Random();
+  int questionIndex = 0;
+  bool _shiftAnswer;
+  int hitNumber = 0;
+
+  int get questionsNumber => _questionBank?.length ?? 0;
+  Question get question => _questionBank[questionIndex];
+
+  Future<void> initialize() async {
+    questionIndex = 0;
+    hitNumber = 0;
+    _questionBank = await QuizApi.fetch();
+    print('Number of questions: ${_questionBank.length}');
+    _questionBank.shuffle();
+    _shiftAnswer = _random.nextBool();
+  }
+
+  void nextQuestion() {
+    questionIndex = ++questionIndex % _questionBank.length;
+    _shiftAnswer = _random.nextBool();
+  }
+
+  String getQuestion() {
+    return _questionBank[questionIndex].pergunta;
+  }
+
+  String getAnswer1() {
+    return _shiftAnswer
+        ? _questionBank[questionIndex].resposta1
+        : _questionBank[questionIndex].resposta2;
+  }
+
+  String getAnswer2() {
+    return _shiftAnswer
+        ? _questionBank[questionIndex].resposta2
+        : _questionBank[questionIndex].resposta1;
+  }
+  String getAnswer3() {
+    return _shiftAnswer
+        ? _questionBank[questionIndex].resposta3
+        : _questionBank[questionIndex].resposta4;
+  }
+  String getAnswer4() {
+    return _shiftAnswer
+        ? _questionBank[questionIndex].resposta4
+        : _questionBank[questionIndex].resposta3;
+  }
+  String getAnswer5() {
+    return  _questionBank[questionIndex].resposta5;
+
+  }
+
+
+  bool correctAnswer(String answer) {
+    var correct = _questionBank[questionIndex].resposta1 == answer;
+    hitNumber = hitNumber + (correct ? 1 : 0);
+    return correct;
+  }
+  String getFoto(){
+    return _questionBank[questionIndex].foto;
+  }
+}

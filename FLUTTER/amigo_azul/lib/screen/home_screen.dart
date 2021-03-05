@@ -1,4 +1,5 @@
 import 'package:amigo_azul/scoped_model/usuario_scoped_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -20,20 +21,21 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           Scaffold(
               appBar: AppBar(
-                title: Text(""),
-                backgroundColor: Colors.blue,
-                elevation: 0,
-                leading: Builder(
-                  builder: (BuildContext context){
-                    return GestureDetector(
-                      onTap: ()=>Scaffold.of(context).openDrawer(),
-                      child: Lottie.asset('assets/icon_drawer.json',
-                          repeat: true, animate: true, reverse: true),
-                    );
-                  } ,
-                )
+                  title: Text(""),
+                  backgroundColor: Colors.blue,
+                  elevation: 0,
+                  leading: Builder(
+                    builder: (BuildContext context) {
+                      return GestureDetector(
+                        onTap: () => Scaffold.of(context).openDrawer(),
+                        child: Lottie.asset('assets/icon_drawer.json',
+                            repeat: true, animate: true, reverse: true),
+                      );
+                    },
+                  )),
+              drawer: Drawer(
+                child: ListaDrawer(),
               ),
-              drawer: Drawer(child: ListaDrawer(),),
               body: SafeArea(
                 child: Container(
                   color: Colors.blue,
@@ -44,21 +46,35 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Widget ListaDrawer (){
-    return ScopedModelDescendant(builder: (BuildContext context, Widget child, UsuarioModel model){
+  //TODO==> ARRENDONDAR FOTO DE USUARIO, ESTÁ QUADRADO
+  ValidarFoto(UsuarioModel model) {
+    if (model.usuarioAtual.foto != "N/A") {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(15.0),
+        child: FadeInImage.assetNetwork(
+          image: model.usuarioAtual.foto,
+          placeholder: 'assets/loading.gif',
+        ),
+      );
+    } else {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child:FadeInImage.assetNetwork(
+            image: "https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png",
+            placeholder: 'assets/loading.gif'),) ;
+    }
+  }
+
+  //-------DRAWER
+  Widget ListaDrawer() {
+    return ScopedModelDescendant(
+        builder: (BuildContext context, Widget child, UsuarioModel model) {
       return ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text(model.usuarioAtual.nome),
-            accountEmail: Text(model.usuarioAtual.email),
-            currentAccountPicture: CircleAvatar(
-              radius: 30.0,
-              backgroundImage:
-              NetworkImage(
-                  model.usuarioAtual.foto),
-              backgroundColor: Colors.transparent,
-            ),
-          ),
+              accountName: Text(model.usuarioAtual.nome),
+              accountEmail: Text(model.usuarioAtual.email),
+              currentAccountPicture: ValidarFoto(model)),
           ListTile(
               leading: Icon(Icons.star),
               title: Text("Favoritos"),
@@ -78,7 +94,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       );
     });
-    }
-
   }
-
+}

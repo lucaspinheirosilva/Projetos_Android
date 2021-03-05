@@ -36,7 +36,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
 
   var usuarioAtual;
 
-  String linkUrl = "";
+  String linkUrlFoto="";
 
   TextEditingController nomeController = TextEditingController();
   TextEditingController idadeController = TextEditingController();
@@ -328,9 +328,9 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                                 senhaController.text.isNotEmpty &&
                                 idadeController.text.isNotEmpty &&
                                 nomeController.text.isNotEmpty) {
-                              if (foto == null) {
+                              if (linkUrlFoto == null) {
                                 //se o campo foto for em branco, sera enviado ao DB a sigla N/A
-                                foto = "N/A";
+                                linkUrlFoto = "N/A";
                               }
                               if (grauTea == null) {
                                 //se o campo grau tea for em branco, sera enviado ao DB a sigla N/A
@@ -341,7 +341,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                                   emailController.text,
                                   senhaController.text,
                                   nomeController.text,
-                                  linkUrl,
+                                  linkUrlFoto,
                                   grauTea,
                                   idadeController.text);
 
@@ -407,19 +407,26 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
 
   //envia a foto para o Firebase Storage  e recupera o Link de Download da imagem
   Future<String> downloadURL() async {
-    StorageReference reference = FirebaseStorage.instance
-        .ref()
-        .child('usuariosFotos')
-        .child(emailController.text)
-        .child(nomeController.text);
+   if(_selectedImage!=null){
+     StorageReference reference = FirebaseStorage.instance
+         .ref()
+         .child('usuariosFotos')
+         .child(emailController.text)
+         .child(nomeController.text);
 
-    var upload = reference.putFile(_selectedImage);
-    await upload.onComplete;
+     var upload = reference.putFile(_selectedImage);
+     await upload.onComplete;
 
-    var url = await reference.getDownloadURL();
-    print(url.toString());
-    linkUrl = url.toString();
-    return linkUrl;
+     var url = await reference.getDownloadURL();
+     print(url.toString());
+     linkUrlFoto = url.toString();
+     return linkUrlFoto;
+
+   }else{
+     return linkUrlFoto = "N/A";
+   }
+
+
   }
 
   //criar dinamicamente um TextBox

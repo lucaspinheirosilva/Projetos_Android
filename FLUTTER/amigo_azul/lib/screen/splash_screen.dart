@@ -17,7 +17,7 @@ class _SplashScreenState extends State<Splash_Screen> {
     return ScopedModelDescendant<UsuarioModel>(
         builder: (BuildContext context, Widget child, UsuarioModel model) {
       return SplashScreen(
-        seconds: 10,
+        seconds: 4,
         navigateAfterSeconds: new HomeScreen(),
         title: Text(
           //faz a primeira letra ficar MAIUSCULA
