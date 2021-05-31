@@ -203,15 +203,7 @@ class _LoginUsuarioState extends State<LoginUsuario> {
                               }
                               if (emailController.text.isNotEmpty &&
                                   senhaController.text.isNotEmpty) {
-                                FutureBuilder(
-                                    future: loginBD(),
-                                    builder: (context, snapshot) {
-                                      if (snapshot.hasData) {
-                                        return CarregandoOK(snapshot, model);
-                                      } else {
-                                        return CarregandoERRO();
-                                      }
-                                    });
+                                loginBD(model);
                               }
                             });
                           },
@@ -332,41 +324,32 @@ class _LoginUsuarioState extends State<LoginUsuario> {
 //TODO==>Implementar para ver quando nao tiver internet ou nao conseguir conexão
 //TODO==>Colocar um CircularProgressIndicator para mostrar que esta aguardando
 
-  Future<Map> loginBD() async {
-    var url = "https://amigoazul.000webhostapp.com/usuarios/login_usuario.php";
+  Future<Map> loginBD(UsuarioModel model) async {
+    var url = "https://amigoazul.000webhostapp.com/AMIGO%20AZUL/usuarios/login_usuario.php";
     var resposta = await http.post(url, body: {
       "email": emailController.text,
       "senha": senhaController.text,
     });
     var dados = json.decode(resposta.body);
     if (dados["resultado"] == "USUARIO NAO ENCONTRADO!") {
-      return null;
+      Fluttertoast.showToast(
+          msg: "Dados não localizados",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 2,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
     } else {
-      return dados;
+      var email = dados["resultado"][0]["email"];
+      var nome = dados["resultado"][0]["nome"];
+      var idade = dados["resultado"][0]["idade"];
+      var senha = dados["resultado"][0]["senha"];
+      var foto = dados["resultado"][0]["foto"];
+      var grauTea = dados["resultado"][0]["nivel_tea"];
+
+      usuarioAtual = Usuario(email, senha, nome, foto, idade, grauTea);
+      model.login(usuarioAtual);
+      Navigator.pushNamed(context, '/splash_screen');
     }
-  }
-
-  CarregandoOK(AsyncSnapshot dados, UsuarioModel model) {
-    var email = dados.data["resultado"][0]["email"];
-    var nome = dados.data["resultado"][0]["nome"];
-    var idade = dados.data["resultado"][0]["idade"];
-    var senha = dados.data["resultado"][0]["senha"];
-    var foto = dados.data["resultado"][0]["foto"];
-    var grauTea = dados.data["resultado"][0]["nivel_tea"];
-
-    usuarioAtual =  Usuario(email, senha, nome, foto, idade, grauTea);
-    model.login(usuarioAtual);
-
-    Navigator.pushNamed(context, '/splash_screen');
-  }
-
-  CarregandoERRO() {
-    Fluttertoast.showToast(
-        msg: "Dados não localizados",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 2,
-        backgroundColor: Colors.red,
-        textColor: Colors.white);
   }
 }

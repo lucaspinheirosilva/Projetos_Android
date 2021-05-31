@@ -466,7 +466,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
 
 //TODO==>Futuramente implementar um forma para ficar dinamico esse cadastro
   void cadastrar(Usuario usuario, UsuarioModel model) async {
-    var url = "https://amigoazul.000webhostapp.com/usuarios/gravarUsuario.php";
+    var url = "https://amigoazul.000webhostapp.com/AMIGO%20AZUL/usuarios/gravarUsuario.php";
     var resposta = await http.post(url, body: {
       "nome": usuario.nome,
       "email": usuario.email,

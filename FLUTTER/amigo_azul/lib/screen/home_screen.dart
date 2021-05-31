@@ -59,9 +59,11 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       return ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
-        child:FadeInImage.assetNetwork(
-            image: "https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png",
-            placeholder: 'assets/loading.gif'),) ;
+        child: FadeInImage.assetNetwork(
+            image:
+                "https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png",
+            placeholder: 'assets/loading.gif'),
+      );
     }
   }
 
@@ -72,17 +74,19 @@ class _HomeScreenState extends State<HomeScreen> {
       return ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-              accountName: Text(model.usuarioAtual.nome),
-              accountEmail: Text(model.usuarioAtual.email),
+              accountName: Text(
+                '${model.usuarioAtual.nome[0].toUpperCase()}${model.usuarioAtual.nome.substring(1)}',
+              ),
+              accountEmail: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Text('SAIR'),
+                  )
+                ],
+              ),
               currentAccountPicture: ValidarFoto(model)),
-          ListTile(
-              leading: Icon(Icons.star),
-              title: Text("Favoritos"),
-              subtitle: Text("meus favoritos..."),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                debugPrint('toquei no drawer');
-              }),
           ListTile(
               leading: Icon(Icons.account_circle),
               title: Text("Perfil"),
