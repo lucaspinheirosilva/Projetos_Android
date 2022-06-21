@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
+
 class ConversorController extends ChangeNotifier {
   ConversorController();
 
   TextEditingController tecReais = TextEditingController();
   TextEditingController tecDollar = TextEditingController();
   TextEditingController tecEuro = TextEditingController();
+
+  var formar = NumberFormat.decimalPattern("pt_BR");
 
   double dolar = 0;
   double euro = 0;
@@ -17,7 +21,7 @@ class ConversorController extends ChangeNotifier {
     tecEuro.text = "";
     tecDollar.text = "";
     tecReais.text = "";
-    notifyListeners();
+
   }
 
   Future<Map> getData() async {
@@ -32,8 +36,8 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double dolar = double.parse(text);
-    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2);
-    tecReais.text = (dolar * this.dolar).toStringAsPrecision(2);
+    tecEuro.text = formar.format(dolar * this.dolar / euro);
+    tecReais.text = formar.format(dolar * this.dolar);
   }
 
   void euroChanged(String text) {
@@ -42,8 +46,8 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double euro = double.parse(text);
-    tecReais.text = (euro * this.euro).toStringAsPrecision(2);
-    tecDollar.text = (euro * this.euro / dolar).toStringAsPrecision(2);
+    tecReais.text = formar.format(euro * this.euro);
+    tecDollar.text = formar.format(euro * this.euro / dolar);
   }
 
   void realChanged(String text) {
@@ -52,7 +56,7 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double real = double.parse(text);
-    tecDollar.text = (real / dolar).toStringAsPrecision(2);
-    tecEuro.text = (real / euro).toStringAsPrecision(2);
+    tecDollar.text = formar.format(real / dolar);
+    tecEuro.text = formar.format(real / euro);
   }
 }
