@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">DragAndDrop</string>
-    <string name="alinhamentoImages">center</string>
-    <dimen name="tamanhoFonte">25sp</dimen>
-    <dimen name="imagemWidth">80sp</dimen>
-    <dimen name="imagemHeigth">80sp</dimen>
-    <dimen name="paddingImages">5dp</dimen>
-
-</resources>
