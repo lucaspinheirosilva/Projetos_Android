@@ -13,7 +13,7 @@ class ConversorController extends ChangeNotifier {
   double euro = 0;
   double real = 0;
 
-   void resetCampo() {
+  void resetCampo() {
     tecEuro.text = "";
     tecDollar.text = "";
     tecReais.text = "";
@@ -32,8 +32,8 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double dolar = double.parse(text);
-    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2) ;
-    tecReais.text = (dolar * this.dolar) .toStringAsPrecision(2);
+    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2);
+    tecReais.text = (dolar * this.dolar).toStringAsPrecision(2);
   }
 
   void euroChanged(String text) {
@@ -52,7 +52,7 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double real = double.parse(text);
-    tecDollar.text = (real / dolar) .toStringAsPrecision(2);
+    tecDollar.text = (real / dolar).toStringAsPrecision(2);
     tecEuro.text = (real / euro).toStringAsPrecision(2);
   }
 }
