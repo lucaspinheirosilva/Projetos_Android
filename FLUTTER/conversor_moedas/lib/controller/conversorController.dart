@@ -32,8 +32,8 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double dolar = double.parse(text);
-    tecEuro.text = (dolar * this.dolar / euro).toString();
-    tecReais.text = (dolar * this.dolar) .toString();
+    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2);
+    tecReais.text = (dolar * this.dolar) .toStringAsPrecision(2);
   }
 
   void euroChanged(String text) {
@@ -42,8 +42,8 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double euro = double.parse(text);
-    tecReais.text = (euro * this.euro) .toString();
-    tecDollar.text = (euro * this.euro / dolar).toString();
+    tecReais.text = (euro * this.euro).toStringAsPrecision(2);
+    tecDollar.text = (euro * this.euro / dolar).toStringAsPrecision(2);
   }
 
   void realChanged(String text) {
@@ -52,7 +52,7 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double real = double.parse(text);
-    tecDollar.text = (real / dolar) .toString();
-    tecEuro.text = (real / euro).toString();
+    tecDollar.text = (real / dolar) .toStringAsPrecision(2);
+    tecEuro.text = (real / euro).toStringAsPrecision(2);
   }
 }
