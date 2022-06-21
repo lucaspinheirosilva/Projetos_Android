@@ -32,7 +32,7 @@ class ConversorController extends ChangeNotifier {
       return;
     }
     double dolar = double.parse(text);
-    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2);
+    tecEuro.text = (dolar * this.dolar / euro).toStringAsPrecision(2) ;
     tecReais.text = (dolar * this.dolar) .toStringAsPrecision(2);
   }
 
