@@ -11,7 +11,7 @@ class ConversorController extends ChangeNotifier {
   TextEditingController tecDollar = TextEditingController();
   TextEditingController tecEuro = TextEditingController();
 
-  var formar = NumberFormat.decimalPattern("pt_BR");
+  var formar = NumberFormat.compact(locale: "pt_BR");
 
   double dolar = 0;
   double euro = 0;
@@ -25,7 +25,7 @@ class ConversorController extends ChangeNotifier {
   }
 
   Future<Map> getData() async {
-    const requisicao = "https://api.hgbrasil.com/finance?key=47f95d24";
+  const requisicao = "https://api.hgbrasil.com/finance?key=47f95d24";
     http.Response response = await http.get(Uri.parse(requisicao));
     return json.decode(response.body);
   }

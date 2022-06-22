@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputTextPersonalizado extends StatelessWidget {
   TextEditingController tecTexto;
@@ -33,10 +34,12 @@ class InputTextPersonalizado extends StatelessWidget {
           onChanged: (tx) {
             funcao(tx);
           },
+          maxLength: 12,
           controller: tecTexto,
           style: const TextStyle(color: Colors.amber, fontSize: 20),
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
+            counter: const Offstage(),
               enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.amber)),
               focusedBorder: const OutlineInputBorder(
@@ -46,7 +49,7 @@ class InputTextPersonalizado extends StatelessWidget {
               label: Text(label,
                   style: const TextStyle(color: Colors.amber, fontSize: 25)),
               prefix: Padding(
-                padding: EdgeInsets.only(right: 10),
+                padding:const EdgeInsets.only(right: 10),
                 child: Text(prefix),
               ),
               prefixStyle: const TextStyle(

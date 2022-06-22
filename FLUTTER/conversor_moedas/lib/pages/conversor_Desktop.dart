@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:conversor_moedas/controller/conversorController.dart';
 import 'package:conversor_moedas/widgets/campoTexto.dart';
-import 'package:conversor_moedas/widgets/error.dard.dart';
+import 'package:conversor_moedas/widgets/error.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +42,7 @@ class _Conversor_DesktopState extends State<Conversor_Desktop> {
             } else {
               Map map = snapshot.data! as Map;
               if (map.containsKey("error")) {
-                return error(context, map["message"]);
+                return errorDesktop(context, map["message"]);
               } else {
                 controller.dolar = map["results"]["currencies"]["USD"]["sell"];
                 controller.euro = map["results"]["currencies"]["EUR"]["sell"];
@@ -89,9 +89,4 @@ class _Conversor_DesktopState extends State<Conversor_Desktop> {
     );
   }
 
-  void resetCampo() {
-    controller.tecEuro.text = "";
-    controller.tecDollar.text = "";
-    controller.tecReais.text = "";
-  }
 }
