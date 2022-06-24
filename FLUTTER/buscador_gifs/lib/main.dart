@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:buscador_gifs/pages/buscador_Desktop.dart';
+import 'package:buscador_gifs/pages/buscador_Mobile.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart' as window_size;
@@ -13,8 +15,10 @@ Future<void> main() async {
       double alturaTela = tamanhoTelaFullScren?.frame.height ?? 0;
       debugPrint("LARGURA ->$comprimentoTela ALTURA->$alturaTela");
 
-      window_size.setWindowMinSize(Size(comprimentoTela/1.7, alturaTela/1.7));
-      window_size.setWindowMaxSize(Size(comprimentoTela/1.7, alturaTela/1.7));
+      window_size
+          .setWindowMinSize(Size(comprimentoTela / 1.7, alturaTela / 1.7));
+      window_size
+          .setWindowMaxSize(Size(comprimentoTela / 1.7, alturaTela / 1.7));
     }
   }
   runApp(const MyApp());
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Buscador de Gifs',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: const MyHomePage(),
     );
@@ -46,6 +50,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    double larguraTela = MediaQuery.of(context).size.width;
+    double alturaTela = MediaQuery.of(context).size.height;
+    debugPrint("LARGURA $larguraTela ---------ALTURA $alturaTela");
+
+    return Scaffold(
+      body: larguraTela <= 500 ? BuscadorMobile() : BuscadorDesktop(),
+    );
   }
 }
