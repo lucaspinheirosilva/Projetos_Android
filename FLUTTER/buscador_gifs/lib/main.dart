@@ -29,12 +29,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Buscador de Gifs',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
+          primarySwatch: Colors.grey,
+          scrollbarTheme: ScrollbarThemeData(
+              thumbVisibility: MaterialStateProperty.all(true),
+              thickness: MaterialStateProperty.all(5),
+              thumbColor: MaterialStateProperty.all(Colors.orange),
+
+              minThumbLength: 100)),
       home: const MyHomePage(),
     );
   }
