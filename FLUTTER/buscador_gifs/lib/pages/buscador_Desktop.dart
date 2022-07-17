@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:buscador_gifs/widget/campoTexto.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class BuscadorDesktop extends StatefulWidget {
@@ -10,21 +11,19 @@ class BuscadorDesktop extends StatefulWidget {
   @override
   State<BuscadorDesktop> createState() => _BuscadorDesktopState();
 }
+
 int offset = 0;
+int limit = 24;
 String? search;
-
-
 
 Future<Map> getGif() async {
   String endPointSearch =
-      'https://api.giphy.com/v1/gifs/search?api_key=pu3hKksCJDGBuvS84f9JY2CrAHvRef0c&q=$search&limit=25&offset=$offset&rating=g&lang=pt';
+      'https://api.giphy.com/v1/gifs/search?api_key=pu3hKksCJDGBuvS84f9JY2CrAHvRef0c&q=$search&limit=$limit&offset=$offset&rating=g&lang=pt';
   String endPointTrending =
-      'https://api.giphy.com/v1/gifs/trending?api_key=pu3hKksCJDGBuvS84f9JY2CrAHvRef0c&limit=25&rating=g';
+      'https://api.giphy.com/v1/gifs/trending?api_key=pu3hKksCJDGBuvS84f9JY2CrAHvRef0c&limit=$limit&rating=g';
 
-  http.Response
-
-  response;
-  if (search == null || search=="") {
+  http.Response response;
+  if (search == null || search == "") {
     response = await http.get(Uri.parse(endPointTrending));
   } else {
     response = await http.get(Uri.parse(endPointSearch));
@@ -100,18 +99,66 @@ class _BuscadorDesktopState extends State<BuscadorDesktop> {
     }
   }
 
+  int getCountCard(List data) {
+    if (search == null || search == "") {
+      return data.length;
+    } else {
+      return data.length;
+    }
+  }
+
   Widget createGifCard(BuildContext context, AsyncSnapshot snapshop) {
-    return GridView.builder(
-         padding: const EdgeInsets.all(10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
-      itemCount: snapshop.data["data"].length,
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          child: Image.network(
-              snapshop.data["data"][index]["images"]["fixed_height"]["url"]),
-        );
-      },
-    );
+    List listGif = snapshop.data["data"] as List;
+    if (listGif.isNotEmpty) {
+      return GridView.builder(
+        padding: const EdgeInsets.all(10),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
+        itemCount: getCountCard(snapshop.data["data"]),
+        itemBuilder: (BuildContext context, int index) {
+
+          if (search == null || index < snapshop.data["data"].length-1) {
+            return GestureDetector(
+              child: Image.network(snapshop.data["data"][index]["images"]
+                  ["preview_webp"]["url"]),
+            );
+          } else {
+            return GestureDetector(
+              child: Column(mainAxisAlignment: MainAxisAlignment.center,children:  [
+                Container(
+                  width:100 ,
+                  height:100,
+                  child: Image.asset(
+                    "assets/49-plus-circle-outline.gif",
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Text("Carregar mais...",style: TextStyle(color: Colors.white,fontSize: 22),)
+              ]),
+            );
+          }
+        },
+      );
+    } else {
+      return Column(
+        children: [
+          SizedBox(
+            width: 200,
+            height: 200,
+            child: Image.asset(
+              "assets/alerta.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(
+            "Nenhum GIF encontrado para a pesquisa: \"$search\"",
+            style: GoogleFonts.cinzel(
+                color: Colors.limeAccent,
+                fontSize: 25,
+                fontWeight: FontWeight.w700),
+          )
+        ],
+      );
+    }
   }
 }
