@@ -1,0 +1,25 @@
+<h2>Interpolation</h2>
+<p> nome é {{nome}}</p>
+<hr>
+
+<h2>Property Binding</h2>
+<p>
+    <button [disabled]="desabilitarBotao">Valor</button>
+    Valor do campo => {{desabilitarBotao}}
+</p>
+<hr>
+
+<h2>Event Binding</h2>
+<p>
+    <button (click)="alertInfo('Voce clicou!')">Clique-me</button>
+</p>
+
+<hr>
+<h2>Two-Way Binding</h2>
+<p>
+    <input type="text" [(ngModel)]="nome">
+<br>Meu Nome é {{nome}}
+
+</p>
+
+<router-outlet></router-outlet>
