@@ -11,14 +11,15 @@
 
 <h2>Event Binding</h2>
 <p>
-    <button (click)="alertInfo('Voce clicou!')">Clique-me</button>
+    <button (click)="alertInfo('Voce clicou!')" mat-raised-button color="primary">Clique-me</button>
+
 </p>
 
 <hr>
 <h2>Two-Way Binding</h2>
 <p>
     <input type="text" [(ngModel)]="nome">
-<br>Meu Nome é {{nome}}
+    <br>Meu Nome é {{nome}}
 
 </p>
 
