@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:buscador_gifs/widget/campoTexto.dart';
@@ -15,6 +16,7 @@ class BuscadorDesktop extends StatefulWidget {
 int offset = 0;
 int limit = 24;
 String? search;
+int totalGifsEncontrados = 0;
 
 Future<Map> getGif() async {
   String endPointSearch =
@@ -29,6 +31,7 @@ Future<Map> getGif() async {
     response = await http.get(Uri.parse(endPointSearch));
   }
   Map m = json.decode(response.body);
+  //totalGifsEncontrados = m["pagination"]["count"];
   return m;
 }
 
@@ -55,13 +58,22 @@ class _BuscadorDesktopState extends State<BuscadorDesktop> {
             fit: BoxFit.fill,
           ),
           Container(
-            padding: const EdgeInsets.only(top: 15, bottom: 10),
+            padding: const EdgeInsets.only(top: 15, bottom: 5),
             width: larguraTela / 1.5,
             child: CampoTexto(functionSubmited: (text) {
               setState(() {
                 search = text;
               });
             }),
+          ),
+          Container(
+            width: larguraTela / 1.5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                paginacao(),
+              ],
+            ),
           ),
           Container(
             width: larguraTela / 1.5,
@@ -75,6 +87,21 @@ class _BuscadorDesktopState extends State<BuscadorDesktop> {
         ]),
       ]),
     );
+  }
+
+  Widget paginacao() {
+    if (search == null || search == "") {
+      //int totalTrending =   totalGifsEncontrados["pagination"]["count"];
+      return Text(
+        "Mostrando $totalGifsEncontrados dos Gifs Trending Top",
+        style: TextStyle(color: Colors.white),
+      );
+    } else {
+      return Text(
+        "Foram encontrados $totalGifsEncontrados Gifs para a sua pesquisa",
+        style: TextStyle(color: Colors.white),
+      );
+    }
   }
 
   Widget switchi(AsyncSnapshot snapshop) {
@@ -109,6 +136,8 @@ class _BuscadorDesktopState extends State<BuscadorDesktop> {
 
   Widget createGifCard(BuildContext context, AsyncSnapshot snapshop) {
     List listGif = snapshop.data["data"] as List;
+      totalGifsEncontrados = snapshop.data["pagination"]["total_count"];
+
     if (listGif.isNotEmpty) {
       return GridView.builder(
         padding: const EdgeInsets.all(10),
@@ -116,25 +145,35 @@ class _BuscadorDesktopState extends State<BuscadorDesktop> {
             crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
         itemCount: getCountCard(snapshop.data["data"]),
         itemBuilder: (BuildContext context, int index) {
-
-          if (search == null || index < snapshop.data["data"].length-1) {
+          if (search == null || index < snapshop.data["data"].length - 1) {
             return GestureDetector(
-              child: Image.network(snapshop.data["data"][index]["images"]
-                  ["preview_webp"]["url"]),
+              child: Image.network(
+                  snapshop.data["data"][index]["images"]["preview_webp"]["url"],
+                  fit: BoxFit.fill),
             );
           } else {
             return GestureDetector(
-              child: Column(mainAxisAlignment: MainAxisAlignment.center,children:  [
-                Container(
-                  width:100 ,
-                  height:100,
-                  child: Image.asset(
-                    "assets/49-plus-circle-outline.gif",
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                const Text("Carregar mais...",style: TextStyle(color: Colors.white,fontSize: 22),)
-              ]),
+              onTap: () {
+                setState(() {
+                  offset += 24;
+                });
+              },
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      child: Image.asset(
+                        "assets/49-plus-circle-outline.gif",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    const Text(
+                      "Carregar mais...",
+                      style: TextStyle(color: Colors.white, fontSize: 22),
+                    )
+                  ]),
             );
           }
         },
