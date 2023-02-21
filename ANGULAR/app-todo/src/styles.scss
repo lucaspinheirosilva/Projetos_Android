@@ -34,3 +34,9 @@ body {
 ul {
     list-style: none;
 }
+textarea:focus,input:focus,button{
+  outline:none;
+}
+button{
+  cursor: pointer;
+}

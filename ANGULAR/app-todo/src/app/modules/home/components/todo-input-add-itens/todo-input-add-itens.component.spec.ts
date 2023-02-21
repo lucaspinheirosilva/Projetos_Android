@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoImputAddItensComponent } from './todo-imput-add-itens.component';
+import { TodoInputAddItensComponent } from './todo-input-add-itens.component';
 
 describe('TodoImputAddItensComponent', () => {
-  let component: TodoImputAddItensComponent;
-  let fixture: ComponentFixture<TodoImputAddItensComponent>;
+  let component: TodoInputAddItensComponent;
+  let fixture: ComponentFixture<TodoInputAddItensComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoImputAddItensComponent ]
+      declarations: [ TodoInputAddItensComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TodoImputAddItensComponent);
+    fixture = TestBed.createComponent(TodoInputAddItensComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
