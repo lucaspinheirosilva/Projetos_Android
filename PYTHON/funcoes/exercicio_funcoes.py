@@ -1,25 +1,20 @@
+import sys
+sys.path.append('\classes\lacos_repeticao')
+
+import For
 
 
-def soma (*args):
-    import os
-    os.system('cls' if os.name == 'nt' else 'clear')
-    par = 0
-    impar = 0 
-
-    if len(args) >0:
-     for numero in args:
-       if (numero%2)==0:
-         par+=numero
-       else:
-         impar+=numero   
-     print(f"a soma de numeros Pares é:{par}")
-     print(f"a soma de numeros Impares é:{impar}")     
-    else:
-     print("Nenhum valor informado")        
-    
-             
+def  Menu():
+  print('---------------MENU-------------')
+  print('1 - Laços de Repetição')
+  print('2 - Estrutura Condicional')
+  escolha= (int(input('Escolha: ')))
+  MenuSelecionado(escolha)
 
 
-
-
-soma()
+def MenuSelecionado( opc:int):
+  match(opc):
+    case 1:
+      return For.print_100_Nunber()
+    case 2:
+      return None  
