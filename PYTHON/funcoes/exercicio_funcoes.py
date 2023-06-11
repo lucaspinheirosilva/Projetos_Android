@@ -1,8 +1,5 @@
 import sys
-sys.path.append('\classes\lacos_repeticao')
-
-import For
-
+from classes.lacos_repeticoes.For import print_100_Nunber 
 
 def  Menu():
   print('---------------MENU-------------')
@@ -15,6 +12,8 @@ def  Menu():
 def MenuSelecionado( opc:int):
   match(opc):
     case 1:
-      return For.print_100_Nunber()
+      return print_100_Nunber()
     case 2:
-      return None  
+      return None 
+
+Menu()       
