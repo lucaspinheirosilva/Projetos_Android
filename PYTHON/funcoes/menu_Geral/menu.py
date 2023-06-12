@@ -1,8 +1,6 @@
-import menu_repeticao
-import menu_condicional
+import menu_Geral.menu_repeticao as menu_repeticao
+import menu_Geral.menu_condicional as menu_condicional
 import os
-
-import menu_Geral
 
 def  MenuPrincipal():
   os.system('cls' if os.name == 'nt' else 'clear')
@@ -16,12 +14,17 @@ def  MenuPrincipal():
     print('CARACTER INVÁLIDO.')
     MenuPrincipal()
 
+def limparConsole():
+  os.system('cls' if os.name == 'nt' else 'clear')
+
 def MenuPrincipalSelecionado( opc:int):
   match(opc):
     case 1:
+      limparConsole()
       return menu_repeticao.MenuLacosRepeticao()
     case 2:
-      return menu_condicional.MenuLacosCondicionais
+      limparConsole()
+      return menu_condicional.MenuLacosCondicionais()
     case default:
      print('OPÇÃO INVÁLIDA.')
      return MenuPrincipal()     

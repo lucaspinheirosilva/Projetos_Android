@@ -1,4 +1,5 @@
-import menu_Geral as principal
+import menu_Geral.menu as principal
+
 
 def  MenuLacosCondicionais(): 
   print('---------------LAÇOS CONDICIONAIS -------------')
