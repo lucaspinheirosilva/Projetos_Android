@@ -9,5 +9,4 @@ def print_100_Nunber():
     print("Escrevendo de 0 até 100")
     for i in range(101):
         print(i)
-    menu.MenuPrincipal()
        

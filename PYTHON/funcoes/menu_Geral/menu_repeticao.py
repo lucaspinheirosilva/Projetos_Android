@@ -1,4 +1,5 @@
 import menu_Geral.menu as principal
+import menu_Geral.pkg_menu_repeticao.menu_for as menu_for
 import os
 
 def  MenuLacosRepeticao():
@@ -22,7 +23,7 @@ def MenuRepeticaoSelecionado( opc:int):
   match(opc):
     case 1:
       limparConsole()
-      return print('aqui vai chamar o menu for com os exercicios')
+      return menu_for.MenuExerciciosRepeticao()
     case 2:
       limparConsole()
       return print('aqui vai chamar o menu forEach com os exercicios')
