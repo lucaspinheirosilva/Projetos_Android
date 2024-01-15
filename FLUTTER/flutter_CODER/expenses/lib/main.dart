@@ -1,9 +1,10 @@
 import 'dart:math';
 
+import 'package:expenses/components/chart.dart';
 import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/models/Transaction.dart';
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import 'components/transaction_list.dart';
 
 main() => runApp(ExpensesApp());
@@ -27,11 +28,12 @@ class ExpensesApp extends StatelessWidget {
           )
           .copyWith(
               textTheme: ThemeData().textTheme.copyWith(
-                      titleSmall:const TextStyle(
+                      titleSmall: const TextStyle(
                     fontFamily: 'Josefin',
                     fontWeight: FontWeight.bold,
                   ))),
-      debugShowCheckedModeBanner: false, // Remove the debug banner
+      debugShowCheckedModeBanner: false,      // Remove the debug banner
+
       home: MyHomePage(),
     );
   }
@@ -44,14 +46,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transaction = [
-    // Transaction(
-    //     id: 't1',
-    //     title: 'Tênis de corrida',
-    //     value: 199.90,
-    //     date: DateTime.now()),
-    // Transaction(
-    //     id: 't2', title: 'Conta de Luz', value: 235.85, date: DateTime.now()),
+    Transaction(
+        id: 't1',
+        title: 'Tênis de corrida',
+        value: 199.90,
+        date: DateTime.now().subtract(const Duration(days: 3))),
+    Transaction(
+        id: 't2',
+        title: 'Conta de Luz',
+        value: 235.85,
+        date: DateTime.now().subtract(const Duration(days: 4))),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _transaction.where((element) {
+      return element.date
+          .isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    }).toList();
+  }
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
@@ -103,9 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             //GRAFICO
-            Container(
-              child: Card(child: Text('Gráfico')),
-            ),
+            Chart(_recentTransactions),
             //LISTA DE DESPESAS
             TransactionList(_transaction),
           ],
