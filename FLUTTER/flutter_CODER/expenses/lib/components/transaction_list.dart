@@ -5,19 +5,20 @@ import 'package:intl/intl.dart';
 class TransactionList extends StatelessWidget {
   final List<Transaction> transaction;
   final ScrollController _scrollController = ScrollController();
+  final void Function(String) onRemove;
 
-  TransactionList(this.transaction, {super.key});
+  TransactionList(this.transaction, this.onRemove, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 690,
       child: transaction.isEmpty
           ? Column(
               children: [
-               const Padding(
-                  padding: EdgeInsets.only(bottom: 20,top: 20),
-                  child: Text(
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 20, top: 20),
+                  Rchild: Text(
                     "Nenhuma Transação Cadastrada!",
                     style: TextStyle(
                         fontSize: 25,
@@ -27,7 +28,6 @@ class TransactionList extends StatelessWidget {
                         color: Colors.black54),
                   ),
                 ),
-
                 Container(
                   height: 200,
                   child: Image.asset(
@@ -49,53 +49,50 @@ class TransactionList extends StatelessWidget {
                   itemBuilder: (ctx, index) {
                     final tr = transaction[index];
                     return Card(
-                      child: Row(
-                        children: [
-                          //PREÇO
-                          Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 15),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                              width: 2,
-                              color: Theme.of(context).colorScheme.primary,
-                            )),
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              'R\$${tr.value.toStringAsFixed(2)}',
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.purple,
-                                  fontSize: 16,
-                                  fontFamily: 'Noto'),
-                            ),
-                          ),
-                          //TITULO
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                tr.title,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(color: Colors.black)
-                                    .copyWith(fontSize: 20),
-                              ),
-                              //DATA
-                              Text(
-                                DateFormat('dd/MM/yyyy HH:mm:ss')
-                                    .format(tr.date),
+                      elevation: 5,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 5),
+                      child: ListTile(
+                        trailing: IconButton(
+                          onPressed: () => onRemove(tr.id),
+                          icon: const Icon(Icons.delete_forever_outlined,
+                              color: Colors.red),
+                        ),
+                        leading: CircleAvatar(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          radius: 30,
+                          child: Padding(
+                            padding: const EdgeInsets.all(6),
+                            child: FittedBox(
+                              child: Text(
+                                'R\$${tr.value.toStringAsFixed(2)}',
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'Noto',
-                                    color: Colors.black38,
-                                    fontSize: 12,
-                                    letterSpacing: 1),
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: 'Noto'),
                               ),
-                            ],
-                          )
-                        ],
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          tr.title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(color: Colors.black)
+                              .copyWith(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          DateFormat('dd/MM/yyyy HH:mm:ss').format(tr.date),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Noto',
+                              color: Colors.black38,
+                              fontSize: 12,
+                              letterSpacing: 1),
+                        ),
                       ),
                     );
                   }),

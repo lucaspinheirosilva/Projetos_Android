@@ -4,10 +4,14 @@ import 'package:expenses/components/chart.dart';
 import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/models/Transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'components/transaction_list.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-main() => runApp(ExpensesApp());
+main() {
+  initializeDateFormatting('pr_BR', null);
+  return runApp(ExpensesApp());
+}
 
 class ExpensesApp extends StatelessWidget {
   @override
@@ -32,8 +36,14 @@ class ExpensesApp extends StatelessWidget {
                     fontFamily: 'Josefin',
                     fontWeight: FontWeight.bold,
                   ))),
-      debugShowCheckedModeBanner: false,      // Remove the debug banner
-
+      debugShowCheckedModeBanner: false,
+      // Remove the debug banner
+      supportedLocales: const [Locale('pt')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       home: MyHomePage(),
     );
   }
@@ -45,18 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _transaction = [
-    Transaction(
-        id: 't1',
-        title: 'Tênis de corrida',
-        value: 199.90,
-        date: DateTime.now().subtract(const Duration(days: 3))),
-    Transaction(
-        id: 't2',
-        title: 'Conta de Luz',
-        value: 235.85,
-        date: DateTime.now().subtract(const Duration(days: 4))),
-  ];
+  final List<Transaction> _transaction = [];
 
   List<Transaction> get _recentTransactions {
     return _transaction.where((element) {
@@ -73,18 +72,24 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  _addTransaction(String titulo, double valor) {
+  _addTransaction(String titulo, double valor, DateTime date) {
     final newTransaction = Transaction(
         id: Random().nextDouble().toString(),
         title: titulo,
         value: valor,
-        date: DateTime.now());
+        date: date);
 
     setState(() {
       _transaction.add(newTransaction);
     });
 
     Navigator.of(context).pop();
+  }
+
+  _removeTransacao(String id) {
+    setState(() {
+      _transaction.removeWhere((element) => element.id == id);
+    });
   }
 
   @override
@@ -117,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //GRAFICO
             Chart(_recentTransactions),
             //LISTA DE DESPESAS
-            TransactionList(_transaction),
+            TransactionList(_transaction,_removeTransacao),
           ],
         ),
       ),
