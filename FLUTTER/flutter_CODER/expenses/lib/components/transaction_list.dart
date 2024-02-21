@@ -18,7 +18,7 @@ class TransactionList extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(bottom: 20, top: 20),
-                  Rchild: Text(
+                   child: Text(
                     "Nenhuma Transação Cadastrada!",
                     style: TextStyle(
                         fontSize: 25,

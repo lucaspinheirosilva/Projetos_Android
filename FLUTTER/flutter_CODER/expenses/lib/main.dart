@@ -94,35 +94,46 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        actions: [
-          IconButton.outlined(
-              onPressed: () => _openTransactionFormModal(context),
-              color: Theme.of(context).colorScheme.tertiary,
-              icon: const Icon(Icons.add)),
-        ],
-        elevation: 2,
-        shadowColor: Colors.black,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.elliptical(0, 0),
-            bottomLeft: Radius.elliptical(80, 70),
-          ),
+    final appBar = AppBar(
+      centerTitle: true,
+      actions: [
+        IconButton.outlined(
+            onPressed: () => _openTransactionFormModal(context),
+            color: Theme.of(context).colorScheme.tertiary,
+            icon: const Icon(Icons.add)),
+      ],
+      elevation: 2,
+      shadowColor: Colors.black,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.elliptical(0, 0),
+          bottomLeft: Radius.elliptical(80, 70),
         ),
-        title: Text('Despesas Pessoais',
-            style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
-        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      title: Text('Despesas Pessoais',
+          style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
+      backgroundColor: Theme.of(context).colorScheme.primary,
+    );
+
+    final alturaDisponivel = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+        MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             //GRAFICO
-            Chart(_recentTransactions),
+            Container(
+                height: alturaDisponivel * 0.2,
+                child: Chart(_recentTransactions)),
             //LISTA DE DESPESAS
-            TransactionList(_transaction,_removeTransacao),
+            Container(
+                height: alturaDisponivel * 0.8,
+                child: TransactionList(_transaction, _removeTransacao)),
           ],
         ),
       ),
