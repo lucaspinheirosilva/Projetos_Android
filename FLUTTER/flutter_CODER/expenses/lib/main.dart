@@ -57,6 +57,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transaction = [];
 
+  bool _showChart = false;
+
   List<Transaction> get _recentTransactions {
     return _transaction.where((element) {
       return element.date
@@ -94,13 +96,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    bool _isLandscape =
+        mediaQuery.orientation == Orientation.landscape;
+
     final appBar = AppBar(
       centerTitle: true,
       actions: [
+        if (_isLandscape)
+          IconButton.outlined(
+            tooltip: _showChart ? "Exibir Lista" : "Exibir Gráfico",
+            onPressed: () => {
+              setState(() {
+                _showChart = !_showChart;
+              })
+            },
+            color: Theme.of(context).colorScheme.tertiary,
+            icon: _showChart
+                ? const Icon(Icons.list)
+                : const Icon(Icons.bar_chart),
+          ),
         IconButton.outlined(
             onPressed: () => _openTransactionFormModal(context),
             color: Theme.of(context).colorScheme.tertiary,
-            icon: const Icon(Icons.add)),
+            icon: const Icon(Icons.add))
       ],
       elevation: 2,
       shadowColor: Colors.black,
@@ -115,10 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Theme.of(context).colorScheme.primary,
     );
 
-    final alturaDisponivel = MediaQuery.of(context).size.height -
+    final alturaDisponivel = mediaQuery.size.height -
         appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
-        MediaQuery.of(context).padding.top;
+        mediaQuery.padding.top;
+    mediaQuery.padding.top;
 
     return Scaffold(
       appBar: appBar,
@@ -127,13 +146,15 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             //GRAFICO
-            Container(
-                height: alturaDisponivel * 0.2,
-                child: Chart(_recentTransactions)),
+            if (_showChart || !_isLandscape)
+              SizedBox(
+                  height: alturaDisponivel * (_isLandscape ? 0.8 : 0.2),
+                  child: Chart(_recentTransactions)),
             //LISTA DE DESPESAS
-            Container(
-                height: alturaDisponivel * 0.8,
-                child: TransactionList(_transaction, _removeTransacao)),
+            if (!_showChart || !_isLandscape)
+              SizedBox(
+                  height: alturaDisponivel * (_isLandscape ? 0.95 : 0.75),
+                  child: TransactionList(_transaction, _removeTransacao)),
           ],
         ),
       ),
